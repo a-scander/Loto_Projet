@@ -1,0 +1,36 @@
+/* Style de base pour le logo dans la navbar */
+.navbar-brand img {
+    transition: transform 0.3s ease, filter 0.3s ease; /* Ajoute une transition fluide pour les effets de survol */
+  }
+  
+  /* Effet hover sur le logo */
+  .navbar-brand img:hover {
+    transform: scale(1.1); /* Agrandit légèrement le logo au survol */
+    filter: drop-shadow(0 0 10px var(--couleurPrincipale)); /* Ajoute une ombre colorée autour du logo */
+  }
+  
+  /* Style pour les icônes dans les liens de navigation */
+  .nav-icon {
+    width: 24px; /* Définit la largeur de l'icône à 24px */
+    height: 24px; /* Définit la hauteur de l'icône à 24px */
+    margin-right: 8px; /* Ajoute un espace de 8px entre l'icône et le texte */
+    vertical-align: middle; /* Aligne l'icône verticalement au centre par rapport au texte */
+  }
+  
+  /* Liens de navigation */
+  .nav-link {
+    color: var(--couleurPrincipale); /* Applique la couleur principale au texte du lien */
+    display: flex; /* Utilise Flexbox pour aligner l'icône et le texte horizontalement */
+    align-items: center; /* Aligne l'icône et le texte verticalement au centre */
+  }
+  
+  .nav-link:hover {
+    color: var(--couleurSecondaire); /* Change la couleur du lien en couleur secondaire au survol */
+  }
+  .navbar {
+    background-color: var(--couleurSecondaire) !important; /* Utilisation de !important pour forcer le style */
+  }
+
+  .nav-link {
+    color: var(--couleurPrincipale);
+  }  
