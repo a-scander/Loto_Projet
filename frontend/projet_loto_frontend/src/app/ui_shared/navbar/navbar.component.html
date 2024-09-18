@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <!-- Logo principal de la navbar -->
+    <a class="navbar-brand" routerLink="/accueil">
+      <img src="assets/logo.png" alt="Logo" width="50" height="50">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Accueil -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/accueil" routerLinkActive="active">
+            <img src="assets/icons/accueil.png" alt="Accueil" class="nav-icon">
+            Accueil
+          </a>
+        </li>
+
+        <!-- Simulation -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/simulation" routerLinkActive="active">
+            <img src="assets/icons/simulation.png" alt="Simulation" class="nav-icon">
+            Simulation
+          </a>
+        </li>
+
+        <!-- Historique -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/historique" routerLinkActive="active">
+            <img src="assets/icons/historique.png" alt="Historique" class="nav-icon">
+            Historique
+          </a>
+        </li>
+
+        <!-- Qui sommes-nous -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/quisommesnous" routerLinkActive="active">
+            <img src="assets/icons/quisommesnous.png" alt="Qui sommes-nous ?" class="nav-icon">
+            Qui sommes-nous ?
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
