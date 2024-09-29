@@ -1,36 +1,53 @@
-/* Style de base pour le logo dans la navbar */
-.navbar-brand img {
-    transition: transform 0.3s ease, filter 0.3s ease; /* Ajoute une transition fluide pour les effets de survol */
-  }
-  
-  /* Effet hover sur le logo */
-  .navbar-brand img:hover {
-    transform: scale(1.1); /* Agrandit légèrement le logo au survol */
-    filter: drop-shadow(0 0 10px var(--couleurPrincipale)); /* Ajoute une ombre colorée autour du logo */
-  }
-  
-  /* Style pour les icônes dans les liens de navigation */
-  .nav-icon {
-    width: 24px; /* Définit la largeur de l'icône à 24px */
-    height: 24px; /* Définit la hauteur de l'icône à 24px */
-    margin-right: 8px; /* Ajoute un espace de 8px entre l'icône et le texte */
-    vertical-align: middle; /* Aligne l'icône verticalement au centre par rapport au texte */
-  }
-  
-  /* Liens de navigation */
-  .nav-link {
-    color: var(--couleurPrincipale); /* Applique la couleur principale au texte du lien */
-    display: flex; /* Utilise Flexbox pour aligner l'icône et le texte horizontalement */
-    align-items: center; /* Aligne l'icône et le texte verticalement au centre */
-  }
-  
-  .nav-link:hover {
-    color: var(--couleurSecondaire); /* Change la couleur du lien en couleur secondaire au survol */
-  }
-  .navbar {
-    background-color: var(--couleurSecondaire) !important; /* Utilisation de !important pour forcer le style */
-  }
+/* Style de la navbar transparente */
+.navbar {
+  transition: var(--transition-speed); /* Transition fluide */
+  background-color: var(--secondary-color) !important; /* Couleur initialement */
+  box-shadow: none; /* Pas d'ombre */
+  width: 100%;
+  position: fixed; /* Navbar fixée en haut */
+  z-index: 1000; /* Au-dessus du contenu */
+}
 
+/* Navbar avec fond après défilement */
+.navbar-scrolled {
+  background-color: var(--primary-color) !important; /* Couleur  après défilement */
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Style de base pour les icônes dans la navbar */
+.nav-icon {
+  width: 20px; /* Largeur de l'icône */
+  height: 20px; /* Hauteur de l'icône */
+  
+}
+
+/* Liens de navigation */
+.nav-link {
+  color: var(--tertiary-color); /* Couleur  des liens */
+ 
+}
+
+/* Classe pour les liens actifs */
+.nav-link.active {
+  font-weight: 900; /* Texte en gras pour le lien actif */
+  border-bottom: 2px solid var(--tertiary-color); /* Soulignement */
+}
+
+/* Classe pour les liens actifs après défilement */
+.navbar-scrolled .nav-link.active {
+  border-bottom: 2px solid var(--secondary-color); /* Soulignement après défilement*/
+}
+
+/* Effet de grossissement sur les liens de navigation au survol */
+.nav-link:hover {
+  transform: var(--zoom-scale); /* Grossissement  */
+  transition: var(--transition-speed) /* Transition fluide */
+}
+
+/* Réduire la taille des liens de navigation en mode mobile */
+@media (max-width: 992px) { /* Écrans inférieurs à 992px (Bootstrap 'lg') */
   .nav-link {
-    color: var(--couleurPrincipale);
-  }  
+    padding-left: 80px; /* Ajouter du padding à gauche */
+  }
+}
+

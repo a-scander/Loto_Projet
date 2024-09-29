@@ -1,0 +1,6 @@
+/* Style de base pour le titre, peut être personnalisé */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+  }
+  

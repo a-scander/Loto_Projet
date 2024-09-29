@@ -1,0 +1,21 @@
+/* Fichier : button.component.css */
+.default-button {
+    background-color: var(--secondary-color); /* Couleur de fond par défaut (bleu) */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    font-size: 16px; /* Taille de la police */
+    transition: background-color 0.3s ease; /* Transition fluide pour le survol */
+  }
+  
+  .default-button:disabled {
+    background-color: #d3d3d3; /* Couleur de fond lorsque le bouton est désactivé */
+    cursor: not-allowed; /* Curseur en forme d'interdiction */
+  }
+  
+  .default-button:hover:not(:disabled) {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  
