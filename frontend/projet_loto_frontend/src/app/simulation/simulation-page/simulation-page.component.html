@@ -1,1 +1,20 @@
-<p>kdsjdksjkd</p>  
+<div class="container mt-5">
+  <!-- Formulaire de simulation -->
+  <div class="row justify-content-center mt-5"*ngIf="!formSubmitted">
+    <div class="col-md-6">
+      <app-simulation-formulaire (formSubmitted)="onFormSubmit($event)"></app-simulation-formulaire>
+    </div>
+  </div>
+
+  <div *ngIf="formSubmitted">
+    <app-grille 
+    [totalParticipants]="totalParticipants" 
+    [numberOfDraws]="numberOfDraws" 
+    (tiragesByUser)="onTirage($event)">
+  </app-grille>
+  </div>
+
+<div *ngIf="tiragesCompleted">
+  <app-recap-tableau [tirages]="tirages"></app-recap-tableau>
+  </div>
+  

@@ -1,0 +1,61 @@
+<!-- Number grid -->
+<app-title [level]="1" [text]="titleIndexText"></app-title>
+<app-title [level]="4" [text]="titleNumeroText"></app-title>
+<table class="table-numeros">
+  <tr *ngFor="let row of getRows(numeros, 10)">
+    <td 
+      *ngFor="let numero of row" 
+      class="table-cell" 
+      (click)="toggleNumeroSelection(numero)" 
+      [class.selected]="isNumeroSelected(numero)">
+      {{ numero }}
+    </td>
+  </tr>
+</table>
+
+<div class="selection mt-3">
+  <p>Numéros sélectionnés : {{ selectedNumeros.join(', ') || 'Aucun' }}</p>
+</div>
+
+<!-- Star grid -->
+<app-title [level]="4" [text]="titleEtoileText"></app-title>
+<table class="table-etoiles">
+  <tr *ngFor="let row of getRows(etoiles, 9)">
+    <td 
+      *ngFor="let etoile of row" 
+      class="table-cell" 
+      (click)="toggleEtoileSelection(etoile)" 
+      [class.selected]="isEtoileSelected(etoile)">
+      {{ etoile }}
+    </td>
+  </tr>
+</table>
+
+<div class="selection mt-3">
+  <p>Étoiles sélectionnées : {{ selectedEtoiles.join(', ') || 'Aucune' }}</p>
+</div>
+
+<!-- Navigation buttons -->
+<div class="btn-group mt-3">
+  <!-- Bouton Précédent -->
+  <app-button 
+    label="Précédent" 
+    [disabled]="isFirstDraw" 
+    (clicked)="previousDraw()">
+  </app-button>
+
+  <!-- Bouton Suivant -->
+  <app-button 
+    label="Suivant" 
+    [disabled]="!isSelectionValid || isLastDraw" 
+    (clicked)="nextDraw()">
+  </app-button>
+
+  <!-- Bouton Valider (uniquement visible lors du dernier tirage) -->
+  <app-button 
+    *ngIf="isLastDraw"
+    label="Valider" 
+    [disabled]="!isSelectionValid" 
+    (clicked)="validateSelection()">
+  </app-button>
+</div>

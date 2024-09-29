@@ -1,0 +1,27 @@
+/* Couleur de fond et texte du footer */
+.footer {
+  background-color: var(--secondary-color); 
+  color: var(--tertiary-color) !important; 
+}
+
+/* Style des liens */
+.footer-link {
+  text-decoration: none; /* Sans soulignement */
+  cursor: pointer; /* Curseur en main */
+  transition: var(--transition-speed); /* Transition fluide */
+}
+
+/* Grossissement des liens au survol */
+.footer-link:hover {
+  transform: var(--zoom-scale); /* Transition fluide */
+}
+
+/* Transition fluide des icônes */
+.footer-social img {
+  transition: var(--transition-speed); /* Transition fluide */
+}
+
+/* Grossissement des icônes au survol */
+.footer-social:hover img {
+  transform: var(--zoom-scale); /* Transition fluide */
+}
