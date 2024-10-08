@@ -8,9 +8,8 @@ describe('RecapTableauComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecapTableauComponent]
-    })
-    .compileComponents();
+      imports: [RecapTableauComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RecapTableauComponent);
     component = fixture.componentInstance;

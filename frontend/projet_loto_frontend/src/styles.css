@@ -1,14 +1,13 @@
 /* Déclaration des variables de couleurs globales pour toute l'application */
 :root {
-  --primary-color: #fdfdfd;          /* Couleur principale */
-  --secondary-color: #F4D03F;        /* Couleur secondaire */
-  --tertiary-color: black;           /* Couleur troisième */
-  --zoom-scale: scale(1.2);          /* Grossissement de 20% */
+  --primary-color: #fdfdfd; /* Couleur principale */
+  --secondary-color: #f4d03f; /* Couleur secondaire */
+  --tertiary-color: black; /* Couleur troisième */
+  --zoom-scale: scale(1.2); /* Grossissement de 20% */
   --transition-speed: transform 0.1s ease-in-out; /* Transition fluide de 0.1s */
-  
-  }
-  
-  body {
-    background-color: var(--couleurPrincipale); /* Fond de l'application */
-    font: Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--couleurPrincipale); /* Fond de l'application */
+  font: Verdana, sans-serif;
 }

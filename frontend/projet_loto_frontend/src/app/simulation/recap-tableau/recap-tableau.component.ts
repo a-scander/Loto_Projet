@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './recap-tableau.component.html',
-  styleUrl: './recap-tableau.component.css'
+  styleUrl: './recap-tableau.component.css',
 })
 export class RecapTableauComponent {
   @Input() tirages: Tirage[] = [];

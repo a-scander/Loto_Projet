@@ -1,7 +1,9 @@
 /* Style de la navbar transparente */
 .navbar {
   transition: var(--transition-speed); /* Transition fluide */
-  background-color: var(--secondary-color) !important; /* Couleur initialement */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Couleur initialement */
   box-shadow: none; /* Pas d'ombre */
   width: 100%;
   position: fixed; /* Navbar fixée en haut */
@@ -10,7 +12,9 @@
 
 /* Navbar avec fond après défilement */
 .navbar-scrolled {
-  background-color: var(--primary-color) !important; /* Couleur  après défilement */
+  background-color: var(
+    --primary-color
+  ) !important; /* Couleur  après défilement */
   box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
@@ -18,13 +22,11 @@
 .nav-icon {
   width: 20px; /* Largeur de l'icône */
   height: 20px; /* Hauteur de l'icône */
-  
 }
 
 /* Liens de navigation */
 .nav-link {
   color: var(--tertiary-color); /* Couleur  des liens */
- 
 }
 
 /* Classe pour les liens actifs */
@@ -41,13 +43,13 @@
 /* Effet de grossissement sur les liens de navigation au survol */
 .nav-link:hover {
   transform: var(--zoom-scale); /* Grossissement  */
-  transition: var(--transition-speed) /* Transition fluide */
+  transition: var(--transition-speed); /* Transition fluide */
 }
 
 /* Réduire la taille des liens de navigation en mode mobile */
-@media (max-width: 992px) { /* Écrans inférieurs à 992px (Bootstrap 'lg') */
+@media (max-width: 992px) {
+  /* Écrans inférieurs à 992px (Bootstrap 'lg') */
   .nav-link {
     padding-left: 80px; /* Ajouter du padding à gauche */
   }
 }
-

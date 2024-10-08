@@ -6,10 +6,9 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './title.component.html',
-  styleUrls: ['./title.component.css']
+  styleUrls: ['./title.component.css'],
 })
 export class TitleComponent {
   @Input() level: number = 1; // Niveau du titre (h1, h2, etc.)
   @Input() text: string = ''; // Texte du titre
 }
-

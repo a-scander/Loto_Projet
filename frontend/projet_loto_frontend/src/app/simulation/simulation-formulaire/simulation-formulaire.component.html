@@ -1,65 +1,73 @@
 <div class="container mt-5">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header text-center mt-5">
-            <h2>Simulation de Tirage</h2>
-          </div>
-          <div class="card-body">
-            <form [formGroup]="simulationForm" (ngSubmit)="onSubmit()">
-              <!-- Nombre total de participants -->
-              <div class="form-group mb-3">
-                <label for="totalParticipants">Nombre total de participants</label>
-                <input id="totalParticipants" 
-                       type="number" 
-                       class="form-control" 
-                       formControlName="totalParticipants" 
-                       placeholder="0 - 100"
-                       (keypress)="validateInput($event)">
-                <div *ngIf="simulationForm.get('totalParticipants')?.invalid && simulationForm.get('totalParticipants')?.touched" class="text-danger">
-                  Veuillez entrer un nombre de participants entre 1 et 100.
-                </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center mt-5">
+          <h2>Simulation de Tirage</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="simulationForm" (ngSubmit)="onSubmit()">
+            <!-- Nombre total de participants -->
+            <div class="form-group mb-3">
+              <label for="totalParticipants"
+                >Nombre total de participants</label
+              >
+              <input
+                id="totalParticipants"
+                type="number"
+                class="form-control"
+                formControlName="totalParticipants"
+                placeholder="0 - 100"
+                (keypress)="validateInput($event)"
+              />
+              <div
+                *ngIf="
+                  simulationForm.get('totalParticipants')?.invalid &&
+                  simulationForm.get('totalParticipants')?.touched
+                "
+                class="text-danger"
+              >
+                Veuillez entrer un nombre de participants entre 1 et 100.
               </div>
-  
-              <!-- Nombre de tirages à faire -->
-              <div class="form-group mb-3">
-                <label for="numberOfDraws">Nombre de tirages à faire</label>
-                <input id="numberOfDraws" 
-                       type="number" 
-                       class="form-control" 
-                       formControlName="numberOfDraws"
-                       (keypress)="validateInput($event)"
-                       [placeholder]="simulationForm.get('totalParticipants')?.valid 
-                       ? 'Veuillez insérer un nombre entre 1 et ' + simulationForm.get('totalParticipants')?.value 
-                       : 'Veuillez d\'abord entrer un nombre de participants valide'"
-                       >
-                <div *ngIf="simulationForm.get('numberOfDraws')?.invalid && simulationForm.get('numberOfDraws')?.touched" class="text-danger">
-                  Veuillez entrer un nombre entre 1 et {{ simulationForm.get('totalParticipants')?.value }} 
-                </div>
+            </div>
+
+            <!-- Nombre de tirages à faire -->
+            <div class="form-group mb-3">
+              <label for="numberOfDraws">Nombre de tirages à faire</label>
+              <input
+                id="numberOfDraws"
+                type="number"
+                class="form-control"
+                formControlName="numberOfDraws"
+                (keypress)="validateInput($event)"
+                [placeholder]="
+                  simulationForm.get('totalParticipants')?.valid
+                    ? 'Veuillez insérer un nombre entre 1 et ' +
+                      simulationForm.get('totalParticipants')?.value
+                    : 'Veuillez d\'abord entrer un nombre de participants valide'
+                "
+              />
+              <div
+                *ngIf="
+                  simulationForm.get('numberOfDraws')?.invalid &&
+                  simulationForm.get('numberOfDraws')?.touched
+                "
+                class="text-danger"
+              >
+                Veuillez entrer un nombre entre 1 et
+                {{ simulationForm.get("totalParticipants")?.value }}
               </div>
-  
-              <!-- Type de tirage -->
-              <div class="form-group mb-3">
-                <label for="drawType">Type de tirage</label>
-                <select id="drawType" 
-                        class="form-select" 
-                        formControlName="drawType">
-                  <option value="auto">Automatique</option>
-                  <option value="manual">Manuel</option>
-                </select>
-              </div>
-  
-              <!-- Bouton de soumission -->
-              <div class="d-grid">
-                <button type="submit" 
-                        [disabled]="simulationForm.invalid">
-                  Lancer la Simulation
-                </button>
-              </div>
-            </form>
-          </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <div class="d-grid">
+              <button type="submit" [disabled]="simulationForm.invalid">
+                Lancer la Simulation
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

@@ -1,10 +1,10 @@
 /* Conteneur principal du contenu */
 .container {
-    background-color: #D5D8DC; /* Gris argenté */
-    padding: 20px; /* Espace autour du contenu */
-    margin: 20px auto; /* Centrer le contenu avec un espacement autour */
-    border-radius: 10px; /* Bordures arrondies pour un effet moderne */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner de la profondeur */
-    max-width: 1200px; /* Largeur maximale du conteneur */
-    width: 90%; /* Ajuste la largeur par rapport à la taille de l'écran */
+  background-color: #d5d8dc; /* Gris argenté */
+  padding: 20px; /* Espace autour du contenu */
+  margin: 20px auto; /* Centrer le contenu avec un espacement autour */
+  border-radius: 10px; /* Bordures arrondies pour un effet moderne */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner de la profondeur */
+  max-width: 1200px; /* Largeur maximale du conteneur */
+  width: 90%; /* Ajuste la largeur par rapport à la taille de l'écran */
 }
