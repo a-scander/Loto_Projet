@@ -1,61 +1,106 @@
-<!-- Number grid -->
 <app-title [level]="1" [text]="titleIndexText"></app-title>
+
+<!-- Section pour entrer un pseudo avec un bouton pour le générer aléatoirement -->
+<div class="form-group d-flex align-items-center">
+  <label for="pseudo">Entrez votre pseudo :</label>
+  <input
+    type="text"
+    id="pseudo"
+    class="form-control ml-2"
+    [(ngModel)]="pseudo"
+    placeholder="Pseudo"
+    required
+  />
+
+  <!-- Utilisation du composant app-button pour générer un pseudo aléatoire -->
+  <app-button label="Générer Pseudo" class="ml-2" (clicked)="generatePseudo()">
+  </app-button>
+</div>
+
+<!-- Number grid avec un bouton pour générer les numéros aléatoires -->
 <app-title [level]="4" [text]="titleNumeroText"></app-title>
-<table class="table-numeros">
-  <tr *ngFor="let row of getRows(numeros, 10)">
-    <td 
-      *ngFor="let numero of row" 
-      class="table-cell" 
-      (click)="toggleNumeroSelection(numero)" 
-      [class.selected]="isNumeroSelected(numero)">
-      {{ numero }}
-    </td>
-  </tr>
-</table>
+<div class="d-flex align-items-center">
+  <table class="table-numeros">
+    <tr *ngFor="let row of getRows(numeros, 10)">
+      <td
+        *ngFor="let numero of row"
+        class="table-cell"
+        (click)="toggleNumeroSelection(numero)"
+        [class.selected]="isNumeroSelected(numero)"
+      >
+        {{ numero }}
+      </td>
+    </tr>
+  </table>
 
-<div class="selection mt-3">
-  <p>Numéros sélectionnés : {{ selectedNumeros.join(', ') || 'Aucun' }}</p>
+  <!-- Utilisation du composant app-button pour générer des numéros aléatoires -->
+  <app-button
+    label="Générer Numéros Aléatoires"
+    class="ml-2"
+    (clicked)="generateRandomNumbers()"
+  >
+  </app-button>
 </div>
 
-<!-- Star grid -->
+<div class="selection mt-3">
+  <p>Numéros sélectionnés : {{ selectedNumeros.join(", ") || "Aucun" }}</p>
+</div>
+
+<!-- Star grid avec un bouton pour générer les étoiles aléatoires -->
 <app-title [level]="4" [text]="titleEtoileText"></app-title>
-<table class="table-etoiles">
-  <tr *ngFor="let row of getRows(etoiles, 9)">
-    <td 
-      *ngFor="let etoile of row" 
-      class="table-cell" 
-      (click)="toggleEtoileSelection(etoile)" 
-      [class.selected]="isEtoileSelected(etoile)">
-      {{ etoile }}
-    </td>
-  </tr>
-</table>
+<div class="d-flex align-items-center">
+  <table class="table-etoiles">
+    <tr *ngFor="let row of getRows(etoiles, 9)">
+      <td
+        *ngFor="let etoile of row"
+        class="table-cell"
+        (click)="toggleEtoileSelection(etoile)"
+        [class.selected]="isEtoileSelected(etoile)"
+      >
+        {{ etoile }}
+      </td>
+    </tr>
+  </table>
 
-<div class="selection mt-3">
-  <p>Étoiles sélectionnées : {{ selectedEtoiles.join(', ') || 'Aucune' }}</p>
+  <!-- Utilisation du composant app-button pour générer des étoiles aléatoires -->
+  <app-button
+    label="Générer Étoiles Aléatoires"
+    class="ml-2"
+    (clicked)="generateRandomStars()"
+  >
+  </app-button>
 </div>
 
-<!-- Navigation buttons -->
+<div class="selection mt-3">
+  <p>Étoiles sélectionnées : {{ selectedEtoiles.join(", ") || "Aucune" }}</p>
+</div>
+
 <div class="btn-group mt-3">
+  <!-- Bouton pour générer tout -->
+  <app-button label="Générer Tout" (clicked)="generateAll()"> </app-button>
+
   <!-- Bouton Précédent -->
-  <app-button 
-    label="Précédent" 
-    [disabled]="isFirstDraw" 
-    (clicked)="previousDraw()">
+  <app-button
+    label="Précédent"
+    [disabled]="isFirstDraw"
+    (clicked)="previousDraw()"
+  >
   </app-button>
 
   <!-- Bouton Suivant -->
-  <app-button 
-    label="Suivant" 
-    [disabled]="!isSelectionValid || isLastDraw" 
-    (clicked)="nextDraw()">
+  <app-button
+    label="Suivant"
+    [disabled]="!isSelectionValid || isLastDraw"
+    (clicked)="nextDraw()"
+  >
   </app-button>
 
   <!-- Bouton Valider (uniquement visible lors du dernier tirage) -->
-  <app-button 
+  <app-button
     *ngIf="isLastDraw"
-    label="Valider" 
-    [disabled]="!isSelectionValid" 
-    (clicked)="validateSelection()">
+    label="Valider"
+    [disabled]="!isSelectionValid"
+    (clicked)="validateSelection()"
+  >
   </app-button>
 </div>

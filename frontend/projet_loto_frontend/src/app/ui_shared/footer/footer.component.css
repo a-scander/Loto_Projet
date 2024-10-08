@@ -1,7 +1,7 @@
 /* Couleur de fond et texte du footer */
 .footer {
-  background-color: var(--secondary-color); 
-  color: var(--tertiary-color) !important; 
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color) !important;
 }
 
 /* Style des liens */

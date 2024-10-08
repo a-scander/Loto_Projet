@@ -5,10 +5,9 @@ import { HistoriquePageComponent } from './historique/historique-page/historique
 import { QuisommesNousPageComponent } from './quisommesnous/quisommes-nous-page/quisommes-nous-page.component';
 
 export const routes: Routes = [
-    { path: 'simulation', component: SimulationPageComponent },
-    { path: 'accueil', component: AccueilPageComponent }, 
-    { path: 'historique', component: HistoriquePageComponent }, 
-    { path: 'quisommesnous', component: QuisommesNousPageComponent }, 
-    { path: '**', redirectTo: '/accueil', pathMatch: 'full' } 
-
+  { path: 'simulation', component: SimulationPageComponent },
+  { path: 'accueil', component: AccueilPageComponent },
+  { path: 'historique', component: HistoriquePageComponent },
+  { path: 'quisommesnous', component: QuisommesNousPageComponent },
+  { path: '**', redirectTo: '/accueil', pathMatch: 'full' },
 ];

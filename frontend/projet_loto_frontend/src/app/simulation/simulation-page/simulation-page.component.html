@@ -1,20 +1,43 @@
 <div class="container mt-5">
   <!-- Formulaire de simulation -->
-  <div class="row justify-content-center mt-5"*ngIf="!formSubmitted">
+  <div class="row justify-content-center mt-5" *ngIf="!formSubmitted">
     <div class="col-md-6">
-      <app-simulation-formulaire (formSubmitted)="onFormSubmit($event)"></app-simulation-formulaire>
+      <app-simulation-formulaire
+        (formSubmitted)="onFormSubmit($event)"
+      ></app-simulation-formulaire>
     </div>
   </div>
 
-  <div *ngIf="formSubmitted">
-    <app-grille 
-    [totalParticipants]="totalParticipants" 
-    [numberOfDraws]="numberOfDraws" 
-    (tiragesByUser)="onTirage($event)">
-  </app-grille>
+  <div *ngIf="formSubmitted && indexHide < numberOfDraws">
+    <app-grille
+      [totalParticipants]="totalParticipants"
+      [numberOfDraws]="numberOfDraws"
+      (tiragesByUser)="onTirage($event)"
+      (indexHideSend)="indexHideSend($event)"
+    >
+    </app-grille>
   </div>
 
-<div *ngIf="tiragesCompleted">
-  <app-recap-tableau [tirages]="tirages"></app-recap-tableau>
+  <div *ngIf="indexHide > 0 && indexHide < numberOfDraws">
+    <app-recap-tableau [tirages]="tirages"></app-recap-tableau>
   </div>
-  
+
+  <div *ngIf="indexHide == numberOfDraws && tirageWin == null">
+    <app-tirage-gagnant
+      (winningTirageSelected)="winningTirageSelected($event)"
+    ></app-tirage-gagnant>
+  </div>
+  <!-- 
+<div *ngIf="tirageWin">
+  <app-animation-loterie [winningTirage]="tirageWin"></app-animation-loterie>
+  </div> -->
+  `
+  <div *ngIf="classement">
+    <app-classement-tirage
+      [classement]="classement"
+      [tirageWin]="tirageWin"
+      [position]="position"
+      [gains]="gains"
+    ></app-classement-tirage>
+  </div>
+</div>
