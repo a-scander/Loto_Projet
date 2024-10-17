@@ -60,7 +60,9 @@ describe('QuickSimulationComponent', () => {
 
   it('devrait générer des numéros aléatoires', () => {
     component.generateRandomNumbers();
-    expect(component.selectedNumbers.length).toBe(mockVariableService.selectionMaxNumber); // Vérifie que 5 numéros sont générés
+    expect(component.selectedNumbers.length).toBe(
+      mockVariableService.selectionMaxNumber,
+    ); // Vérifie que 5 numéros sont générés
     component.selectedNumbers.forEach((num) => {
       expect(num).toBeGreaterThanOrEqual(1);
       expect(num).toBeLessThanOrEqual(mockVariableService.gridNumero); // Numéro entre 1 et 50
@@ -69,7 +71,9 @@ describe('QuickSimulationComponent', () => {
 
   it('devrait générer des étoiles aléatoires', () => {
     component.generateRandomStars();
-    expect(component.selectedStars.length).toBe(mockVariableService.selectionMaxStar); // Vérifie que 2 étoiles sont générées
+    expect(component.selectedStars.length).toBe(
+      mockVariableService.selectionMaxStar,
+    ); // Vérifie que 2 étoiles sont générées
     component.selectedStars.forEach((star) => {
       expect(star).toBeGreaterThanOrEqual(1);
       expect(star).toBeLessThanOrEqual(mockVariableService.gridEtoile); // Étoile entre 1 et 12
@@ -91,7 +95,9 @@ describe('QuickSimulationComponent', () => {
     await component.checkPseudo();
 
     expect(component.showPseudoError).toBe(true); // Le pseudo est déjà utilisé
-    expect(component.pseudoMessage).toBe('Ce pseudo est déjà pris dans la base de données.');
+    expect(component.pseudoMessage).toBe(
+      'Ce pseudo est déjà pris dans la base de données.',
+    );
   });
 
   it('devrait rediriger vers /resultat-simulation après validation', async () => {

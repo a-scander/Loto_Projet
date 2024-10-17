@@ -6,17 +6,23 @@ exports.sendContactMessage = async (req, res) => {
 
   // Validation des données
   if (!name || !email || !message) {
-    return res.status(400).json({ message: "Tous les champs sont obligatoires" });
+    return res
+      .status(400)
+      .json({ message: "Tous les champs sont obligatoires" });
   }
 
   try {
     // Appel du service pour envoyer l'e-mail
-    const emailResult = await contactService.sendEmailContact(name, email, message);
+    const emailResult = await contactService.sendEmailContact(
+      name,
+      email,
+      message,
+    );
 
     // Retourne une réponse au front-end
     res.status(200).json({
       message: "Message envoyé avec succès",
-      emailResult
+      emailResult,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

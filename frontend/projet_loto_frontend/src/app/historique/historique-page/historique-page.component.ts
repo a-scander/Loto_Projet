@@ -41,7 +41,7 @@ export class HistoriquePageComponent implements OnInit {
   // Données des tirages
   allTirages: any[] = []; // Stocker tous les tirages originaux
   filteredTirages: any[] = []; // Stocker les tirages filtrés
-  
+
   // Contrôles pour les filtres et modals
   showAdvancedFilter: boolean = false; // Contrôle pour afficher/cacher le formulaire de filtre avancé
   showNumberGrid: boolean = false; // Contrôle pour la grille des numéros
@@ -54,9 +54,9 @@ export class HistoriquePageComponent implements OnInit {
   selectionMaxNumber: number = this.service.selectionMaxNumber; // Max de numéros sélectionnables
 
   // Pour gérer les choix des grilles
-  choiceGridStar: 'etoileJoue' | 'etoileGagnant' = 'etoileJoue'; 
+  choiceGridStar: 'etoileJoue' | 'etoileGagnant' = 'etoileJoue';
   choiceGridNumber: 'numJoue' | 'numGagnant' = 'numJoue';
-  
+
   // Contrôle de la barre latérale
   isSidebarOpen = false;
 
@@ -89,7 +89,6 @@ export class HistoriquePageComponent implements OnInit {
       this.filteredTirages = [...tirages]; // Copier les données pour affichage
     });
   }
-
 
   // Ouvre la grille pour sélectionner les numéros
   openNumberGrid(field: 'numJoue' | 'numGagnant'): void {
@@ -174,14 +173,23 @@ export class HistoriquePageComponent implements OnInit {
         this.allTirages = filteredResults;
       },
       (error) => {
-        console.error('Erreur lors de la récupération des filtres avancés', error);
+        console.error(
+          'Erreur lors de la récupération des filtres avancés',
+          error,
+        );
       },
     );
   }
 
   // Vérifie les entrées numériques pour empêcher les caractères non valides
   checkNumberInput(event: KeyboardEvent): void {
-    const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'];
+    const allowedKeys = [
+      'Backspace',
+      'Delete',
+      'ArrowLeft',
+      'ArrowRight',
+      'Tab',
+    ];
 
     if (allowedKeys.includes(event.key)) {
       return; // Permettre les touches autorisées

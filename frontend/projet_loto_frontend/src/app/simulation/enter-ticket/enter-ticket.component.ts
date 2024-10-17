@@ -246,7 +246,12 @@ export class EnterTicketComponent implements OnInit {
       this.pseudoMessage = 'Le pseudo ne doit pas être vide.';
       return;
     }
-
+    // Vérification de la longueur du pseudo (max 50 caractères)
+    if (this.pseudo.length > 50) {
+      this.showPseudoError = true;
+      this.pseudoMessage = 'Le pseudo ne doit pas dépasser 50 caractères.';
+      return;
+    }
     // Vérifier si le pseudo est déjà utilisé dans les tirages actuels
     const pseudoExistsInTable = this.tirages.some(
       (tirage) => tirage.pseudo.toLowerCase() === this.pseudo.toLowerCase(),

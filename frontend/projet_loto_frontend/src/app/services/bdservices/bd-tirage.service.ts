@@ -49,7 +49,9 @@ export class BdTirageService {
   // Méthode pour vérifier si un pseudo existe via une requête GET
   checkPseudo(pseudo: string): Promise<{ exists: boolean }> {
     return this.http
-      .get<{ exists: boolean }>(`http://localhost:3000/api/bd/check-pseudo/${pseudo}`)
+      .get<{ exists: boolean }>(
+        `http://localhost:3000/api/bd/check-pseudo/${pseudo}`,
+      )
       .toPromise() // Convertit l'Observable en une Promesse pour un traitement plus flexible
       .then((response) => {
         console.log("Réponse de l'API (brut):", response);

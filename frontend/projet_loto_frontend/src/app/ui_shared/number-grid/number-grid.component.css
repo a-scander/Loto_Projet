@@ -1,12 +1,17 @@
 /* Conteneur de la grille (grid-container) */
 .grid-container {
   display: grid; /* Utilisation de CSS Grid pour organiser les éléments */
-  grid-template-columns: repeat(10, 1fr); /* 10 colonnes égales, chaque colonne fait une fraction de l'espace disponible */
+  grid-template-columns: repeat(
+    10,
+    1fr
+  ); /* 10 colonnes égales, chaque colonne fait une fraction de l'espace disponible */
   gap: 10px; /* Espacement de 10px entre les éléments de la grille */
   padding: 10px; /* Espacement interne autour de la grille */
   border: 2px solid var(--tertiary-color); /* Bordure blanche autour du conteneur pour le mettre en évidence */
   border-radius: 10px; /* Coins arrondis pour un aspect plus doux */
-  background-color: var(--tertiary-color); /* Couleur de fond pour la grille (ici blanche) */
+  background-color: var(
+    --tertiary-color
+  ); /* Couleur de fond pour la grille (ici blanche) */
 }
 
 /* Élément de la grille (grid-item) */
@@ -24,14 +29,18 @@
 
 /* Bouton non sélectionné (btn-unselected) */
 .btn-unselected {
-  color: var(--primary-color); /* Couleur du texte par défaut du bouton non sélectionné */
+  color: var(
+    --primary-color
+  ); /* Couleur du texte par défaut du bouton non sélectionné */
   background-color: transparent; /* Fond transparent pour les boutons non sélectionnés */
   border: 2px solid white; /* Contour blanc autour des boutons non sélectionnés */
 }
 
 /* Bouton sélectionné (btn-selected) */
 .btn-selected {
-  background-color: var(--secondary-color); /* Couleur de fond pour les boutons sélectionnés, qui est la couleur secondaire définie dans le thème */
+  background-color: var(
+    --secondary-color
+  ); /* Couleur de fond pour les boutons sélectionnés, qui est la couleur secondaire définie dans le thème */
   color: var(--primary-color); /* Couleur du texte du bouton sélectionné */
   font-weight: bold; /* Le texte est en gras pour les boutons sélectionnés pour les mettre en évidence */
   border: 2px solid var(--primary-color); /* Bordure du bouton sélectionné, ici avec la couleur principale pour la différencier */

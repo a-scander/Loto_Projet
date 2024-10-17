@@ -35,7 +35,7 @@ export class TableComponent {
   @Output() searchReset = new EventEmitter<void>(); // Émet un événement lorsque la recherche est réinitialisée
 
   @ViewChild(SearchBarComponent) searchBarComponent!: SearchBarComponent; // Référence au composant SearchBar pour accéder à ses méthodes
-  
+
   // Variables locales pour gérer la pagination et les données filtrées
   itemsPerPage: number = 10; // Nombre d'éléments par page
   currentPage: number = 1; // Page courante
@@ -62,7 +62,8 @@ export class TableComponent {
 
   // Méthode déclenchée lorsqu'un Input change (comme les données)
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['data']) { // Si les données changent
+    if (changes['data']) {
+      // Si les données changent
       this.filteredData = [...this.data]; // Réinitialiser les données filtrées avec les nouvelles données
       this.updatePagedData(); // Mettre à jour les données paginées
     }
@@ -91,7 +92,8 @@ export class TableComponent {
   onSearch(term: string): void {
     const searchTerm = term.toLowerCase(); // Convertir le terme en minuscules
 
-    if (!searchTerm) { // Si aucun terme n'est fourni, réinitialiser les données filtrées
+    if (!searchTerm) {
+      // Si aucun terme n'est fourni, réinitialiser les données filtrées
       this.filteredData = [...this.data];
       this.updatePagedData();
       return;
@@ -109,8 +111,7 @@ export class TableComponent {
 
         // Vérifier si la valeur de la cellule contient le terme de recherche
         return (
-          cellValue &&
-          cellValue.toString().toLowerCase().includes(searchTerm)
+          cellValue && cellValue.toString().toLowerCase().includes(searchTerm)
         );
       });
     });

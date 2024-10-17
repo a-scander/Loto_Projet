@@ -135,7 +135,8 @@ export class TicketWinFormComponent implements OnInit {
   onNumbersSelected(numbers: number[]): void {
     this.selectedNumbers = numbers; // Mettre à jour les numéros sélectionnés
     this.selectedNumbersString = numbers.join(', '); // Mettre à jour la chaîne de numéros
-    this.showNumbersError = this.selectedNumbers.length !== this.maxNumberSelections; // Vérifier que le bon nombre de numéros est sélectionné
+    this.showNumbersError =
+      this.selectedNumbers.length !== this.maxNumberSelections; // Vérifier que le bon nombre de numéros est sélectionné
     this.showNumberGrid = false; // Fermer la grille après la sélection
   }
 

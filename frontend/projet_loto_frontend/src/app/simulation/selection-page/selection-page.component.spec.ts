@@ -30,12 +30,12 @@ describe('SelectionPageComponent', () => {
     expect(component).toBeTruthy(); // Vérifie que le composant est bien créé
   });
 
-  it('devrait rediriger vers /quick-simulation lors de l\'appel de goToQuickSimulation', () => {
+  it("devrait rediriger vers /quick-simulation lors de l'appel de goToQuickSimulation", () => {
     component.goToQuickSimulation(); // Appelle la méthode de redirection
     expect(navigateSpy).toHaveBeenCalledWith(['/quick-simulation']); // Vérifie que `navigate` a été appelée avec la route correcte
   });
 
-  it('devrait rediriger vers /custom-form lors de l\'appel de goToCustomSimulation', () => {
+  it("devrait rediriger vers /custom-form lors de l'appel de goToCustomSimulation", () => {
     component.goToCustomSimulation(); // Appelle la méthode de redirection
     expect(navigateSpy).toHaveBeenCalledWith(['/custom-form']); // Vérifie que `navigate` a été appelée avec la bonne route
   });

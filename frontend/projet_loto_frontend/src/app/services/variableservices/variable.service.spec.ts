@@ -37,7 +37,7 @@ describe('VariableService', () => {
     expect(service.gridNumero).toBe(49);
   });
 
-  it('devrait retourner la taille de la grille d\'étoiles', () => {
+  it("devrait retourner la taille de la grille d'étoiles", () => {
     expect(service.gridEtoile).toBe(9);
   });
 
@@ -45,20 +45,20 @@ describe('VariableService', () => {
     expect(service.selectionMaxNumber).toBe(5);
   });
 
-  it('devrait retourner le nombre maximum d\'étoiles sélectionnables', () => {
+  it("devrait retourner le nombre maximum d'étoiles sélectionnables", () => {
     expect(service.selectionMaxStar).toBe(2);
   });
 
-  it('devrait retourner le nombre d\'éléments par rangée dans la grille', () => {
+  it("devrait retourner le nombre d'éléments par rangée dans la grille", () => {
     expect(service.printRangGrid).toBe(10);
   });
 
-  it('devrait pouvoir mettre à jour le nombre d\'éléments par rangée dans la grille', () => {
+  it("devrait pouvoir mettre à jour le nombre d'éléments par rangée dans la grille", () => {
     service.printRangGrid = 7;
     expect(service.printRangGrid).toBe(7);
   });
 
-  it('ne devrait pas accepter un nombre d\'éléments par rangée de grille inférieur ou égal à zéro', () => {
+  it("ne devrait pas accepter un nombre d'éléments par rangée de grille inférieur ou égal à zéro", () => {
     service.printRangGrid = 0;
     expect(service.printRangGrid).toBe(10); // La valeur ne doit pas changer
   });

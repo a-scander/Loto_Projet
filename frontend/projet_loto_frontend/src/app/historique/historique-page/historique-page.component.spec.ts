@@ -13,8 +13,12 @@ describe('HistoriquePageComponent', () => {
   beforeEach(() => {
     // Mock du service BdTirageService
     bdTirageServiceMock = {
-      getAllTirage: jest.fn().mockReturnValue(of([{ id: 1, pseudo: 'TestUser' }])),
-      applyAdvancedFilters: jest.fn().mockReturnValue(of([{ id: 1, pseudo: 'FilteredUser' }])),
+      getAllTirage: jest
+        .fn()
+        .mockReturnValue(of([{ id: 1, pseudo: 'TestUser' }])),
+      applyAdvancedFilters: jest
+        .fn()
+        .mockReturnValue(of([{ id: 1, pseudo: 'FilteredUser' }])),
       deleteTirage: jest.fn().mockReturnValue(of({})),
     };
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'; 
+import { Component } from '@angular/core';
 import { ButtonComponent } from '../../ui_shared/button/button.component'; // Import du composant bouton partagé
 import { CommonModule } from '@angular/common'; // Module commun Angular
 import { FormsModule } from '@angular/forms'; // Module des formulaires Angular
@@ -64,9 +64,13 @@ export class QuickSimulationComponent {
     for (let i = 0; i < pseudoLength; i++) {
       const isLetter = Math.random() < 0.7; // 70% de chances d'obtenir une lettre
       if (isLetter) {
-        randomPseudo += letters.charAt(Math.floor(Math.random() * letters.length));
+        randomPseudo += letters.charAt(
+          Math.floor(Math.random() * letters.length),
+        );
       } else {
-        randomPseudo += digits.charAt(Math.floor(Math.random() * digits.length));
+        randomPseudo += digits.charAt(
+          Math.floor(Math.random() * digits.length),
+        );
       }
     }
 
@@ -91,7 +95,8 @@ export class QuickSimulationComponent {
   generateRandomStars(): void {
     this.selectedStars = [];
     while (this.selectedStars.length < this.maxStarSelections) {
-      const randomStar = Math.floor(Math.random() * this.service.gridEtoile) + 1; // Générer une étoile entre 1 et 12
+      const randomStar =
+        Math.floor(Math.random() * this.service.gridEtoile) + 1; // Générer une étoile entre 1 et 12
       if (!this.selectedStars.includes(randomStar)) {
         this.selectedStars.push(randomStar);
       }
@@ -126,7 +131,8 @@ export class QuickSimulationComponent {
   onNumbersSelected(numbers: number[]): void {
     this.selectedNumbers = numbers;
     this.selectedNumbersString = numbers.join(', ');
-    this.showNumbersError = this.selectedNumbers.length !== this.maxNumberSelections;
+    this.showNumbersError =
+      this.selectedNumbers.length !== this.maxNumberSelections;
     this.showNumberGrid = false; // Fermer la grille après sélection
   }
 
@@ -172,7 +178,12 @@ export class QuickSimulationComponent {
       this.pseudoMessage = 'Le pseudo ne doit pas être vide.';
       return;
     }
-
+    // Vérification de la longueur du pseudo (max 50 caractères)
+    if (this.pseudo.length > 50) {
+      this.showPseudoError = true;
+      this.pseudoMessage = 'Le pseudo ne doit pas dépasser 50 caractères.';
+      return;
+    }
     // Vérifier si le pseudo est déjà utilisé dans les tirages existants
     const pseudoExistsInTable = this.tirages.some(
       (tirage) => tirage.pseudo.toLowerCase() === this.pseudo.toLowerCase(),
@@ -180,7 +191,8 @@ export class QuickSimulationComponent {
 
     if (pseudoExistsInTable) {
       this.showPseudoError = true;
-      this.pseudoMessage = 'Ce pseudo est déjà utilisé dans le tableau des tickets.';
+      this.pseudoMessage =
+        'Ce pseudo est déjà utilisé dans le tableau des tickets.';
       return;
     }
 
@@ -289,7 +301,11 @@ export class QuickSimulationComponent {
     this.showStarsError = starsArray.length !== this.maxStarSelections; // Vérifier les étoiles
 
     if (this.isFormValid()) {
-      const newTirage = new Tirage(this.pseudo, this.selectedNumbers, this.selectedStars);
+      const newTirage = new Tirage(
+        this.pseudo,
+        this.selectedNumbers,
+        this.selectedStars,
+      );
       this.tirages.push(newTirage); // Ajouter le tirage à la liste
 
       const randomTirageWin = this.generateRandomTirageWin(); // Générer un tirage gagnant
@@ -314,7 +330,11 @@ export class QuickSimulationComponent {
 
     for (let i = 0; i < remainingParticipants; i++) {
       this.generateAll(); // Générer un tirage pour chaque participant restant
-      const newTirage = new Tirage(this.pseudo, this.selectedNumbers, this.selectedStars);
+      const newTirage = new Tirage(
+        this.pseudo,
+        this.selectedNumbers,
+        this.selectedStars,
+      );
       this.tirages.push(newTirage); // Ajouter chaque tirage à la liste
     }
   }

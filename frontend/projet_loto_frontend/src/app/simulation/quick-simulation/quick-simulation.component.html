@@ -63,7 +63,9 @@
                 <!-- Bouton pour sélectionner ou annuler un pseudo -->
                 <span
                   class="input-group-text icon-input"
-                  (click)="isPseudoSelected ? enablePseudoEdit() : fetchPseudosFromDB()"
+                  (click)="
+                    isPseudoSelected ? enablePseudoEdit() : fetchPseudosFromDB()
+                  "
                 >
                   <img
                     *ngIf="isPseudoSelected; else userIcon"

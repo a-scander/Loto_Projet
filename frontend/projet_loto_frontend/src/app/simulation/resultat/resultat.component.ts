@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit } from '@angular/core';
 import { Tirage } from '../../models/tirage-model'; // Modèle pour les tirages
 import { Router } from '@angular/router'; // Service de navigation Angular
 import { TirageService } from '../../services/services/tirage.service'; // Service pour gérer les tirages et calculer les gains
@@ -65,7 +65,11 @@ export class ResultatComponent implements OnInit {
 
     // Appeler le service pour classer les tirages et calculer les gains
     this.service
-      .classerTiragesEtCalculerGains(this.tirages, this.tirageWin, this.montantTotal)
+      .classerTiragesEtCalculerGains(
+        this.tirages,
+        this.tirageWin,
+        this.montantTotal,
+      )
       .subscribe(
         (response) => {
           this.classement = response.classement; // Récupère le classement des tirages

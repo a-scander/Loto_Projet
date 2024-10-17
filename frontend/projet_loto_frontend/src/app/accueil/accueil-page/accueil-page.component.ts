@@ -20,14 +20,13 @@ import { StatisticsComponent } from '../statistics/statistics.component';
 export class AccueilPageComponent {
   constructor(private router: Router) {}
 
-// Redirige vers la page de simulation en utilisant le routeur Angular
-startSimulation(): void {
+  // Redirige vers la page de simulation en utilisant le routeur Angular
+  startSimulation(): void {
     this.router.navigate(['/simulation']); // Navigue vers la route '/simulation'
-}
+  }
 
-// Redirige vers la page de l'historique des tirages
-goToHistory(): void {
+  // Redirige vers la page de l'historique des tirages
+  goToHistory(): void {
     this.router.navigate(['/historique']); // Navigue vers la route '/historique'
-}
-
+  }
 }

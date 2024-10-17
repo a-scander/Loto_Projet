@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common'; // Import du module commun d'Angular pour utiliser des directives de base
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'; // Import des décorateurs et interfaces d'Angular pour créer des composants et gérer les entrées/sorties
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core'; // Import des décorateurs et interfaces d'Angular pour créer des composants et gérer les entrées/sorties
 import { VariableService } from '../../services/variableservices/variable.service'; // Service pour accéder aux variables globales de configuration
 import { ButtonComponent } from '../button/button.component'; // Import du composant bouton partagé
 
@@ -30,7 +37,12 @@ export class NumberGridComponent implements OnInit {
     // Remplir le tableau `gridNumbers` avec les numéros de 1 à `size`
     this.gridNumbers = Array.from({ length: size }, (_, i) => i + 1);
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedNumbers']) {
+      // Mise à jour des numéros sélectionnés lors des changements
+      this.selectedNumbers = [...changes['selectedNumbers'].currentValue];
+    }
+  }
   // Méthode pour sélectionner ou désélectionner un numéro
   selectNumber(number: number): void {
     if (this.selectedNumbers.includes(number)) {

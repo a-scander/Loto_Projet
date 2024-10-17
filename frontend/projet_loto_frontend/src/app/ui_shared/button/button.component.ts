@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'; 
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 // Importation des modules nécessaires depuis Angular
 // `Component` pour créer le composant
 // `EventEmitter` et `Output` pour permettre au bouton d'émettre des événements lorsque l'utilisateur clique dessus

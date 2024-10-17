@@ -1,6 +1,8 @@
 /* Paragraphe plus grand et en dehors de la carte avec espacement mt-5 */
 .intro-paragraph-large {
-  color: var(--primary-color); /* Applique la couleur principale (définie dans les variables CSS) au texte */
+  color: var(
+    --primary-color
+  ); /* Applique la couleur principale (définie dans les variables CSS) au texte */
   font-size: 24px; /* Agrandit la taille du texte à 24px */
   text-align: center; /* Centre le texte */
   margin-bottom: 30px; /* Ajoute un espacement de 30px en dessous du paragraphe */
@@ -12,7 +14,11 @@
   margin: 50px auto; /* Centre la carte horizontalement et ajoute un espacement vertical de 50px */
   padding: 20px; /* Ajoute du padding interne à la carte */
   border-radius: 10px; /* Arrondit les coins de la carte à 10px */
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); 
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
   /* Applique un dégradé diagonal de la couleur secondaire à la couleur principale */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour de la carte */
   text-align: center; /* Centre le texte à l'intérieur de la carte */
@@ -28,7 +34,9 @@
 
 .simulation-header h2 {
   margin-left: 15px; /* Ajoute un espacement à gauche du titre h2 */
-  color: var(--tertiary-color); /* Applique la couleur tertiaire (généralement noir) au texte */
+  color: var(
+    --tertiary-color
+  ); /* Applique la couleur tertiaire (généralement noir) au texte */
 }
 
 .simulation-image {
@@ -46,7 +54,9 @@ label {
   display: block; /* Affiche le label comme un bloc pour qu'il occupe toute la largeur disponible */
   margin-bottom: 5px; /* Ajoute un espacement en dessous du label */
   font-weight: bold; /* Applique un style de texte en gras */
-  color: var(--tertiary-color); /* Applique la couleur tertiaire (généralement noir) au texte */
+  color: var(
+    --tertiary-color
+  ); /* Applique la couleur tertiaire (généralement noir) au texte */
 }
 
 input {
@@ -55,8 +65,12 @@ input {
   border: 1px solid #ccc; /* Applique une bordure grise de 1px */
   border-radius: 5px; /* Arrondit les coins du champ de saisie */
   font-size: 16px; /* Taille du texte à l'intérieur du champ */
-  color: var(--tertiary-color); /* Applique la couleur tertiaire (généralement noir) au texte */
-  background-color: var(--primary-color); /* Applique la couleur principale comme fond du champ */
+  color: var(
+    --tertiary-color
+  ); /* Applique la couleur tertiaire (généralement noir) au texte */
+  background-color: var(
+    --primary-color
+  ); /* Applique la couleur principale comme fond du champ */
 }
 
 .error-message {

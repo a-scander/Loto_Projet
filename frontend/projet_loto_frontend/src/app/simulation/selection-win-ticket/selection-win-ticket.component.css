@@ -17,7 +17,9 @@
 
 /* Effet de survol sur les cartes */
 .equal-card:hover {
-  transform: scale(1.05); /* Agrandit légèrement la carte au survol pour un effet interactif */
+  transform: scale(
+    1.05
+  ); /* Agrandit légèrement la carte au survol pour un effet interactif */
 }
 
 /* Style pour les titres de niveau h2 */
@@ -29,10 +31,14 @@ h2 {
 /* Style pour les paragraphes */
 p {
   font-size: 1.2rem; /* Définit une taille de texte de 1.2 rem pour une meilleure lisibilité */
-  color: var(--primary-color); /* Utilise la couleur primaire définie par une variable CSS pour le texte des paragraphes */
+  color: var(
+    --primary-color
+  ); /* Utilise la couleur primaire définie par une variable CSS pour le texte des paragraphes */
 }
 
 /* Style spécifique pour les paragraphes à l'intérieur d'une carte */
 .card p {
-  color: var(--tertiary-color); /* Change la couleur des paragraphes dans les cartes pour utiliser la couleur tertiaire */
+  color: var(
+    --tertiary-color
+  ); /* Change la couleur des paragraphes dans les cartes pour utiliser la couleur tertiaire */
 }

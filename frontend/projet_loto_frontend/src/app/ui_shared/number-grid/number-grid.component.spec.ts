@@ -16,9 +16,7 @@ describe('NumberGridComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NumberGridComponent],
-      providers: [
-        { provide: VariableService, useValue: mockVariableService },
-      ],
+      providers: [{ provide: VariableService, useValue: mockVariableService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NumberGridComponent);
@@ -33,7 +31,9 @@ describe('NumberGridComponent', () => {
     component.type = 'numero';
     component.ngOnInit();
     expect(component.gridNumbers.length).toBe(mockVariableService.gridNumero);
-    expect(component.gridNumbers).toEqual(Array.from({ length: mockVariableService.gridNumero }, (_, i) => i + 1));
+    expect(component.gridNumbers).toEqual(
+      Array.from({ length: mockVariableService.gridNumero }, (_, i) => i + 1),
+    );
   });
 
   it('devrait sélectionner un numéro', () => {
@@ -64,7 +64,9 @@ describe('NumberGridComponent', () => {
   });
 
   it('devrait diviser un tableau en sous-tableaux', () => {
-    const result = component.chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    const result = component.chunkArray([
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+    ]);
     expect(result.length).toBe(2);
     expect(result[0]).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     expect(result[1]).toEqual([11, 12]);

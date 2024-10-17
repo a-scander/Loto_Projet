@@ -3,13 +3,17 @@
   position: absolute;
   right: 90px; /* Positionne l'icône à droite, à 90px du bord de l'input */
   top: 50%; /* Place l'icône verticalement au centre de l'input */
-  transform: translateY(-50%); /* Ajuste l'icône pour qu'elle soit parfaitement centrée verticalement */
+  transform: translateY(
+    -50%
+  ); /* Ajuste l'icône pour qu'elle soit parfaitement centrée verticalement */
   cursor: pointer; /* Change le curseur en pointeur pour indiquer que l'icône est cliquable */
   color: var(--tertiary-color); /* Applique la couleur tertiaire à l'icône */
 }
 
 .icon-input:hover {
-  color: var(--secondary-color); /* Change la couleur de l'icône au survol pour indiquer une interactivité */
+  color: var(
+    --secondary-color
+  ); /* Change la couleur de l'icône au survol pour indiquer une interactivité */
 }
 
 .input-icon {
@@ -81,7 +85,9 @@
 
 /* Style du bouton de fermeture dans les modales avec fond noir */
 .modal-header .btn-close {
-  filter: invert(100%); /* Inverse les couleurs du bouton pour le rendre blanc sur fond noir */
+  filter: invert(
+    100%
+  ); /* Inverse les couleurs du bouton pour le rendre blanc sur fond noir */
 }
 
 /* Couleur du texte pour le contenu de la modale */
@@ -92,7 +98,11 @@
 
 /* Fond noir et texte blanc pour le contenu de la modale */
 .modal-content {
-  background-color: var(--tertiary-color); /* Applique la couleur tertiaire comme fond pour la modale */
-  color: var(--primary-color); /* Texte en blanc pour un bon contraste avec le fond noir */
+  background-color: var(
+    --tertiary-color
+  ); /* Applique la couleur tertiaire comme fond pour la modale */
+  color: var(
+    --primary-color
+  ); /* Texte en blanc pour un bon contraste avec le fond noir */
   border-radius: 8px; /* Arrondit légèrement les coins de la modale */
 }

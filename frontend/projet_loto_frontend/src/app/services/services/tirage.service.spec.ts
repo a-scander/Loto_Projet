@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TirageService } from './tirage.service';
 import { Tirage } from '../../models/tirage-model';
 
@@ -43,18 +46,22 @@ describe('TirageService', () => {
       totalGain: 1000,
     };
 
-    service.classerTiragesEtCalculerGains(mockTirages, mockTirageWin, montant).subscribe((response) => {
-      expect(response).toEqual(mockResponse); // Vérifie que la réponse est correcte
-    });
+    service
+      .classerTiragesEtCalculerGains(mockTirages, mockTirageWin, montant)
+      .subscribe((response) => {
+        expect(response).toEqual(mockResponse); // Vérifie que la réponse est correcte
+      });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/tirages/classement-et-gains');
+    const req = httpMock.expectOne(
+      'http://localhost:3000/api/tirages/classement-et-gains',
+    );
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual({
       tirages: mockTirages,
       tirageWin: mockTirageWin,
       montant,
     });
-    
+
     req.flush(mockResponse); // Simule la réponse de l'API
   });
 });

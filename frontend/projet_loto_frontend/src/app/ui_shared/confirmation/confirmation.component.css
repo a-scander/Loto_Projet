@@ -23,12 +23,16 @@
 
 /* Style pour le titre de la carte de confirmation */
 .confirmation-card h2 {
-  color: var(--tertiary-color); /* Couleur noire définie par --tertiary-color pour une bonne lisibilité */
+  color: var(
+    --tertiary-color
+  ); /* Couleur noire définie par --tertiary-color pour une bonne lisibilité */
 }
 
 /* Style pour le paragraphe de la carte de confirmation */
 .confirmation-card p {
-  color: var(--tertiary-color); /* Couleur noire pour le texte du paragraphe pour une bonne lisibilité */
+  color: var(
+    --tertiary-color
+  ); /* Couleur noire pour le texte du paragraphe pour une bonne lisibilité */
   font-size: 18px; /* Taille du texte légèrement plus grande pour améliorer la lisibilité */
   margin: 20px 0; /* Ajoute une marge de 20 pixels en haut et en bas du paragraphe pour l'espacement */
 }

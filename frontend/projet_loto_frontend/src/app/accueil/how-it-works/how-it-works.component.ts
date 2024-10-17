@@ -14,26 +14,27 @@ export class HowItWorksComponent {
   constructor(
     private router: Router, // Injection du service Angular Router pour gérer la navigation entre les routes
     private el: ElementRef, // Injection de ElementRef pour accéder et manipuler le DOM
-    private service: VariableService // Injection du service pour accéder aux variables partagées dans l'application
+    private service: VariableService, // Injection du service pour accéder aux variables partagées dans l'application
   ) {}
 
   // Propriétés récupérées à partir du service injecté
   numberTotalGrid: number = this.service.gridNumero; // Nombre total de numéros dans la grille
   starTotalGrid: number = this.service.gridEtoile; // Nombre total d'étoiles dans la grille
   sommeGain: number = this.service.sommeTirage; // Somme des gains du tirage
-  nbParticipant : number = this.service.nbParticipant // Nombre de participants
+  nbParticipant: number = this.service.nbParticipant; // Nombre de participants
 
   // Fonction pour rediriger vers une page spécifique
   navigateTo(route: string): void {
     this.router.navigate([route]); // Utilisation du service Router pour rediriger vers la route spécifiée
   }
-  
+
   // Écoute l'événement de défilement de la fenêtre
   @HostListener('window:scroll', [])
   onWindowScroll() {
     // Sélectionne tous les éléments ayant la classe 'slide-in-right' pour les animer au défilement
     const elements = this.el.nativeElement.querySelectorAll('.slide-in-right');
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight; // Hauteur de la fenêtre
+    const windowHeight =
+      window.innerHeight || document.documentElement.clientHeight; // Hauteur de la fenêtre
 
     // Parcourt chaque élément avec la classe 'slide-in-right'
     elements.forEach((element: any) => {
@@ -45,5 +46,4 @@ export class HowItWorksComponent {
       }
     });
   }
-  
 }

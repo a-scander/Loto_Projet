@@ -7,7 +7,7 @@
   <!-- Utilisation de la directive Angular `ngClass` pour appliquer des classes conditionnelles. 
        Si `showCard` est vrai, on applique des styles de carte (padding, ombre, etc.), 
        sinon une carte transparente sans ces styles. -->
-  
+
   <h2 class="text-center mb-4">{{ title }}</h2>
   <!-- Affiche le titre au centre, la valeur est passée dynamiquement via une propriété `title`. -->
 
@@ -38,7 +38,7 @@
                Ajoute une classe `selected` si l'index de l'élément est égal à l'index sélectionné, sauf s'il y a des actions affichées. -->
           <td *ngFor="let column of columns">{{ item[column.key] }}</td>
           <!-- Itère sur les colonnes pour chaque cellule et récupère la valeur en utilisant la clé correspondante. -->
-          
+
           <td *ngIf="showAction" class="action-cell">
             <!-- Colonne d'action si `showAction` est vrai. -->
             <button class="delete-btn" (click)="deleteItem(item['id'])">

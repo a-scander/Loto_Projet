@@ -13,9 +13,9 @@ import { VariableService } from '../../services/variableservices/variable.servic
 export class SelectionPageComponent {
   constructor(
     private router: Router, // Injection du service `Router` pour permettre la navigation entre les différentes pages de l'application.
-    private service: VariableService // Injection du service `VariableService` pour accéder et manipuler des variables ou configurations partagées à travers l'application.
+    private service: VariableService, // Injection du service `VariableService` pour accéder et manipuler des variables ou configurations partagées à travers l'application.
   ) {}
-  
+
   numberTotalGrid: number = this.service.gridNumero; // Nombre total de numéros dans la grille
   starTotalGrid: number = this.service.gridEtoile; // Nombre total d'étoiles dans la grille
   // Méthode pour rediriger l'utilisateur vers la page de simulation rapide

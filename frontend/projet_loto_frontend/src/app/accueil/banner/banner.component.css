@@ -38,7 +38,7 @@
 
 @media (max-width: 768px) {
   /* Adaptation du style pour les petits écrans */
-  
+
   .banner-content h1 {
     font-size: 2em; /* Réduit la taille du titre pour les petits écrans */
   }

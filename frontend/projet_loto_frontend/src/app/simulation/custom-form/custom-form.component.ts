@@ -40,14 +40,6 @@ export class CustomFormComponent {
     );
   }
 
-  // Validator personnalisé pour vérifier que le gain total est supérieur à 0
-  gainValidator() {
-    return (control: AbstractControl) => {
-      const value = parseFloat(control.value); // Conversion de la valeur en nombre
-      return value > 0 ? null : { invalidGain: true }; // Retourne une erreur si la valeur est <= 0
-    };
-  }
-
   // Validation croisée pour s'assurer que le nombre de tirages est <= au nombre de participants
   validateDrawsLessThanParticipants(group: FormGroup) {
     const totalParticipants =
@@ -90,7 +82,24 @@ export class CustomFormComponent {
     }
   }
 
-  // Validation du champ pour les nombres décimaux avec un seul point
+  // Validator personnalisé pour vérifier que le gain total est supérieur à 0 et ne dépasse pas 999,999,999,999
+  gainValidator() {
+    return (control: AbstractControl) => {
+      const value = parseFloat(control.value); // Conversion de la valeur en nombre
+      if (isNaN(value)) {
+        return { invalidGain: true }; // Retourne une erreur si la valeur n'est pas un nombre valide
+      }
+      if (value <= 0) {
+        return { invalidGain: true }; // Retourne une erreur si la valeur est <= 0
+      }
+      if (value > 999999999999) {
+        return { gainTooHigh: true }; // Retourne une erreur si la valeur dépasse 999,999,999,999
+      }
+      return null;
+    };
+  }
+
+  // Validation du champ pour les nombres décimaux avec un seul point et une limite maximale
   validateDecimalInput(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
 
@@ -102,6 +111,7 @@ export class CustomFormComponent {
       'Tab', // Autorise la navigation avec la touche Tab
       'Delete', // Autorise la suppression
     ];
+
     // Bloque tout caractère non numérique et non point décimal
     if (
       !allowedKeys.includes(event.key) &&

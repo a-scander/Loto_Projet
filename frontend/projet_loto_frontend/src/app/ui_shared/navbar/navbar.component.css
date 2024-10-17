@@ -1,7 +1,11 @@
 /* Style de la navbar transparente */
 .navbar {
-  transition: var(--transition-speed); /* Transition fluide pour changer l'apparence de la navbar */
-  background-color: var(--secondary-color) !important; /* Couleur de fond de la navbar (initialement la couleur secondaire), forcée avec !important */
+  transition: var(
+    --transition-speed
+  ); /* Transition fluide pour changer l'apparence de la navbar */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Couleur de fond de la navbar (initialement la couleur secondaire), forcée avec !important */
   box-shadow: none; /* Pas d'ombre sur la navbar pour un style plat */
   width: 100%; /* La navbar s'étend sur toute la largeur de l'écran */
   position: fixed; /* Fixée en haut de la page, reste visible lors du défilement */
@@ -16,7 +20,9 @@
 
 /* Liens de navigation */
 .nav-link {
-  color: var(--tertiary-color); /* Couleur du texte des liens de la navbar (utilisation de la couleur tertiaire définie dans les variables) */
+  color: var(
+    --tertiary-color
+  ); /* Couleur du texte des liens de la navbar (utilisation de la couleur tertiaire définie dans les variables) */
 }
 
 /* Classe pour les liens actifs */
@@ -27,7 +33,9 @@
 
 /* Effet de grossissement sur les liens de navigation au survol */
 .nav-link:hover {
-  transform: scale(1.2); /* Agrandir légèrement le lien lorsqu'il est survolé pour attirer l'attention */
+  transform: scale(
+    1.2
+  ); /* Agrandir légèrement le lien lorsqu'il est survolé pour attirer l'attention */
   transition: transform 0.1s ease-in-out; /* Transition rapide pour rendre l'agrandissement fluide */
 }
 

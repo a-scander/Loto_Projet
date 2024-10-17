@@ -69,7 +69,9 @@ describe('EnterTicketComponent', () => {
 
   it('devrait générer des numéros aléatoires', () => {
     component.generateRandomNumbers();
-    expect(component.selectedNumbers.length).toBe(variableService.selectionMaxNumber); // 5 numéros générés
+    expect(component.selectedNumbers.length).toBe(
+      variableService.selectionMaxNumber,
+    ); // 5 numéros générés
     component.selectedNumbers.forEach((num) => {
       expect(num).toBeGreaterThanOrEqual(1);
       expect(num).toBeLessThanOrEqual(variableService.gridNumero); // Entre 1 et 50
@@ -78,7 +80,9 @@ describe('EnterTicketComponent', () => {
 
   it('devrait générer des étoiles aléatoires', () => {
     component.generateRandomStars();
-    expect(component.selectedStars.length).toBe(variableService.selectionMaxStar); // 2 étoiles générées
+    expect(component.selectedStars.length).toBe(
+      variableService.selectionMaxStar,
+    ); // 2 étoiles générées
     component.selectedStars.forEach((star) => {
       expect(star).toBeGreaterThanOrEqual(1);
       expect(star).toBeLessThanOrEqual(variableService.gridEtoile); // Entre 1 et 12
@@ -101,7 +105,9 @@ describe('EnterTicketComponent', () => {
   });
 
   it('devrait vérifier le pseudo avec succès', async () => {
-    (bdTirageService.checkPseudo as jest.Mock).mockResolvedValueOnce({ exists: false });
+    (bdTirageService.checkPseudo as jest.Mock).mockResolvedValueOnce({
+      exists: false,
+    });
     component.pseudo = 'ValidPseudo';
     await component.checkPseudo();
     expect(component.showPseudoError).toBeFalsy();
@@ -109,10 +115,14 @@ describe('EnterTicketComponent', () => {
   });
 
   it('devrait marquer une erreur si le pseudo existe', async () => {
-    (bdTirageService.checkPseudo as jest.Mock).mockResolvedValueOnce({ exists: true });
+    (bdTirageService.checkPseudo as jest.Mock).mockResolvedValueOnce({
+      exists: true,
+    });
     component.pseudo = 'ExistingPseudo';
     await component.checkPseudo();
     expect(component.showPseudoError).toBeTruthy();
-    expect(component.pseudoMessage).toBe('Ce pseudo est déjà pris dans la base de données.');
+    expect(component.pseudoMessage).toBe(
+      'Ce pseudo est déjà pris dans la base de données.',
+    );
   });
 });

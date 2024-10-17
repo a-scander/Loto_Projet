@@ -1,7 +1,11 @@
 /* Couleur de fond et texte du footer */
 .footer {
-  background-color: var(--secondary-color); /* Définit la couleur de fond du footer à la variable CSS --secondary-color */
-  color: var(--tertiary-color) !important; /* Définit la couleur du texte à la variable CSS --tertiary-color, avec la priorité !important pour écraser d'autres styles */
+  background-color: var(
+    --secondary-color
+  ); /* Définit la couleur de fond du footer à la variable CSS --secondary-color */
+  color: var(
+    --tertiary-color
+  ) !important; /* Définit la couleur du texte à la variable CSS --tertiary-color, avec la priorité !important pour écraser d'autres styles */
 }
 
 /* Style des liens dans le footer */
@@ -9,7 +13,9 @@
   text-decoration: none; /* Supprime le soulignement par défaut des liens */
   cursor: pointer; /* Change le curseur en main pour indiquer qu'il s'agit d'un élément cliquable */
   transition: transform 0.1s ease-in-out; /* Applique une transition fluide lors des changements de transformation */
-  color: var(--tertiary-color) !important; /* Définit la couleur du lien à la variable CSS --tertiary-color, avec priorité !important */
+  color: var(
+    --tertiary-color
+  ) !important; /* Définit la couleur du lien à la variable CSS --tertiary-color, avec priorité !important */
 }
 
 /* Effet de grossissement des liens au survol */
