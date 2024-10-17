@@ -1,0 +1,26 @@
+/* Styles pour la pagination */
+
+/* Style général des liens de pagination (page-link) */
+.pagination .page-link {
+  color: var(--tertiary-color); /* Couleur du texte pour les pages non actives */
+  font-weight: normal; /* Le texte des pages non actives est en gras normal (non accentué) */
+}
+
+/* Style pour la page actuellement active */
+.pagination .page-item.active .page-link {
+  background-color: var(--secondary-color); /* Couleur de fond pour la page active (indicateur visuel) */
+  color: var(--primary-color); /* Couleur du texte pour la page active (contraste) */
+  font-weight: bold; /* Mettre le texte en gras pour mieux marquer la page active */
+  border: none; /* Suppression de la bordure par défaut pour la page active */
+}
+
+/* Style pour les éléments de pagination désactivés */
+.pagination .page-item.disabled .page-link {
+  color: #ccc; /* Couleur grisée pour indiquer que l'élément est désactivé (non cliquable) */
+}
+
+/* Effet de survol sur les liens de pagination */
+.pagination .page-link:hover {
+  border: 2px solid var(--secondary-color); /* Ajouter une bordure visible au survol du lien */
+  color: var(--secondary-color); /* Changer la couleur du texte au survol pour mettre en évidence l'interaction */
+}

@@ -1,13 +1,11 @@
-<nav
-  class="navbar navbar-expand-lg bg-body-tertiary"
-  [class.navbar-scrolled]="isScrolled"
->
+<!-- Barre de navigation principale -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <!-- Logo principal de la navbar -->
     <a class="navbar-brand mr-5" routerLink="/accueil">
-      <img src="assets/logo.png" alt="Logo" width="50" height="50" />
+      <img src="assets/logo.webp" alt="Logo" width="65" height="65" />
     </a>
-
+    <!-- Bouton de menu hamburger pour la version mobile -->
     <button
       class="navbar-toggler"
       type="button"
@@ -20,9 +18,10 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Contenu de la navbar qui se déploie/collapsera (lien de navigation) -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <!-- Accueil -->
+        <!-- Section Accueil -->
         <li class="nav-item mr-5">
           <a class="nav-link" routerLink="/accueil" routerLinkActive="active">
             <img
@@ -34,7 +33,7 @@
           </a>
         </li>
 
-        <!-- Simulation -->
+        <!-- Section Simulation -->
         <li class="nav-item mr-5">
           <a
             class="nav-link"
@@ -50,7 +49,7 @@
           </a>
         </li>
 
-        <!-- Historique -->
+        <!-- Section Historique -->
         <li class="nav-item mr-5">
           <a
             class="nav-link"

@@ -1,55 +1,40 @@
 /* Style de la navbar transparente */
 .navbar {
-  transition: var(--transition-speed); /* Transition fluide */
-  background-color: var(
-    --secondary-color
-  ) !important; /* Couleur initialement */
-  box-shadow: none; /* Pas d'ombre */
-  width: 100%;
-  position: fixed; /* Navbar fixée en haut */
-  z-index: 1000; /* Au-dessus du contenu */
-}
-
-/* Navbar avec fond après défilement */
-.navbar-scrolled {
-  background-color: var(
-    --primary-color
-  ) !important; /* Couleur  après défilement */
-  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  transition: var(--transition-speed); /* Transition fluide pour changer l'apparence de la navbar */
+  background-color: var(--secondary-color) !important; /* Couleur de fond de la navbar (initialement la couleur secondaire), forcée avec !important */
+  box-shadow: none; /* Pas d'ombre sur la navbar pour un style plat */
+  width: 100%; /* La navbar s'étend sur toute la largeur de l'écran */
+  position: fixed; /* Fixée en haut de la page, reste visible lors du défilement */
+  z-index: 1000; /* Priorité d'affichage pour que la navbar soit toujours au-dessus du contenu */
 }
 
 /* Style de base pour les icônes dans la navbar */
 .nav-icon {
-  width: 20px; /* Largeur de l'icône */
-  height: 20px; /* Hauteur de l'icône */
+  width: 20px; /* Largeur définie pour les icônes de navigation */
+  height: 20px; /* Hauteur définie pour les icônes de navigation */
 }
 
 /* Liens de navigation */
 .nav-link {
-  color: var(--tertiary-color); /* Couleur  des liens */
+  color: var(--tertiary-color); /* Couleur du texte des liens de la navbar (utilisation de la couleur tertiaire définie dans les variables) */
 }
 
 /* Classe pour les liens actifs */
 .nav-link.active {
-  font-weight: 900; /* Texte en gras pour le lien actif */
-  border-bottom: 2px solid var(--tertiary-color); /* Soulignement */
-}
-
-/* Classe pour les liens actifs après défilement */
-.navbar-scrolled .nav-link.active {
-  border-bottom: 2px solid var(--secondary-color); /* Soulignement après défilement*/
+  font-weight: 900; /* Rendre le texte du lien actif très gras pour indiquer qu'il est sélectionné */
+  border-bottom: 2px solid var(--tertiary-color); /* Ajouter un soulignement en bas du lien actif avec la couleur tertiaire */
 }
 
 /* Effet de grossissement sur les liens de navigation au survol */
 .nav-link:hover {
-  transform: var(--zoom-scale); /* Grossissement  */
-  transition: var(--transition-speed); /* Transition fluide */
+  transform: scale(1.2); /* Agrandir légèrement le lien lorsqu'il est survolé pour attirer l'attention */
+  transition: transform 0.1s ease-in-out; /* Transition rapide pour rendre l'agrandissement fluide */
 }
 
 /* Réduire la taille des liens de navigation en mode mobile */
 @media (max-width: 992px) {
-  /* Écrans inférieurs à 992px (Bootstrap 'lg') */
+  /* Styles pour les écrans de taille inférieure à 992px (Bootstrap breakpoint 'lg') */
   .nav-link {
-    padding-left: 80px; /* Ajouter du padding à gauche */
+    padding-left: 80px; /* Ajouter du padding à gauche des liens pour les espacer davantage dans un menu replié */
   }
 }

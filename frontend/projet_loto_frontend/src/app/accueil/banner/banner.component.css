@@ -1,0 +1,54 @@
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* La bannière occupe toute la hauteur de la fenêtre */
+  color: white; /* Texte en blanc pour contraster avec l'arrière-plan */
+  overflow: hidden; /* Masque le contenu qui dépasse de la bannière */
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/accueil/banniere2.webp"); /* Image de fond de la bannière */
+  background-size: cover; /* L'image couvre toute la surface sans distorsion */
+  background-position: center; /* Centre l'image dans la bannière */
+  z-index: -1; /* Place l'image derrière le contenu de la bannière */
+  opacity: 0.3; /* Réduit l'opacité pour que le texte reste lisible */
+}
+
+.banner-content {
+  z-index: 1; /* Assure que le contenu de la bannière apparaît au-dessus de l'image de fond */
+  position: relative; /* Garde le texte positionné correctement */
+  text-align: center; /* Centre le texte horizontalement dans la bannière */
+}
+
+.btn-warning {
+  background-color: #ffcc00; /* Couleur de fond du bouton */
+  border-color: #ffcc00; /* Couleur de bordure du bouton */
+}
+
+.btn-warning:hover {
+  background-color: #ffaa00; /* Couleur de fond du bouton au survol */
+  border-color: #ffaa00; /* Couleur de bordure au survol */
+}
+
+@media (max-width: 768px) {
+  /* Adaptation du style pour les petits écrans */
+  
+  .banner-content h1 {
+    font-size: 2em; /* Réduit la taille du titre pour les petits écrans */
+  }
+
+  .banner-content p {
+    font-size: 1.2em; /* Réduit la taille du paragraphe pour les petits écrans */
+  }
+
+  .btn {
+    font-size: 1em; /* Taille de police réduite pour les boutons */
+    padding: 0.8em 1.5em; /* Ajuste l'espacement autour du texte dans les boutons */
+  }
+}

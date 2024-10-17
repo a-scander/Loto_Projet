@@ -1,0 +1,146 @@
+/* Positionnement de l'icône dans l'input */
+.icon-input {
+  position: absolute; /* Place l'icône en position absolue à l'intérieur de l'input */
+  right: 90px; /* Distance de l'icône par rapport au bouton Générer */
+  top: 50%; /* Centre verticalement l'icône dans l'input */
+  transform: translateY(-50%); /* Ajuste la position de l'icône pour qu'elle soit bien centrée */
+  cursor: pointer; /* Change le curseur pour indiquer que l'icône est cliquable */
+  color: var(--tertiary-color); /* Définit la couleur de l'icône avec la variable --tertiary-color */
+}
+
+/* Couleur de l'icône au survol */
+.icon-input:hover {
+  color: var(--secondary-color); /* Change la couleur de l'icône en survolant */
+}
+
+/* Taille et ajustement de l'image d'icône */
+.input-icon {
+  width: 20px; /* Largeur de l'image de l'icône */
+  height: 20px; /* Hauteur de l'image de l'icône */
+  object-fit: contain; /* Garde les proportions de l'image tout en s'adaptant à sa boîte */
+  cursor: pointer; /* Change le curseur pour indiquer que l'image est cliquable */
+}
+
+/* Ajustement du padding pour laisser de l'espace pour l'icône et le bouton Générer */
+.input-group input {
+  padding-right: 130px; /* Ajoute un padding à droite pour laisser de l'espace pour l'icône et le bouton */
+}
+
+/* Positionnement du bouton Générer */
+.generate-btn {
+  margin-left: 10px; /* Espace entre l'input et le bouton Générer */
+  position: relative; /* Garde la position relative pour rester dans le flux normal */
+}
+
+/* Correction pour éviter que l'icône bouge avec l'affichage d'une erreur */
+.input-group-text {
+  position: absolute; /* Place le texte en absolu dans le groupe d'input */
+  right: 120px; /* Ajuste la position du texte par rapport au bouton Générer */
+  top: 50%; /* Centre verticalement le texte dans l'input */
+  transform: translateY(-50%); /* Ajuste la position pour qu'il soit bien centré */
+  border: none; /* Supprime les bordures par défaut */
+  background-color: transparent; /* Rends l'arrière-plan transparent */
+  padding: 0; /* Supprime le padding interne */
+  display: flex; /* Affiche le contenu en flex pour l'aligner correctement */
+  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center; /* Centre le contenu horizontalement */
+  pointer-events: all; /* Permet d'interagir avec l'icône */
+}
+
+/* Style des messages d'erreur */
+.error-message {
+  color: red; /* Texte en rouge pour les erreurs */
+  font-size: 12px; /* Taille du texte réduite */
+  margin-top: 5px; /* Espace au-dessus du message d'erreur */
+}
+
+/* Style des messages de succès */
+.success-message {
+  color: rgb(1, 123, 1); /* Texte en vert pour les succès */
+  font-size: 12px; /* Taille du texte réduite */
+  margin-top: 5px; /* Espace au-dessus du message de succès */
+}
+
+/* Conteneur pour les informations de tirage */
+.tirage-info {
+  background-color: rgba(255, 255, 255, 0.8); /* Fond blanc avec légère transparence */
+  padding: 10px 15px; /* Espacement interne */
+  border-radius: 8px; /* Arrondit les coins du conteneur */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour effet de profondeur */
+}
+
+/* Style des titres à l'intérieur du conteneur de tirage */
+.tirage-info h5 {
+  margin: 0; /* Supprime les marges pour les titres */
+}
+
+/* Style des cartes */
+.card {
+  border-radius: 10px; /* Arrondit les coins des cartes */
+}
+
+/* Espacement des titres h3 dans les cartes */
+.card h3 {
+  margin-bottom: 20px; /* Ajoute un espace sous le titre h3 */
+}
+
+/* Modale avec une largeur personnalisée */
+.modal-lg-custom {
+  max-width: 900px; /* Augmente la largeur maximale de la modale */
+}
+
+/* Fond noir et texte blanc pour la modale */
+.modal-black-bg {
+  background-color: #000; /* Fond noir pour la modale */
+  color: #fff; /* Texte en blanc pour un bon contraste */
+}
+
+/* Supprime les bordures du header et du footer de la modale */
+.modal-header,
+.modal-footer {
+  border: none; /* Pas de bordures */
+}
+
+/* Style du bouton de fermeture dans le header de la modale */
+.modal-header .btn-close {
+  filter: invert(100%); /* Inverse la couleur pour rendre le bouton de fermeture blanc */
+}
+
+/* Corps et pied de la modale avec du texte blanc */
+.modal-body,
+.modal-footer {
+  color: #fff; /* Texte blanc */
+}
+
+/* Contenu de la modale avec fond noir et texte blanc */
+.modal-content {
+  background-color: var(--tertiary-color); /* Fond noir (variable --tertiary-color) */
+  color: var(--primary-color); /* Texte en blanc (variable --primary-color) */
+  border-radius: 8px; /* Arrondit les coins du contenu de la modale */
+}
+
+/* Style des boutons de fermeture (blanc pour correspondre au fond noir) */
+.btn-close {
+  filter: brightness(0) invert(1); /* Rends le bouton de fermeture blanc */
+}
+
+/* Style des items de la liste dans la modale */
+.list-group-item {
+  background-color: var(--tertiary-color); /* Fond noir pour les éléments de la liste */
+  color: var(--primary-color); /* Texte en blanc */
+  border: 1px solid var(--secondary-color); /* Bordure fine blanche */
+  padding: 10px 15px; /* Espacement interne */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide pour les changements de couleur */
+}
+
+/* Effet de survol sur les items de la liste */
+.list-group-item:hover {
+  background-color: var(--secondary-color); /* Change le fond en couleur secondaire (gris) au survol */
+  color: var(--primary-color); /* Le texte reste en blanc */
+  cursor: pointer; /* Le curseur devient une main indiquant un élément cliquable */
+}
+
+/* Optionnel : ajustement des marges pour les listes dans la modale */
+.modal-body .list-group {
+  margin-bottom: 0; /* Supprime la marge en bas pour les listes dans la modale */
+}

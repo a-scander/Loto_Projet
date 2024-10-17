@@ -1,0 +1,33 @@
+.about-section {
+  padding: 60px 0; /* Espacement vertical en haut et en bas de la section */
+  border-bottom: 1px solid var(--secondary-color); /* Ligne de séparation en bas de la section avec une couleur secondaire */
+}
+
+.about-section h2 {
+  margin-bottom: 20px; /* Espacement sous le titre */
+  font-size: 2.5rem; /* Taille de police du titre */
+}
+
+.about-section p {
+  font-size: 1.25rem; /* Taille de police pour le paragraphe */
+}
+
+.about-icon {
+  max-width: 50px; /* Limite la largeur de l'icône à 50 pixels */
+  margin-right: 15px; /* Espace entre l'icône et le texte adjacent */
+  display: inline-block; /* Affiche l'icône en ligne avec d'autres éléments */
+  vertical-align: middle; /* Aligne l'icône verticalement avec le texte */
+}
+
+.slide-in-left {
+  opacity: 0; /* Rendre l'élément invisible au départ */
+  transform: translateX(-100px); /* Déplace l'élément 100 pixels vers la gauche */
+  transition: 
+    opacity 0.6s ease-out, /* Transition progressive de l'opacité sur 0.6 secondes */
+    transform 0.6s ease-out; /* Transition progressive de la position sur 0.6 secondes */
+}
+
+.slide-in-left.visible {
+  opacity: 1; /* Rendre l'élément complètement visible */
+  transform: translateX(0); /* Ramène l'élément à sa position d'origine */
+}

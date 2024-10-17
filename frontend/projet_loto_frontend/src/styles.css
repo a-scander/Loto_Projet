@@ -1,13 +1,17 @@
 /* Déclaration des variables de couleurs globales pour toute l'application */
 :root {
-  --primary-color: #fdfdfd; /* Couleur principale */
-  --secondary-color: #f4d03f; /* Couleur secondaire */
-  --tertiary-color: black; /* Couleur troisième */
-  --zoom-scale: scale(1.2); /* Grossissement de 20% */
-  --transition-speed: transform 0.1s ease-in-out; /* Transition fluide de 0.1s */
+  --primary-color: #fdfdfd; /* Couleur principale, utilisée pour le texte et les éléments majeurs (blanc) */
+  --secondary-color: #f3ca20; /* Couleur secondaire, utilisée pour les accents ou éléments d'emphase (jaune doré) */
+  --tertiary-color: black; /* Couleur tertiaire, souvent utilisée pour les arrière-plans sombres */
 }
 
 body {
-  background-color: var(--couleurPrincipale); /* Fond de l'application */
-  font: Verdana, sans-serif;
+  background-color: var(--tertiary-color); /* Définir le fond de l'application en utilisant la couleur tertiaire (noir) */
+  font: Verdana, sans-serif; /* Définir la police de caractères principale à Verdana, avec une police de secours sans-serif */
+  color: var(--primary-color); /* Définir la couleur du texte à la couleur principale (blanc) pour assurer un contraste avec le fond sombre */
+}
+
+.lead {
+  color: var(--primary-color); /* Couleur du texte définie à la couleur principale (blanc) */
+  font-size: 25px; /* Taille de police plus grande pour indiquer un texte important ou de tête de section */
 }

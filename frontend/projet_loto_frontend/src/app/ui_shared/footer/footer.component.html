@@ -1,22 +1,33 @@
 <footer class="footer bg-couleurSecondaire text-white py-3">
+  <!-- Conteneur pour tout le contenu du footer -->
   <div class="container text-center">
-    <!-- Lien centralisé pour les informations -->
+    
+    <!-- Section des liens d'information, centrée -->
     <div class="d-flex justify-content-center mb-5">
-      <a routerLink="/quisommesnous" class="footer-link mx-4"
+      <!-- Lien vers la page "Qui sommes-nous" avec navigation router Angular -->
+      <a
+        routerLink="/quisommesnous"
+        routerLinkActive="active"
+        class="footer-link mx-4"
         >Qui sommes-nous</a
       >
-      <a routerLink="/contact" class="footer-link mx-4">Contact</a>
+      <!-- Lien vers la page de contact -->
+      <a routerLink="/contact" class="footer-link mx-4">Contactez-nous</a>
+      <!-- Lien vers la page de politique de confidentialité -->
       <a routerLink="/politique" class="footer-link mx-4"
         >Politique de confidentialité</a
       >
     </div>
-    <!-- Liens des réseaux sociaux centrés -->
+
+    <!-- Section des icônes des réseaux sociaux, centrée -->
     <div class="d-flex justify-content-center mb-5">
+      <!-- Lien vers LinkedIn, s'ouvre dans un nouvel onglet -->
       <a
         href="https://www.linkedin.com"
         target="_blank"
         class="footer-social mx-4"
       >
+        <!-- Icône LinkedIn -->
         <img
           src="assets/icons/linkedin.png"
           alt="LinkedIn"
@@ -24,11 +35,13 @@
           height="30"
         />
       </a>
+      <!-- Lien vers Facebook, s'ouvre dans un nouvel onglet -->
       <a
         href="https://www.facebook.com"
         target="_blank"
         class="footer-social mx-4"
       >
+        <!-- Icône Facebook -->
         <img
           src="assets/icons/facebook.png"
           alt="Facebook"
@@ -36,11 +49,13 @@
           height="30"
         />
       </a>
+      <!-- Lien vers Instagram, s'ouvre dans un nouvel onglet -->
       <a
         href="https://www.instagram.com"
         target="_blank"
         class="footer-social mx-4"
       >
+        <!-- Icône Instagram -->
         <img
           src="assets/icons/instagram.png"
           alt="Instagram"
@@ -48,11 +63,13 @@
           height="30"
         />
       </a>
+      <!-- Lien vers YouTube, s'ouvre dans un nouvel onglet -->
       <a
         href="https://www.youtube.com"
         target="_blank"
         class="footer-social mx-4"
       >
+        <!-- Icône YouTube -->
         <img
           src="assets/icons/youtube.png"
           alt="YouTube"
@@ -60,11 +77,13 @@
           height="30"
         />
       </a>
+      <!-- Lien vers Twitter, s'ouvre dans un nouvel onglet -->
       <a
         href="https://www.twitter.com"
         target="_blank"
         class="footer-social mx-4"
       >
+        <!-- Icône Twitter -->
         <img
           src="assets/icons/twitter.png"
           alt="Twitter"
@@ -73,9 +92,10 @@
         />
       </a>
     </div>
+
     <!-- Texte de copyright -->
     <div class="copyright mb-4">
-      &copy; 2024 LotoSimulation. Tous droits réservés.
+      &copy; 2024 SimuLoterie. Tous droits réservés.
     </div>
   </div>
 </footer>

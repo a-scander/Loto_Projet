@@ -1,0 +1,35 @@
+<nav *ngIf="totalPages > 1" aria-label="Pagination">
+  <!-- Condition pour afficher la pagination uniquement s'il y a plus d'une page -->
+  <ul class="pagination justify-content-center">
+    <!-- Bouton Précédent : désactivé si la page courante est la première -->
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button
+        class="page-link"
+        (click)="changePage(currentPage - 1)"  
+        aria-label="Précédent"
+      >
+        <span aria-hidden="true">&laquo;</span> <!-- Symbole représentant la flèche vers la gauche pour Précédent -->
+      </button>
+    </li>
+
+    <!-- Numéros de page : boucle pour afficher toutes les pages -->
+    <li
+      class="page-item"
+      *ngFor="let page of pages" 
+      [class.active]="page === currentPage"  
+    >
+      <button class="page-link" (click)="changePage(page)">{{ page }}</button> <!-- Change la page courante en cliquant sur le numéro de page -->
+    </li>
+
+    <!-- Bouton Suivant : désactivé si la page courante est la dernière -->
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button
+        class="page-link"
+        (click)="changePage(currentPage + 1)"  
+        aria-label="Suivant"
+      >
+        <span aria-hidden="true">&raquo;</span> <!-- Symbole représentant la flèche vers la droite pour Suivant -->
+      </button>
+    </li>
+  </ul>
+</nav>

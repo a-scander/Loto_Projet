@@ -2,12 +2,12 @@ const tirageService = require("../services/tirageService");
 
 // Contrôleur pour classer les tirages, les positions et calculer les gains en une seule requête
 exports.classerTiragesPositionsEtGains = (req, res) => {
-  const { tirages, tirageWin } = req.body;
+  const { tirages, tirageWin,montant } = req.body;
 
-  if (!tirages || !tirageWin) {
+  if (!tirages || !tirageWin || !montant) {
     return res
       .status(400)
-      .json({ message: "Tirages ou tirage gagnant manquant." });
+      .json({ message: "Tirages ou tirage gagnant ou montant manquant." });
   }
 
   // 1. Classer les tirages
@@ -17,7 +17,7 @@ exports.classerTiragesPositionsEtGains = (req, res) => {
   const positions = tirageService.classerPosition(classement,tirageWin);
 
   // 3. Calculer les gains selon les positions
-  const gains = tirageService.calculerGainsParPosition(positions);
+  const gains = tirageService.calculerGainsParPosition(positions,montant);
 
   // Retourner tout en un seul objet : classement, positions et gains
   res.json({

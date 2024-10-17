@@ -1,0 +1,32 @@
+<div class="container mt-3"> <!-- Conteneur principal avec une marge supérieure (mt-3) -->
+  <!-- Tableau pour afficher les numéros par lignes -->
+  <div class="grid-container p-3 border border-white rounded"> <!-- Conteneur pour la grille de numéros -->
+    <!-- Ajout de la bordure principale -->
+    <div
+      class="grid-item" 
+      *ngFor="let number of gridNumbers" 
+      [class.selected]="selectedNumbers.includes(number)" 
+      (click)="selectNumber(number)" 
+    >
+      <button
+        class="btn w-100 border-white" 
+        [ngClass]="{ 
+          'btn-selected': selectedNumbers.includes(number), 
+          'btn-unselected': !selectedNumbers.includes(number) 
+        }"
+      >
+        {{ number }} <!-- Affiche le numéro correspondant -->
+      </button>
+    </div>
+  </div>
+
+  <!-- Bouton de confirmation -->
+  <div class="row mt-3"> <!-- Ligne pour le bouton de confirmation avec une marge supérieure -->
+    <div class="col text-center"> <!-- Colonne centrée -->
+      <app-button
+        [label]="'Confirmer'" 
+        (clicked)="confirmSelection()" 
+      ></app-button>
+    </div>
+  </div>
+</div>

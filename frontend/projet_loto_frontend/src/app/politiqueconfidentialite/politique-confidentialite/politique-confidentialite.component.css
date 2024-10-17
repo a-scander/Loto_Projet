@@ -1,0 +1,67 @@
+/* Fond général de la page */
+body {
+  background-color: var(--tertiary-color); /* Applique la couleur de fond tertiaire (noir) */
+  color: var(--primary-color); /* Le texte général est en blanc */
+}
+
+/* Section principale */
+.container {
+  max-width: 1200px; /* Définit une largeur maximale pour la section principale */
+  margin: 0 auto; /* Centre horizontalement le contenu */
+}
+
+/* Titres */
+h1,
+h2 {
+  color: var(--primary-color); /* Applique la couleur primaire (blanc) aux titres */
+  margin-bottom: 20px; /* Espacement en bas des titres */
+}
+
+h1 {
+  font-size: 2.5rem; /* Taille de police pour les titres h1 */
+  font-weight: bold; /* Les titres h1 sont en gras */
+}
+
+h2 {
+  font-size: 2rem; /* Taille de police pour les titres h2 */
+}
+
+/* Textes généraux */
+p,
+ul,
+li {
+  color: var(--primary-color); /* Texte en blanc pour les paragraphes et les listes */
+  line-height: 1.8; /* Hauteur de ligne augmentée pour une meilleure lisibilité */
+  font-size: 16px; /* Taille de police standard */
+}
+
+/* Listes sans puces avec des flèches jaunes */
+ul {
+  list-style-type: none; /* Supprime les puces par défaut */
+  padding-left: 0; /* Supprime le padding à gauche des listes */
+  margin-left: 0; /* Supprime la marge à gauche */
+}
+
+ul li {
+  position: relative; /* Position relative pour ajouter une flèche avant l'élément */
+  margin-bottom: 10px; /* Espacement en bas de chaque élément de la liste */
+  padding-left: 20px; /* Crée un espace à gauche pour la flèche */
+}
+
+ul li::before {
+  content: "→ "; /* Ajoute une flèche avant chaque élément */
+  color: var(--secondary-color); /* Applique la couleur secondaire (jaune) à la flèche */
+  position: absolute; /* Position absolue pour placer la flèche à gauche */
+  left: 0; /* Positionne la flèche au début de l'élément */
+}
+
+/* Liens */
+a {
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: var(--secondary-color); /* Applique la couleur jaune aux liens */
+  cursor: pointer; /* Change le curseur pour indiquer que c'est un lien cliquable */
+}
+
+a:hover {
+  text-decoration: underline; /* Soulignement lors du survol du lien */
+}

@@ -1,0 +1,304 @@
+<!-- Paragraphe d'introduction avec espacement en dehors de la carte -->
+<p class="lead text-center m-5">
+  Pour participer, veuillez entrer un pseudo, sélectionner vos numéros et
+  étoiles. Tous les champs sont requis, mais vous pouvez réutiliser un pseudo
+  déjà existant si vous le souhaitez. Bonne chance, que la fortune vous
+  accompagne !
+</p>
+
+<div class="container">
+  <div class="row">
+    <!-- Colonne pour la carte du formulaire de tirage -->
+    <div class="col-md-6">
+      <!-- Carte avec dégradé et ombre -->
+      <div
+        class="card shadow mx-auto p-4 mb-5"
+        style="
+          max-width: 600px;
+          background: linear-gradient(
+            135deg,
+            var(--secondary-color),
+            var(--primary-color)
+          );
+        "
+      >
+        <!-- En-tête de la carte avec icône et titre -->
+        <div class="d-flex align-items-center justify-content-center mb-3">
+          <img
+            src="assets/simulation/lottery.png"
+            alt="Icône Ticket"
+            class="me-3"
+            style="width: 40px; height: 40px"
+          />
+          <h2 class="mb-0 text-black">Ticket</h2>
+        </div>
+
+        <!-- Section d'information sur le tirage en cours -->
+        <div class="tirage-info text-center mb-4">
+          <h5 class="text-black fw-bold">
+            Ticket
+            {{ selectedTirageIndex !== null ? selectedTirageIndex + 1 : currentDraw }}
+            / {{ numberOfDraws }}
+          </h5>
+        </div>
+
+        <!-- Formulaire pour entrer les informations du ticket -->
+        <form (ngSubmit)="validateTicket()">
+          <!-- Champ pour le pseudo avec bouton générer -->
+          <div class="mb-3 d-flex align-items-center">
+            <div class="flex-grow-1">
+              <label for="pseudo" class="form-label fw-bold text-black">Pseudo</label>
+              <div class="input-group">
+                <!-- Champ pour entrer le pseudo -->
+                <input
+                  id="pseudo"
+                  name="pseudo"
+                  [(ngModel)]="pseudo"
+                  class="form-control"
+                  placeholder="Entrez ou choisir le pseudo"
+                  (keyup)="checkPseudo()"
+                  [disabled]="isPseudoSelected"
+                  required
+                />
+                <!-- Icône pour ouvrir la liste des pseudos -->
+                <span class="input-group-text icon-input"
+                  (click)="isPseudoSelected ? enablePseudoEdit() : fetchPseudosFromDB()">
+                  <!-- Affichage de l'icône en fonction de l'état du pseudo -->
+                  <img *ngIf="isPseudoSelected; else userIcon" src="assets/simulation/close.png" alt="Annuler" class="input-icon" />
+                  <ng-template #userIcon>
+                    <img src="assets/simulation/user.png" alt="Liste des pseudos" class="input-icon" />
+                  </ng-template>
+                </span>
+                <!-- Bouton pour générer un pseudo aléatoire -->
+                <app-button
+                  class="ms-2"
+                  [label]="'Générer'"
+                  (clicked)="generatePseudo()"
+                  [disabled]="isPseudoSelected"
+                ></app-button>
+              </div>
+              <!-- Affichage du message d'erreur ou de succès pour le pseudo -->
+              <div *ngIf="pseudoMessage"
+                [ngClass]="{ 'error-message': showPseudoError, 'success-message': !showPseudoError }">
+                {{ pseudoMessage }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Numéros joués avec icône et bouton générer -->
+          <div class="mb-3 d-flex align-items-center">
+            <div class="flex-grow-1">
+              <label for="numJoue" class="form-label fw-bold text-black">Numéros joués</label>
+              <div class="input-group">
+                <!-- Champ pour afficher les numéros joués -->
+                <input
+                  type="text"
+                  id="numJoue"
+                  name="numJoue"
+                  [(ngModel)]="selectedNumbersString"
+                  class="form-control"
+                  disabled
+                  placeholder="Choisissez vos numéros"
+                />
+                <!-- Icône pour ouvrir la grille de sélection des numéros -->
+                <span class="input-group-text icon-input" (click)="openNumberGrid()">
+                  <img src="assets/simulation/numero.png" alt="Numéros" class="input-icon" />
+                </span>
+                <!-- Bouton pour générer des numéros aléatoires -->
+                <app-button
+                  class="ms-2"
+                  [label]="'Générer'"
+                  (clicked)="generateRandomNumbers()"
+                ></app-button>
+              </div>
+              <!-- Message d'erreur si les numéros ne sont pas sélectionnés -->
+              <div *ngIf="showNumbersError" class="error-message">
+                Vous devez sélectionner 5 numéros.
+              </div>
+            </div>
+          </div>
+
+          <!-- Étoiles jouées avec icône et bouton générer -->
+          <div class="mb-3 d-flex align-items-center">
+            <div class="flex-grow-1">
+              <label for="etoileJoue" class="form-label fw-bold text-black">Étoiles jouées</label>
+              <div class="input-group">
+                <!-- Champ pour afficher les étoiles jouées -->
+                <input
+                  type="text"
+                  id="etoileJoue"
+                  name="etoileJoue"
+                  [(ngModel)]="selectedStarsString"
+                  class="form-control"
+                  disabled
+                  placeholder="Choisissez vos étoiles"
+                />
+                <!-- Icône pour ouvrir la grille de sélection des étoiles -->
+                <span class="input-group-text icon-input" (click)="openStarGrid()">
+                  <img src="assets/simulation/etoile.png" alt="Étoiles" class="input-icon" />
+                </span>
+                <!-- Bouton pour générer des étoiles aléatoires -->
+                <app-button
+                  class="ms-2"
+                  [label]="'Générer'"
+                  (clicked)="generateRandomStars()"
+                ></app-button>
+              </div>
+              <!-- Message d'erreur si les étoiles ne sont pas sélectionnées -->
+              <div *ngIf="showStarsError" class="error-message">
+                Vous devez sélectionner 2 étoiles.
+              </div>
+            </div>
+          </div>
+
+          <!-- Boutons pour valider ou générer tout -->
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <app-button
+              [label]="'Valider le ticket'"
+              [type]="'submit'"
+              [disabled]="!isFormValid()"
+            ></app-button>
+            <app-button
+              [label]="'Générer tout'"
+              [type]="'button'"
+              (clicked)="generateAll()"
+            ></app-button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Colonne pour afficher la liste des tirages -->
+    <div class="col-md-6">
+      <!-- Carte contenant la liste des tickets -->
+      <div
+        class="card shadow mx-auto p-4 mb-5"
+        style="
+          max-width: 600px;
+          background: linear-gradient(
+            135deg,
+            var(--secondary-color),
+            var(--primary-color)
+          );
+        "
+      >
+        <!-- En-tête de la carte avec icône et titre -->
+        <div class="d-flex align-items-center mb-3 justify-content-center">
+          <img
+            src="assets/simulation/liste.png"
+            alt="Liste des tirages"
+            class="me-3"
+            style="width: 40px; height: 40px"
+          />
+          <h2 class="mb-0 text-black">Liste des tickets</h2>
+        </div>
+        <!-- Tableau affichant la liste des tickets -->
+        <app-table
+          [columns]="columns"
+          [data]="tableData"
+          [showAction]="false"
+          [showCard]="false"
+          [selectedIndex]="selectedIndex"
+          (rowClickEvent)="onRowClick($event)"
+        ></app-table>
+      </div>
+    </div>
+
+    <!-- Modale pour sélectionner les numéros -->
+    <div
+      *ngIf="showNumberGrid"
+      class="modal fade show d-block"
+      tabindex="-1"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+    >
+      <div class="modal-dialog modal-lg-custom">
+        <!-- Contenu de la modale avec grille de numéros -->
+        <div class="modal-content modal-black-bg">
+          <div class="modal-header">
+            <app-title [text]="'Sélectionnez les numéros'"></app-title>
+            <button type="button" class="btn-close" (click)="closeGrid()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <app-number-grid
+              [maxSelections]="maxNumberSelections"
+              [selectedNumbers]="selectedNumbers"
+              [type]="'numero'"
+              (selectionConfirmed)="onNumbersSelected($event)"
+            ></app-number-grid>
+          </div>
+          <div class="modal-footer">
+            <app-button [label]="'Fermer'" (clicked)="closeGrid()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale pour sélectionner les étoiles -->
+    <div
+      *ngIf="showStarGrid"
+      class="modal fade show d-block"
+      tabindex="-1"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+    >
+      <div class="modal-dialog modal-lg-custom">
+        <!-- Contenu de la modale avec grille des étoiles -->
+        <div class="modal-content modal-black-bg">
+          <div class="modal-header">
+            <app-title [text]="'Sélectionnez les étoiles'"></app-title>
+            <button type="button" class="btn-close" (click)="closeGrid()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <app-number-grid
+              [maxSelections]="maxStarSelections"
+              [selectedNumbers]="selectedStars"
+              [type]="'star'"
+              (selectionConfirmed)="onStarsSelected($event)"
+            ></app-number-grid>
+          </div>
+          <div class="modal-footer">
+            <app-button [label]="'Fermer'" (clicked)="closeGrid()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale pour afficher la liste des pseudos -->
+    <div *ngIf="showPseudoList" class="modal fade show d-block" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <app-title [text]="'Liste des pseudos'"></app-title>
+            <button type="button" class="btn-close" (click)="closePseudoList()" aria-label="Close"></button>
+          </div>
+
+          <!-- Barre de recherche pour les pseudos -->
+          <div class="modal-body">
+            <input
+              type="text"
+              [(ngModel)]="searchTerm"
+              class="form-control"
+              placeholder="Rechercher un pseudo dans la base de donnée..."
+              (input)="filterPseudoList()"
+            />
+
+            <!-- Liste des pseudos filtrés -->
+            <ul class="list-group mt-3">
+              <!-- Affiche seulement les 5 premiers résultats filtrés -->
+              <li
+                class="list-group-item"
+                *ngFor="let user of filteredUsers | slice: 0 : 5"
+                (dblclick)="selectPseudo(user)"
+              >
+                {{ user.pseudo }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-footer">
+            <app-button [label]="'Fermer'" (clicked)="closePseudoList()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

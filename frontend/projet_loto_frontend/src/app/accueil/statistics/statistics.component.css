@@ -1,0 +1,23 @@
+.statistics h4 {
+  font-size: 1.5rem; /* Taille de la police pour les sous-titres dans la section des statistiques */
+  margin-bottom: 10px; /* Espacement en bas des sous-titres */
+}
+
+.stat-number {
+  font-size: 2.5rem; /* Taille de la police pour les nombres dans la section des statistiques */
+  font-weight: bold; /* Rend le texte gras pour plus de visibilité */
+  color: var(--primary-color); /* Applique la couleur principale définie dans la variable CSS */
+  transition: transform 0.3s ease; /* Animation de transition fluide pour l'effet de zoom */
+}
+
+/* Ajout d'un léger effet de zoom sur les nombres lors du survol */
+.stat-number:hover {
+  transform: scale(1.1); /* Agrandit légèrement l'élément au survol pour attirer l'attention */
+}
+
+.stat-icon {
+  max-width: 50px !important; /* Limite la taille maximale de l'icône à 50 pixels */
+  margin-right: 15px; /* Espacement entre l'icône et le texte adjacent */
+  display: inline-block; /* Affiche l'icône en ligne avec le texte */
+  vertical-align: middle; /* Aligne verticalement l'icône avec le texte pour un rendu propre */
+}

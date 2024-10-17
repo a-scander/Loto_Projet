@@ -1,0 +1,100 @@
+<!-- Paragraphe en dehors de la carte avec espacement mt-5 -->
+<p class="lead text-center mt-5">
+  <!-- Paragraphe principal qui présente la fonctionnalité, avec un style "lead" pour le rendre plus grand et centré -->
+  Paramétrez votre simulation personnalisée en définissant le nombre de
+  participants, de tickets à remplir et le gain total de la partie.
+</p>
+
+<!-- Carte contenant le formulaire de simulation -->
+<div class="simulation-card">
+  <!-- Section de l'en-tête avec une image d'icône et le titre de la carte -->
+  <div class="simulation-header">
+    <img
+      src="assets/simulation/cogwheel.png" 
+      alt="Icône Simulation" 
+      class="simulation-image" 
+    />
+    <h2>Simulation Personnalisée</h2> <!-- Titre de la carte -->
+  </div>
+
+  <!-- Début du formulaire avec un formGroup Angular et soumission via ngSubmit -->
+  <form [formGroup]="customForm" (ngSubmit)="onSubmit()">
+    <!-- Champ pour entrer le nombre de participants -->
+    <div class="form-field">
+      <label for="totalParticipants">Nombre de participants:</label>
+      <!-- Champ de saisie pour le nombre de participants, relié au formControl "totalParticipants" -->
+      <input
+        id="totalParticipants"
+        formControlName="totalParticipants" 
+        type="text" 
+        (keydown)="validateNumberInput($event)" 
+        required 
+      />
+      <!-- Message d'erreur affiché si le champ est invalide et a été touché (focus/saisie puis sortie du champ) -->
+      <div
+        *ngIf="
+          customForm.get('totalParticipants')?.invalid &&
+          customForm.get('totalParticipants')?.touched
+        "
+        class="error-message"
+      >
+        Veuillez entrer un nombre de participants entre 0 et 100.
+      </div>
+    </div>
+
+    <!-- Champ pour entrer le nombre de tirages -->
+    <div class="form-field">
+      <label for="numberOfDraws">Nombre de tickets à remplir:</label>
+      <!-- Champ de saisie pour le nombre de tirages, relié au formControl "numberOfDraws" -->
+      <input
+        id="numberOfDraws"
+        formControlName="numberOfDraws" 
+        (keydown)="validateNumberInput($event)" 
+        required 
+      />
+      <!-- Message d'erreur combiné : soit le champ est invalide, soit il y a une erreur de règle (nombre de tickets > participants) -->
+      <div
+        *ngIf="
+          (customForm.get('numberOfDraws')?.invalid ||
+            customForm.errors?.['drawsExceedParticipants']) &&
+          customForm.get('numberOfDraws')?.touched
+        "
+        class="error-message"
+      >
+        Veuillez entrer un nombre de tickets à remplir inférieur ou égal au
+        nombre de participants.
+      </div>
+    </div>
+
+    <!-- Champ pour entrer le gain total de la partie -->
+    <div class="form-field">
+      <label for="montantTotal">Gain total de la partie:</label>
+      <!-- Champ de saisie pour le montant total, relié au formControl "montantTotal" -->
+      <input
+        id="montantTotal"
+        formControlName="montantTotal" 
+        type="text"
+        (keydown)="validateDecimalInput($event)"
+        required 
+      />
+      <!-- Message d'erreur affiché si le champ montant est invalide et a été touché -->
+      <div
+        *ngIf="
+          customForm.get('montantTotal')?.invalid &&
+          customForm.get('montantTotal')?.touched
+        "
+        class="error-message"
+      >
+        Le gain doit être un nombre supérieur à 0.
+      </div>
+    </div>
+
+    <!-- Utilisation du composant personnalisé ButtonComponent pour soumettre le formulaire -->
+    <app-button
+      [label]="'Lancer la simulation'" 
+      [type]="'submit'" 
+      [disabled]="customForm.invalid" 
+    >
+    </app-button>
+  </form>
+</div>

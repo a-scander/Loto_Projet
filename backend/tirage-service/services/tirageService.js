@@ -87,9 +87,8 @@ function classerPosition(tirages,tiragewin) {
     return tableauPosition;  // Retourne le tableau des positions
 }
 
-function calculerGainsParPosition(positions) {
-  const TOTAL_GAINS = 3000000; // 3 millions d'euros à répartir
-
+function calculerGainsParPosition(positions,montant) {
+  const TOTAL_GAINS = montant;
   // Barème de répartition selon la position
   const pourcentagesGains = {
     1: 40,

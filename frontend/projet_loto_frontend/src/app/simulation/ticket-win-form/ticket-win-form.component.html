@@ -1,0 +1,213 @@
+<!-- Paragraphe introductif pour guider l'utilisateur sur le processus de sélection des numéros et étoiles gagnants -->
+<p class="lead text-center m-5">
+  Sélectionnez les numéros et étoiles gagnants qui détermineront le résultat
+  final de cette partie. Faites vos choix avec soin, car ce tirage définira les
+  gagnants du jeu.
+</p>
+
+<div class="container">
+  <div class="row">
+    <!-- Carte du formulaire de tirage pour entrer les numéros et étoiles gagnants -->
+    <div class="mx-auto">
+      <div
+        class="card shadow mx-auto p-4 mb-5"
+        style="
+          max-width: 600px;
+          background: linear-gradient(
+            135deg,
+            var(--secondary-color),
+            var(--primary-color)
+          );
+        "
+      >
+        <!-- En-tête de la carte avec une icône de bingo et le titre 'Tirage gagnant' -->
+        <div class="d-flex align-items-center justify-content-center mb-3">
+          <img
+            src="assets/simulation/bingo.png"
+            alt="Icône Ticket"
+            class="me-3"
+            style="width: 40px; height: 40px"
+          />
+          <h2 class="mb-0 text-black">Tirage gagnant</h2>
+        </div>
+
+        <!-- Formulaire pour entrer les numéros et étoiles -->
+        <form (ngSubmit)="validateTicket()">
+          <!-- Section pour entrer les numéros joués -->
+          <div class="mb-3 d-flex align-items-center">
+            <div class="flex-grow-1">
+              <!-- Label pour le champ des numéros joués -->
+              <label for="numJoue" class="form-label fw-bold text-black">Numéros joués</label>
+              <div class="input-group">
+                <!-- Champ désactivé pour afficher les numéros sélectionnés -->
+                <input
+                  type="text"
+                  id="numJoue"
+                  name="numJoue"
+                  [(ngModel)]="selectedNumbersString"
+                  class="form-control"
+                  disabled
+                  placeholder="Choisissez vos numéros"
+                />
+                <!-- Icône pour ouvrir la grille de sélection des numéros -->
+                <span
+                  class="input-group-text icon-input"
+                  (click)="openNumberGrid()"
+                >
+                  <img
+                    src="assets/simulation/numero.png"
+                    alt="Numéros"
+                    class="input-icon"
+                  />
+                </span>
+                <!-- Bouton pour générer des numéros aléatoires -->
+                <app-button
+                  class="ms-2"
+                  [label]="'Générer'"
+                  (clicked)="generateRandomNumbers()"
+                ></app-button>
+              </div>
+              <!-- Message d'erreur si les numéros ne sont pas sélectionnés correctement -->
+              <div *ngIf="showNumbersError" class="error-message">
+                Vous devez sélectionner 5 numéros.
+              </div>
+            </div>
+          </div>
+
+          <!-- Section pour entrer les étoiles jouées -->
+          <div class="mb-3 d-flex align-items-center">
+            <div class="flex-grow-1">
+              <!-- Label pour le champ des étoiles jouées -->
+              <label for="etoileJoue" class="form-label fw-bold text-black">Étoiles jouées</label>
+              <div class="input-group">
+                <!-- Champ désactivé pour afficher les étoiles sélectionnées -->
+                <input
+                  type="text"
+                  id="etoileJoue"
+                  name="etoileJoue"
+                  [(ngModel)]="selectedStarsString"
+                  class="form-control"
+                  disabled
+                  placeholder="Choisissez vos étoiles"
+                />
+                <!-- Icône pour ouvrir la grille de sélection des étoiles -->
+                <span
+                  class="input-group-text icon-input"
+                  (click)="openStarGrid()"
+                >
+                  <img
+                    src="assets/simulation/etoile.png"
+                    alt="Étoiles"
+                    class="input-icon"
+                  />
+                </span>
+                <!-- Bouton pour générer des étoiles aléatoires -->
+                <app-button
+                  class="ms-2"
+                  [label]="'Générer'"
+                  (clicked)="generateRandomStars()"
+                ></app-button>
+              </div>
+              <!-- Message d'erreur si les étoiles ne sont pas sélectionnées correctement -->
+              <div *ngIf="showStarsError" class="error-message">
+                Vous devez sélectionner 2 étoiles.
+              </div>
+            </div>
+          </div>
+
+          <!-- Boutons pour valider le ticket ou générer tous les numéros/étoiles -->
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <app-button
+              [label]="'Valider le ticket'"
+              [type]="'submit'"
+              [disabled]="!isFormValid()"
+            >
+            </app-button>
+            <app-button
+              [label]="'Générer tout'"
+              [type]="'button'"
+              (clicked)="generateAll()"
+            >
+            </app-button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Popup modale pour la sélection des numéros -->
+    <div
+      *ngIf="showNumberGrid"
+      class="modal fade show d-block"
+      tabindex="-1"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+    >
+      <div class="modal-dialog modal-lg-custom">
+        <div class="modal-content modal-black-bg">
+          <div class="modal-header">
+            <!-- Titre de la modale pour sélectionner les numéros -->
+            <app-title [text]="'Sélectionnez les numéros'"></app-title>
+            <!-- Bouton de fermeture de la modale -->
+            <button
+              type="button"
+              class="btn-close"
+              (click)="closeGrid()"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Grille de sélection des numéros -->
+            <app-number-grid
+              [maxSelections]="maxNumberSelections"
+              [selectedNumbers]="selectedNumbers"
+              [type]="'numero'"
+              (selectionConfirmed)="onNumbersSelected($event)"
+            >
+            </app-number-grid>
+          </div>
+          <!-- Bouton pour fermer la grille -->
+          <div class="modal-footer">
+            <app-button [label]="'Fermer'" (clicked)="closeGrid()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup modale pour la sélection des étoiles -->
+    <div
+      *ngIf="showStarGrid"
+      class="modal fade show d-block"
+      tabindex="-1"
+      style="background-color: rgba(0, 0, 0, 0.5)"
+    >
+      <div class="modal-dialog modal-lg-custom">
+        <div class="modal-content modal-black-bg">
+          <div class="modal-header">
+            <!-- Titre de la modale pour sélectionner les étoiles -->
+            <app-title [text]="'Sélectionnez les étoiles'"></app-title>
+            <!-- Bouton de fermeture de la modale -->
+            <button
+              type="button"
+              class="btn-close"
+              (click)="closeGrid()"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Grille de sélection des étoiles -->
+            <app-number-grid
+              [maxSelections]="maxStarSelections"
+              [selectedNumbers]="selectedStars"
+              [type]="'star'"
+              (selectionConfirmed)="onStarsSelected($event)"
+            >
+            </app-number-grid>
+          </div>
+          <!-- Bouton pour fermer la grille -->
+          <div class="modal-footer">
+            <app-button [label]="'Fermer'" (clicked)="closeGrid()"></app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

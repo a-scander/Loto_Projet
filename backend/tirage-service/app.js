@@ -6,7 +6,8 @@ const cors = require("cors");
 
 // Importation des routes pour le service de tirage
 const tirageRoutes = require("./routes/tirageRoutes");
-const bdRoutes = require("./routes/bdRoute");
+const bdRoutes = require("./routes/bdRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 // Initialisation de l'application Express
 const app = express();
 
@@ -28,6 +29,6 @@ app.use("/api/tirages", tirageRoutes);
 // Routes pour les opérations en base de données
 app.use("/api/bd", bdRoutes); // Utilisation des nouvelles routes pour la base de données
 
-
+app.use("/api/contact", contactRoutes); // Route pour le formulaire de contact
 // Exportation de l'application pour qu'elle puisse être utilisée dans 'index.js'
 module.exports = app;

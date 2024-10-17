@@ -1,0 +1,71 @@
+<div class="container my-5">
+  <!-- Section d'introduction -->
+  <div class="text-center mb-5">
+    <!-- Titre principal avec le composant personnalisé app-title -->
+    <app-title
+      [level]="1"
+      text="Sélection du Mode de Tirage Gagnant"
+    ></app-title>
+    <!-- Paragraphe explicatif décrivant les options disponibles pour définir le tirage gagnant -->
+    <p class="lead">
+      Choisissez comment vous souhaitez définir le tirage gagnant : générer un
+      tirage aléatoire ou entrer manuellement les numéros et les étoiles.
+    </p>
+  </div>
+
+  <!-- Sous-titre pour guider l'utilisateur vers la sélection de méthode -->
+  <app-title [level]="1" text="Sélectionner votre méthode"></app-title>
+
+  <!-- Section contenant deux options pour la sélection du tirage gagnant -->
+  <div class="row text-center mt-4">
+    <!-- Colonne pour l'option de génération aléatoire -->
+    <div class="col-md-6 mb-4">
+      <!-- Carte cliquable pour la génération aléatoire -->
+      <div
+        class="card p-5 equal-card"
+        (click)="goToRandomGeneration()" 
+        style="cursor: pointer" 
+      >
+        <!-- Titre avec une icône pour la génération aléatoire -->
+        <h2>
+          <img
+            src="assets/simulation/random.png"
+            alt="Icône Génération Aléatoire"
+            style="width: 30px; height: 30px; margin-right: 10px"
+          />
+          Génération Aléatoire
+        </h2>
+        <!-- Description de l'option de génération aléatoire -->
+        <p>
+          Laissez le système choisir un tirage gagnant de manière aléatoire
+          parmi les participants.
+        </p>
+      </div>
+    </div>
+
+    <!-- Colonne pour l'option de saisie manuelle -->
+    <div class="col-md-6 mb-4">
+      <!-- Carte cliquable pour la saisie manuelle des numéros et étoiles -->
+      <div
+        class="card p-5 equal-card"
+        (click)="goToManualEntry()" 
+        style="cursor: pointer" 
+      >
+        <!-- Titre avec une icône pour la saisie manuelle -->
+        <h2>
+          <img
+            src="assets/simulation/write.png"
+            alt="Icône Saisie Manuelle"
+            style="width: 30px; height: 30px; margin-right: 10px"
+          />
+          Saisie Manuelle
+        </h2>
+        <!-- Description de l'option de saisie manuelle -->
+        <p>
+          Entrez manuellement les numéros et étoiles pour définir le tirage
+          gagnant selon votre choix.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

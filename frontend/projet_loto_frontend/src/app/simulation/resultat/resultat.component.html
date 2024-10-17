@@ -1,0 +1,88 @@
+<div class="container my-5">
+  <!-- Introduction avec un texte descriptif centré -->
+  <div class="text-center mb-5">
+    <app-title [text]="'Résultats'" [level]="1"></app-title>
+    <p class="lead">
+      Voici les résultats du tirage, avec les positions des participants et
+      leurs gains respectifs.
+    </p>
+  </div>
+
+  <!-- Section contenant les informations sur le tirage gagnant et les détails de la simulation -->
+  <div class="row align-items-center mb-4 equal-height-container">
+    <!-- Colonne de gauche : Tirage gagnant -->
+    <div class="col-md-6">
+      <div class="tirage-gagnant p-4 equal-height">
+        <!-- Titre pour le tirage gagnant -->
+        <h4 class="mb-3">Tirage Gagnant</h4>
+        <!-- Affichage des numéros gagnants avec un style distinct pour les numéros -->
+        <p class="mb-2">
+          <strong>Numéros :</strong>
+          <span class="winning-numbers"
+            >[{{ tirageWin.numeros.join(", ") }}]</span
+          >
+        </p>
+        <!-- Affichage des étoiles gagnantes avec un style distinct pour les étoiles -->
+        <p>
+          <strong>Étoiles :</strong>
+          <span class="winning-stars"
+            >[{{ tirageWin.etoiles.join(", ") }}]</span
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- Colonne de droite : Informations sur la simulation -->
+    <div class="col-md-6">
+      <div class="details-tirage p-4 equal-height">
+        <!-- Titre pour les détails de la simulation -->
+        <h4 class="mb-3">Détails de la simulation</h4>
+        <!-- Nombre total de participants affiché -->
+        <p class="mb-1">
+          <strong>Nombre total de participants :</strong>
+          {{ totalParticipants }}
+        </p>
+        <!-- Nombre total de tickets remplis affiché -->
+        <p class="mb-1">
+          <strong>Nombre de tickets remplis:</strong> {{ numberOfDraws }}
+        </p>
+        <!-- Montant total de la cagnotte avec formatage numérique pour inclure les séparateurs de milliers -->
+        <p class="mb-0">
+          <strong>Montant total :</strong> {{ montantTotal.toLocaleString() }} €
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Composant pour afficher le tableau des résultats de la simulation -->
+  <app-table
+    [columns]="columns"
+    [data]="tableData"
+    [showAction]="false"
+    [title]="'Résultats de la simulation'"
+  >
+  </app-table>
+
+  <!-- Groupe de boutons avec un centrage et espacement -->
+  <div class="button-group text-center mt-5">
+    <!-- Bouton pour retourner à l'accueil -->
+    <app-button [label]="'Accueil'" (clicked)="goToAccueil()" class="me-3">
+    </app-button>
+
+    <!-- Bouton pour relancer une nouvelle simulation -->
+    <app-button
+      [label]="'Refaire une simulation'"
+      (clicked)="goToSimulation()"
+      class="mx-3"
+    >
+    </app-button>
+
+    <!-- Bouton pour consulter l'historique des simulations -->
+    <app-button
+      [label]="'Historique'"
+      (clicked)="goToHistorique()"
+      class="ms-3"
+    >
+    </app-button>
+  </div>
+</div>

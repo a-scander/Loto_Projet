@@ -1,0 +1,99 @@
+/* Fond général de la page */
+body {
+  background-color: var(--tertiary-color); /* Applique la couleur de fond noire */
+  color: var(--primary-color); /* Texte principal en blanc */
+}
+
+/* Section principale */
+.container {
+  max-width: 1200px; /* Limite la largeur du conteneur à 1200px */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+}
+
+/* Titres */
+h1,
+h2 {
+  color: var(--primary-color); /* Titres en blanc */
+  margin-bottom: 20px; /* Espacement sous les titres */
+}
+
+h1 {
+  font-size: 2.5rem; /* Taille de police pour les titres h1 */
+  font-weight: bold; /* Titres en gras */
+}
+
+h2 {
+  font-size: 2rem; /* Taille de police pour les titres h2 */
+}
+
+/* Textes */
+p,
+ul,
+li {
+  color: var(--primary-color); /* Texte en blanc */
+  line-height: 1.8; /* Interlignage plus grand pour améliorer la lisibilité */
+  font-size: 16px; /* Taille de police standard */
+}
+
+/* Alignement des sections */
+.row {
+  align-items: flex-start; /* Aligne les éléments de la grille en haut (par défaut) */
+}
+
+/* Listes avec flèches jaunes */
+ul {
+  list-style-type: none; /* Supprime les puces par défaut */
+  padding-left: 0; /* Retire le padding à gauche */
+  margin-left: 0; /* Assure que la liste commence bien à gauche */
+}
+
+ul li::before {
+  content: "→ "; /* Ajoute une flèche avant chaque élément de la liste */
+  color: var(--secondary-color); /* Applique la couleur jaune à la flèche */
+}
+
+li {
+  margin-bottom: 10px; /* Ajoute un espacement sous chaque élément de la liste */
+}
+
+/* Cartes */
+.card {
+  background-color: var(--primary-color); /* Fond des cartes en blanc */
+  border: none; /* Supprime la bordure par défaut */
+}
+
+.card-body {
+  color: var(--tertiary-color); /* Texte des cartes en noir */
+}
+
+.card-title {
+  font-weight: bold; /* Le titre de la carte est en gras */
+  color: var(--tertiary-color); /* Couleur du titre en noir */
+}
+
+.card-footer {
+  background-color: transparent; /* Fond transparent pour le pied de carte */
+  border-top: none; /* Supprime la bordure en haut du pied de carte */
+}
+
+/* Boutons */
+.btn {
+  color: var(--tertiary-color); /* Texte en noir */
+  background-color: var(--secondary-color); /* Fond jaune pour le bouton */
+  border: none; /* Supprime la bordure par défaut */
+  padding: 10px 20px; /* Ajoute du padding interne au bouton */
+  border-radius: 5px; /* Arrondit les coins du bouton */
+  cursor: pointer; /* Change le curseur pour indiquer l'interactivité */
+  font-size: 16px; /* Taille de police du texte dans le bouton */
+  font-weight: bold; /* Texte en gras */
+  transition: background-color 0.3s ease; /* Transition fluide du fond du bouton au survol */
+}
+
+/* Hover des boutons */
+.btn:hover {
+  background-color: #e1bc36; /* Fonce la couleur du fond lors du survol */
+}
+
+.btn-block {
+  width: 100%; /* Le bouton occupe toute la largeur disponible */
+}

@@ -1,1 +1,327 @@
-<p>historique-page works!</p>
+<!-- Conteneur principal avec un espacement en haut -->
+<div class="container mt-5">
+  
+  <!-- Titre principal centré -->
+  <app-title [level]="1" text="Historique" class="text-center"></app-title>
+
+  <!-- Paragraphe d'introduction centré expliquant la fonctionnalité d'historique -->
+  <p class="lead text-center">
+    Consultez l'historique complet de vos tickets et tirages passés. Sur cette
+    page, vous avez accès à une vue détaillée de toutes vos participations.
+    Utilisez la barre de recherche pour retrouver rapidement des tickets
+    spécifiques et appliquez des filtres avancés pour analyser vos résultats.
+    Cette fonctionnalité vous permet de suivre vos gains, de visualiser les
+    numéros joués et de mieux comprendre vos performances au fil du temps.
+  </p>
+
+  <!-- Conteneur pour le tableau avec un espacement supplémentaire en haut -->
+  <div class="container mt-5">
+    
+    <!-- Afficher le tableau filtré si des résultats existent -->
+    <div *ngIf="filteredTirages.length > 0; else noResults" class="mb-5">
+      <app-table
+        [columns]="columns"
+        [data]="filteredTirages"
+        [title]="'Historique des tickets'"
+        (deleteEvent)="deleteTirage($event)"
+      ></app-table>
+    </div>
+
+    <!-- Message affiché si aucun résultat n'est trouvé -->
+    <ng-template #noResults>
+      <p class="mb-5">Aucun résultat ne correspond à votre recherche.</p>
+    </ng-template>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <!-- Modal pour sélectionner les numéros -->
+  <div
+    *ngIf="showNumberGrid"
+    class="modal fade show d-block"
+    tabindex="-1"
+    style="background-color: rgba(0, 0, 0, 0.5)"
+  >
+    <div class="modal-dialog modal-lg-custom">
+      <div class="modal-content modal-black-bg">
+        <!-- En-tête de la modal avec un bouton pour fermer -->
+        <div class="modal-header">
+          <app-title [text]="'Sélectionnez les numéros'"></app-title>
+          <button
+            type="button"
+            class="btn-close"
+            (click)="closeGrid()"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <!-- Corps de la modal avec la grille de sélection des numéros -->
+        <div class="modal-body">
+          <app-number-grid
+            [maxSelections]="selectionMaxNumber"
+            [selectedNumbers]="selectedNumbers"
+            [type]="'numero'"
+            (selectionConfirmed)="onNumbersSelected($event)"
+          >
+          </app-number-grid>
+        </div>
+
+        <!-- Pied de la modal avec un bouton pour fermer -->
+        <div class="modal-footer">
+          <app-button [label]="'Fermer'" (clicked)="closeGrid()"></app-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal pour sélectionner les étoiles -->
+  <div
+    *ngIf="showStarGrid"
+    class="modal fade show d-block"
+    tabindex="-1"
+    style="background-color: rgba(0, 0, 0, 0.5)"
+  >
+    <div class="modal-dialog modal-lg-custom">
+      <div class="modal-content modal-black-bg">
+        <!-- En-tête de la modal avec un bouton pour fermer -->
+        <div class="modal-header">
+          <app-title [text]="'Sélectionnez les étoiles'"></app-title>
+          <button
+            type="button"
+            class="btn-close"
+            (click)="closeGrid()"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <!-- Corps de la modal avec la grille de sélection des étoiles -->
+        <div class="modal-body">
+          <app-number-grid
+            [maxSelections]="selectionMaxStar"
+            [selectedNumbers]="selectedStars"
+            [type]="'star'"
+            (selectionConfirmed)="onStarsSelected($event)"
+          >
+          </app-number-grid>
+        </div>
+
+        <!-- Pied de la modal avec un bouton pour fermer -->
+        <div class="modal-footer">
+          <app-button [label]="'Fermer'" (clicked)="closeGrid()"></app-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bouton flottant pour ouvrir la barre latérale de filtres -->
+<button class="filter-btn" (click)="toggleSidebar()">
+  <img
+    src="/assets/history/filter_side.png"
+    alt="Filtre"
+    width="20"
+    height="20"
+  />
+</button>
+
+<!-- Barre latérale pour les filtres, initialement cachée -->
+<div class="sidebar mt-5" [ngClass]="{ active: isSidebarOpen }">
+  
+  <!-- En-tête de la barre latérale avec un titre et un bouton de fermeture -->
+  <div class="sidebar-header d-flex justify-content-between align-items-center mt-5">
+    <div class="d-flex align-items-center">
+      <img
+        src="assets/history/filter.png"
+        alt="Filtre"
+        class="filter-icon me-2"
+      />
+      <h2 class="mb-0">Filtres avancés</h2>
+    </div>
+    <button class="close-btn" (click)="toggleSidebar()">&times;</button>
+  </div>
+
+  <!-- Formulaire pour appliquer des filtres avancés -->
+  <form (ngSubmit)="applyAdvancedFilters()" #filterForm="ngForm">
+    <div class="row mt-3">
+      
+      <!-- Champ Pseudo -->
+      <div class="col-12 mb-2">
+        <label for="pseudo">Pseudo</label>
+        <input
+          type="text"
+          id="pseudo"
+          name="pseudo"
+          [(ngModel)]="filterCriteria.pseudo"
+          class="form-control"
+          (input)="filterNoSpaces($event)"
+        />
+      </div>
+
+      <!-- Champ Numéros joués -->
+      <div class="col-md-6 mb-2">
+        <label for="numJoue">Numéros joués</label>
+        <input
+          type="text"
+          id="numJoue"
+          name="numJoue"
+          [(ngModel)]="filterCriteria.numJoue"
+          class="form-control"
+          disabled
+        />
+        <span
+          class="input-group-text icon-input"
+          (click)="openNumberGrid('numJoue')"
+        >
+          <img
+            src="assets/simulation/numero.png"
+            alt="Numéros"
+            class="input-icon"
+          />
+        </span>
+      </div>
+
+      <!-- Champ Étoiles jouées -->
+      <div class="col-md-6 mb-2">
+        <label for="etoileJoue">Étoiles jouées</label>
+        <input
+          type="text"
+          id="etoileJoue"
+          name="etoileJoue"
+          [(ngModel)]="filterCriteria.etoileJoue"
+          class="form-control"
+          disabled
+        />
+        <span
+          class="input-group-text icon-input"
+          (click)="openStarGrid('etoileJoue')"
+        >
+          <img
+            src="assets/simulation/etoile.png"
+            alt="Etoiles"
+            class="input-icon"
+          />
+        </span>
+      </div>
+
+      <!-- Champ Numéros gagnants -->
+      <div class="col-md-6 mb-2">
+        <label for="numGagnant">Numéros gagnants</label>
+        <input
+          type="text"
+          id="numGagnant"
+          name="numGagnant"
+          [(ngModel)]="filterCriteria.numGagnant"
+          class="form-control"
+          disabled
+        />
+        <span
+          class="input-group-text icon-input"
+          (click)="openNumberGrid('numGagnant')"
+        >
+          <img
+            src="assets/simulation/numero.png"
+            alt="Numéros"
+            class="input-icon"
+          />
+        </span>
+      </div>
+
+      <!-- Champ Étoiles gagnantes -->
+      <div class="col-md-6 mb-2">
+        <label for="etoileGagnant">Étoiles gagnantes</label>
+        <input
+          type="text"
+          id="etoileGagnant"
+          name="etoileGagnant"
+          [(ngModel)]="filterCriteria.etoileGagnant"
+          class="form-control"
+          disabled
+        />
+        <span
+          class="input-group-text icon-input"
+          (click)="openStarGrid('etoileGagnant')"
+        >
+          <img
+            src="assets/simulation/etoile.png"
+            alt="Etoiles"
+            class="input-icon"
+          />
+        </span>
+      </div>
+
+      <!-- Champ Date minimale -->
+      <div class="col-md-6 mb-2">
+        <label for="dateMin">Date minimale</label>
+        <input
+          type="date"
+          id="dateMin"
+          name="dateMin"
+          [(ngModel)]="filterCriteria.dateMin"
+          class="form-control"
+          [max]="filterCriteria.dateMax"
+        />
+      </div>
+
+      <!-- Champ Date maximale -->
+      <div class="col-md-6 mb-2">
+        <label for="dateMax">Date maximale</label>
+        <input
+          type="date"
+          id="dateMax"
+          name="dateMax"
+          [(ngModel)]="filterCriteria.dateMax"
+          class="form-control"
+          [min]="filterCriteria.dateMin"
+        />
+      </div>
+
+      <!-- Champ Montant gagné minimum -->
+      <div class="col-md-6 mb-2">
+        <label for="minAmount">Montant gagné minimum</label>
+        <input
+          type="text"
+          id="minAmount"
+          name="minAmount"
+          [(ngModel)]="filterCriteria.minAmount"
+          class="form-control"
+          (keydown)="checkNumberInput($event)"
+          (input)="validateAmounts()"
+        />
+      </div>
+
+      <!-- Champ Montant gagné maximum -->
+      <div class="col-md-6 mb-2">
+        <label for="maxAmount">Montant gagné maximum</label>
+        <input
+          type="text"
+          id="maxAmount"
+          name="maxAmount"
+          [(ngModel)]="filterCriteria.maxAmount"
+          class="form-control"
+          (keydown)="checkNumberInput($event)"
+          (input)="validateAmounts()"
+        />
+      </div>
+
+      <!-- Boutons pour envoyer ou réinitialiser les filtres -->
+      <div class="col-md-6 mb-2 d-flex justify-content-between">
+        <app-button
+          [label]="'Envoyer les filtres'"
+          [type]="'submit'"
+          class="me-2 w-100"
+        ></app-button>
+      </div>
+      <div class="col-md-6 mb-2 d-flex justify-content-between">
+        <app-button
+          [label]="'Réinitialiser les filtres'"
+          [type]="'reset'"
+          (clicked)="resetFilters()"
+          class="w-100"
+        ></app-button>
+      </div>
+    </div>
+  </form>
+</div>
