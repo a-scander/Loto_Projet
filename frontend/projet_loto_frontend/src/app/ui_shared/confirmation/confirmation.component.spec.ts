@@ -33,7 +33,7 @@ describe('ConfirmationComponent', () => {
     expect(component.message).toBe('Confirmation par défaut.'); // Vérifiez le message par défaut
   });
 
-  it('devrait rediriger vers l\'accueil lorsque goToHome est appelé', () => {
+  it("devrait rediriger vers l'accueil lorsque goToHome est appelé", () => {
     component.goToHome(); // Appelez la méthode
     expect(navigateSpy).toHaveBeenCalledWith(['/']); // Vérifiez que la méthode navigate a été appelée avec la bonne route
   });

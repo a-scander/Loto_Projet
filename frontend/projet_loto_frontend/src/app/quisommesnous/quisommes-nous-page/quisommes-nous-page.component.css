@@ -1,6 +1,8 @@
 /* Fond général de la page */
 body {
-  background-color: var(--tertiary-color); /* Applique la couleur de fond noire */
+  background-color: var(
+    --tertiary-color
+  ); /* Applique la couleur de fond noire */
   color: var(--primary-color); /* Texte principal en blanc */
 }
 

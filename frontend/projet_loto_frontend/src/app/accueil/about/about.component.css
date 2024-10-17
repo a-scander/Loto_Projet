@@ -21,10 +21,13 @@
 
 .slide-in-left {
   opacity: 0; /* Rendre l'élément invisible au départ */
-  transform: translateX(-100px); /* Déplace l'élément 100 pixels vers la gauche */
-  transition: 
-    opacity 0.6s ease-out, /* Transition progressive de l'opacité sur 0.6 secondes */
-    transform 0.6s ease-out; /* Transition progressive de la position sur 0.6 secondes */
+  transform: translateX(
+    -100px
+  ); /* Déplace l'élément 100 pixels vers la gauche */
+  transition:
+    opacity 0.6s ease-out,
+    /* Transition progressive de l'opacité sur 0.6 secondes */ transform 0.6s
+      ease-out; /* Transition progressive de la position sur 0.6 secondes */
 }
 
 .slide-in-left.visible {

@@ -1,0 +1,125 @@
+<div class="container my-5">
+  <!-- Introduction -->
+  <div class="text-center mb-5">
+    <app-title [level]="1" [text]="'Les Règles de la Simulation'"></app-title>
+    <p class="lead">
+      Découvrez les règles essentielles pour participer à notre simulation de
+      tirage de loto en ligne. Respectez-les pour une expérience de jeu optimale
+      et équitable.
+    </p>
+  </div>
+
+  <!-- Section Contexte et Objectifs -->
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <app-title [level]="2" [text]="'Contexte et Objectifs'"></app-title>
+      <p>
+        Ce projet académique a pour but de simuler une application de tirage de
+        loto. Les participants doivent choisir 5 numéros entre 1 et 49, ainsi
+        que 2 étoiles entre 1 et 9. Le classement est basé sur la proximité des
+        choix des joueurs avec les résultats du tirage.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section Gestion des Participants -->
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <app-title
+        [level]="2"
+        [text]="'Gestion des Participants et Création des Grilles'"
+      ></app-title>
+      <p>
+        Les joueurs peuvent participer en choisissant manuellement leurs numéros
+        ou en laissant l'application les générer automatiquement. Jusqu'à 100
+        joueurs peuvent participer à chaque tirage.
+      </p>
+      <ul>
+        <li>Chaque joueur peut choisir un pseudo personnalisé ou généré.</li>
+        <li>
+          Les grilles peuvent être remplies manuellement ou de façon aléatoire.
+        </li>
+        <li>
+          Les participants peuvent être créés manuellement ou automatiquement.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section Simulation du Tirage -->
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <app-title [level]="2" [text]="'Simulation du Tirage'"></app-title>
+      <p>
+        Lors de chaque tirage, 5 numéros et 2 étoiles sont tirés aléatoirement.
+        Les joueurs sont classés en fonction de la proximité de leurs choix avec
+        les résultats du tirage.
+      </p>
+      <p>
+        Il est également possible de simuler des tirages spécifiques en
+        choisissant manuellement les numéros et étoiles pour explorer différents
+        scénarios.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section Répartition des Gains -->
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <app-title [level]="2" [text]="'Répartition des Gains'"></app-title>
+      <p>
+        Une somme totale de 3 millions d'euros est répartie entre les 10
+        meilleurs gagnants selon un barème proportionnel :
+      </p>
+      <ul>
+        <li><strong>1ère position :</strong> 40% des gains</li>
+        <li><strong>2ème position :</strong> 20% des gains</li>
+        <li><strong>3ème position :</strong> 17% des gains</li>
+        <li><strong>4ème position :</strong> 7% des gains</li>
+        <li><strong>5ème position :</strong> 6% des gains</li>
+        <li><strong>6ème position :</strong> 5% des gains</li>
+        <li><strong>7ème position :</strong> 4% des gains</li>
+        <li><strong>8ème position :</strong> 3% des gains</li>
+        <li><strong>9ème position :</strong> 2% des gains</li>
+        <li><strong>10ème position :</strong> 1% des gains</li>
+      </ul>
+      <p>
+        En cas d'égalité, les gains sont répartis équitablement entre les
+        joueurs concernés.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section Cas Particuliers -->
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <app-title
+        [level]="2"
+        [text]="'Cas Particuliers et Gestion des Égalités'"
+      ></app-title>
+      <p>
+        Si le nombre de participants est inférieur à 10, les pourcentages
+        restants sont répartis proportionnellement entre les joueurs.
+      </p>
+      <p>
+        En cas d'égalité dépassant le top 10, tous les joueurs ex æquo
+        partageront les gains proportionnellement.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section Affichage des Résultats et Historique -->
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <app-title
+        [level]="2"
+        [text]="'Affichage des Résultats et Historique'"
+      ></app-title>
+      <p>
+        Les résultats de chaque tirage sont affichés sous forme de tableau, avec
+        le classement, les gains de chaque joueur, et un historique détaillé des
+        participations.
+      </p>
+    </div>
+  </div>
+</div>

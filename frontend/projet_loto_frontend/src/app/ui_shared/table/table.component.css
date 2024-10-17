@@ -1,25 +1,32 @@
 /* Table Styles */
 .table > tbody > tr.selected {
-  background-color: var(--secondary-color) !important; /* Définit la couleur de fond pour les lignes sélectionnées en utilisant la variable CSS --secondary-color */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Définit la couleur de fond pour les lignes sélectionnées en utilisant la variable CSS --secondary-color */
   color: white !important; /* Définit la couleur du texte en blanc pour les lignes sélectionnées */
   box-shadow: none !important; /* Supprime l'ombre portée de Bootstrap pour les lignes sélectionnées */
 }
 
 .table > tbody > tr.selected > td {
   box-shadow: none !important; /* Supprime l'ombre portée sur les cellules des lignes sélectionnées */
-  background-color: var(--secondary-color) !important; /* Applique la couleur de fond aux cellules des lignes sélectionnées */
+  background-color: var(
+    --secondary-color
+  ) !important; /* Applique la couleur de fond aux cellules des lignes sélectionnées */
 }
 
 /* Styles pour la card contenant le tableau */
 .custom-card {
-  background: linear-gradient( /* Applique un dégradé de couleur en fond */
-    135deg, /* Angle du dégradé à 135 degrés */
-    var(--secondary-color), /* Couleur de départ du dégradé */
-    var(--primary-color) /* Couleur d'arrivée du dégradé */
+  background: linear-gradient(
+    /* Applique un dégradé de couleur en fond */ 135deg,
+    /* Angle du dégradé à 135 degrés */ var(--secondary-color),
+    /* Couleur de départ du dégradé */ var(--primary-color)
+      /* Couleur d'arrivée du dégradé */
   );
   border-radius: 15px; /* Arrondi des coins de la carte */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre portée pour donner de la profondeur à la carte */
-  color: var(--tertiary-color); /* Définit la couleur du texte pour qu'il soit visible sur le dégradé */
+  color: var(
+    --tertiary-color
+  ); /* Définit la couleur du texte pour qu'il soit visible sur le dégradé */
 }
 
 /* Card avec fond transparent */
@@ -27,7 +34,9 @@
   background-color: transparent; /* Définit le fond de la carte comme transparent */
   border-radius: 15px; /* Arrondi des coins de la carte */
   box-shadow: none; /* Supprime l'ombre portée pour un aspect plat */
-  color: var(--tertiary-color); /* Assure que le texte est toujours visible même avec un fond transparent */
+  color: var(
+    --tertiary-color
+  ); /* Assure que le texte est toujours visible même avec un fond transparent */
 }
 
 /* Bouton transparent pour la suppression */

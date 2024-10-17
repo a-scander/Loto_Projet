@@ -3,9 +3,13 @@
   position: absolute; /* Place l'icône en position absolue par rapport à l'input */
   right: 90px; /* Distance entre l'icône et le bouton Générer */
   top: 50%; /* Centre verticalement l'icône dans l'input */
-  transform: translateY(-50%); /* Ajuste la position verticale pour être exactement au centre */
+  transform: translateY(
+    -50%
+  ); /* Ajuste la position verticale pour être exactement au centre */
   cursor: pointer; /* Change le curseur pour indiquer que l'icône est cliquable */
-  color: var(--tertiary-color); /* Applique la couleur définie par la variable --tertiary-color */
+  color: var(
+    --tertiary-color
+  ); /* Applique la couleur définie par la variable --tertiary-color */
 }
 
 /* Changement de couleur de l'icône au survol */
@@ -63,7 +67,12 @@
 
 /* Conteneur pour les informations sur le tirage */
 .tirage-info {
-  background-color: rgba(255, 255, 255, 0.8); /* Fond blanc avec transparence légère */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fond blanc avec transparence légère */
   padding: 10px 15px; /* Espacement interne */
   border-radius: 8px; /* Coins arrondis */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre autour du conteneur */
@@ -83,7 +92,9 @@
 .list-group-item {
   background-color: transparent; /* Fond transparent */
   border: none; /* Pas de bordure */
-  color: var(--tertiary-color); /* Couleur du texte selon la variable --tertiary-color */
+  color: var(
+    --tertiary-color
+  ); /* Couleur du texte selon la variable --tertiary-color */
 }
 
 /* Espacement sous les titres h3 dans les cartes */
@@ -110,7 +121,9 @@
 
 /* Bouton de fermeture de la modale */
 .modal-header .btn-close {
-  filter: invert(100%); /* Inverse les couleurs pour rendre le bouton de fermeture blanc */
+  filter: invert(
+    100%
+  ); /* Inverse les couleurs pour rendre le bouton de fermeture blanc */
 }
 
 /* Texte blanc dans le corps et le pied de la modale */
@@ -133,16 +146,22 @@
 
 /* Style des items de la liste : fond noir et texte blanc */
 .list-group-item {
-  background-color: var(--tertiary-color); /* Fond noir pour les éléments de la liste */
+  background-color: var(
+    --tertiary-color
+  ); /* Fond noir pour les éléments de la liste */
   color: var(--primary-color); /* Texte blanc */
   border: 1px solid var(--secondary-color); /* Bordure blanche fine */
   padding: 10px 15px; /* Espacement interne */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce pour les changements de couleur */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Transition douce pour les changements de couleur */
 }
 
 /* Effet de survol sur les items de la liste */
 .list-group-item:hover {
-  background-color: var(--secondary-color); /* Change le fond en gris clair au survol */
+  background-color: var(
+    --secondary-color
+  ); /* Change le fond en gris clair au survol */
   color: var(--primary-color); /* Le texte reste blanc */
   cursor: pointer; /* Le curseur devient une main, indiquant que l'élément est cliquable */
 }

@@ -30,7 +30,7 @@ describe('PaginationComponent', () => {
     expect(component.pages).toEqual([1, 2, 3, 4, 5]); // Devrait y avoir 5 pages
   });
 
-  it('devrait changer de page et émettre l\'événement pageChange', () => {
+  it("devrait changer de page et émettre l'événement pageChange", () => {
     jest.spyOn(component.pageChange, 'emit'); // Surveillez l'émission de l'événement pageChange
 
     component.totalItems = 100; // Exemple de 100 éléments

@@ -1,6 +1,8 @@
 /* Fond général de la page */
 body {
-  background-color: var(--tertiary-color); /* Applique la couleur de fond tertiaire (noir) */
+  background-color: var(
+    --tertiary-color
+  ); /* Applique la couleur de fond tertiaire (noir) */
   color: var(--primary-color); /* Le texte général est en blanc */
 }
 
@@ -13,7 +15,9 @@ body {
 /* Titres */
 h1,
 h2 {
-  color: var(--primary-color); /* Applique la couleur primaire (blanc) aux titres */
+  color: var(
+    --primary-color
+  ); /* Applique la couleur primaire (blanc) aux titres */
   margin-bottom: 20px; /* Espacement en bas des titres */
 }
 
@@ -30,7 +34,9 @@ h2 {
 p,
 ul,
 li {
-  color: var(--primary-color); /* Texte en blanc pour les paragraphes et les listes */
+  color: var(
+    --primary-color
+  ); /* Texte en blanc pour les paragraphes et les listes */
   line-height: 1.8; /* Hauteur de ligne augmentée pour une meilleure lisibilité */
   font-size: 16px; /* Taille de police standard */
 }
@@ -50,7 +56,9 @@ ul li {
 
 ul li::before {
   content: "→ "; /* Ajoute une flèche avant chaque élément */
-  color: var(--secondary-color); /* Applique la couleur secondaire (jaune) à la flèche */
+  color: var(
+    --secondary-color
+  ); /* Applique la couleur secondaire (jaune) à la flèche */
   position: absolute; /* Position absolue pour placer la flèche à gauche */
   left: 0; /* Positionne la flèche au début de l'élément */
 }

@@ -9,7 +9,6 @@ import { TitleComponent } from '../../ui_shared/title/title.component';
   styleUrl: './statistics.component.css', // Chemin vers le fichier CSS associé
 })
 export class StatisticsComponent implements OnInit {
-  
   // Valeurs initiales des statistiques (affichées au chargement)
   simulationsRapides = 0; // Nombre initial de simulations rapides
   simulationsPersonnalisees = 0; // Nombre initial de simulations personnalisées
@@ -36,7 +35,7 @@ export class StatisticsComponent implements OnInit {
   }
 
   // Vérifie si l'utilisateur a défilé jusqu'à la section des statistiques
-  private checkScroll(): void {
+  public checkScroll(): void {
     const element = document.querySelector('.statistics') as HTMLElement; // Sélectionne l'élément de la section des statistiques
     const rect = element.getBoundingClientRect(); // Obtient la position de l'élément par rapport à la fenêtre
     const windowHeight =

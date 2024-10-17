@@ -1,6 +1,8 @@
 /* Paragraphe agrandi, centré, avec espacement au-dessus et au-dessous */
 .intro-paragraph-large {
-  color: var(--primary-color); /* Utilisation de la couleur principale (blanc) pour le texte */
+  color: var(
+    --primary-color
+  ); /* Utilisation de la couleur principale (blanc) pour le texte */
   font-size: 24px; /* Agrandit la taille du texte pour attirer l'attention */
   text-align: center; /* Centrer le texte */
   margin-bottom: 30px; /* Ajoute un espacement en bas du paragraphe */
@@ -31,7 +33,9 @@
 
 .contact-header h2 {
   margin-left: 15px; /* Espace entre l'image et le texte */
-  color: var(--tertiary-color); /* Applique la couleur tertiaire (noir) au titre */
+  color: var(
+    --tertiary-color
+  ); /* Applique la couleur tertiaire (noir) au titre */
 }
 
 .contact-image {
@@ -49,7 +53,9 @@ label {
   display: block; /* Rend le label un bloc pour qu'il occupe toute la largeur */
   margin-bottom: 5px; /* Ajoute un espacement en dessous du label */
   font-weight: bold; /* Rend le texte du label en gras */
-  color: var(--tertiary-color); /* Utilise la couleur tertiaire (noir) pour le texte */
+  color: var(
+    --tertiary-color
+  ); /* Utilise la couleur tertiaire (noir) pour le texte */
 }
 
 input,
@@ -59,8 +65,12 @@ textarea {
   border: 1px solid #ccc; /* Ajoute une bordure grise légère autour des champs */
   border-radius: 5px; /* Arrondit légèrement les bords des champs */
   font-size: 16px; /* Taille de police des champs de formulaire */
-  color: var(--tertiary-color); /* Applique la couleur tertiaire (noir) au texte des champs */
-  background-color: var(--primary-color); /* Utilise la couleur principale (blanc) pour le fond des champs */
+  color: var(
+    --tertiary-color
+  ); /* Applique la couleur tertiaire (noir) au texte des champs */
+  background-color: var(
+    --primary-color
+  ); /* Utilise la couleur principale (blanc) pour le fond des champs */
 }
 
 /* Style pour les messages d'erreur */

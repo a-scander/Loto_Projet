@@ -1,6 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { BdTirageService } from './bd-tirage.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 
 describe('BdTirageService', () => {
   let service: BdTirageService;
@@ -23,7 +26,7 @@ describe('BdTirageService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('devrait appeler l\'API pour récupérer tous les tirages', () => {
+  it("devrait appeler l'API pour récupérer tous les tirages", () => {
     const mockTirages = [{ id: 1, pseudo: 'User1' }];
 
     service.getAllTirage().subscribe((tirages) => {
@@ -36,7 +39,7 @@ describe('BdTirageService', () => {
     req.flush(mockTirages);
   });
 
-  it('devrait appeler l\'API pour récupérer les pseudos', () => {
+  it("devrait appeler l'API pour récupérer les pseudos", () => {
     const mockPseudos = ['User1', 'User2'];
 
     service.getPseudo().subscribe((pseudos) => {
@@ -58,7 +61,9 @@ describe('BdTirageService', () => {
       expect(results).toEqual(mockFilteredResults);
     });
 
-    const req = httpMock.expectOne('http://localhost:3000/api/bd/apply-filters');
+    const req = httpMock.expectOne(
+      'http://localhost:3000/api/bd/apply-filters',
+    );
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(filters);
     req.flush(mockFilteredResults);
@@ -74,7 +79,7 @@ describe('BdTirageService', () => {
     req.flush({});
   });
 
-  it('devrait sauvegarder les données d\'un tirage', () => {
+  it("devrait sauvegarder les données d'un tirage", () => {
     const tirageData = { pseudo: 'User1', number: [1, 2, 3] };
 
     service.saveTirageData(tirageData).subscribe((response) => {
@@ -95,7 +100,9 @@ describe('BdTirageService', () => {
       expect(result.exists).toBe(true);
     });
 
-    const req = httpMock.expectOne(`http://localhost:3000/api/bd/check-pseudo/${pseudo}`);
+    const req = httpMock.expectOne(
+      `http://localhost:3000/api/bd/check-pseudo/${pseudo}`,
+    );
     expect(req.request.method).toBe('GET');
     req.flush(mockResponse);
   });
@@ -107,7 +114,9 @@ describe('BdTirageService', () => {
       expect(result.exists).toBe(false); // En cas d'erreur, la valeur par défaut est false
     });
 
-    const req = httpMock.expectOne(`http://localhost:3000/api/bd/check-pseudo/${pseudo}`);
+    const req = httpMock.expectOne(
+      `http://localhost:3000/api/bd/check-pseudo/${pseudo}`,
+    );
     expect(req.request.method).toBe('GET');
     req.flush(null, { status: 500, statusText: 'Server Error' }); // Simule une erreur serveur
   });

@@ -6,12 +6,18 @@
 }
 
 body {
-  background-color: var(--tertiary-color); /* Définir le fond de l'application en utilisant la couleur tertiaire (noir) */
+  background-color: var(
+    --tertiary-color
+  ); /* Définir le fond de l'application en utilisant la couleur tertiaire (noir) */
   font: Verdana, sans-serif; /* Définir la police de caractères principale à Verdana, avec une police de secours sans-serif */
-  color: var(--primary-color); /* Définir la couleur du texte à la couleur principale (blanc) pour assurer un contraste avec le fond sombre */
+  color: var(
+    --primary-color
+  ); /* Définir la couleur du texte à la couleur principale (blanc) pour assurer un contraste avec le fond sombre */
 }
 
 .lead {
-  color: var(--primary-color); /* Couleur du texte définie à la couleur principale (blanc) */
+  color: var(
+    --primary-color
+  ); /* Couleur du texte définie à la couleur principale (blanc) */
   font-size: 25px; /* Taille de police plus grande pour indiquer un texte important ou de tête de section */
 }

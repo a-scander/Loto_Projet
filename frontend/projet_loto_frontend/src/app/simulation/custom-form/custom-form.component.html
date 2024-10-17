@@ -10,11 +10,12 @@
   <!-- Section de l'en-tête avec une image d'icône et le titre de la carte -->
   <div class="simulation-header">
     <img
-      src="assets/simulation/cogwheel.png" 
-      alt="Icône Simulation" 
-      class="simulation-image" 
+      src="assets/simulation/cogwheel.png"
+      alt="Icône Simulation"
+      class="simulation-image"
     />
-    <h2>Simulation Personnalisée</h2> <!-- Titre de la carte -->
+    <h2>Simulation Personnalisée</h2>
+    <!-- Titre de la carte -->
   </div>
 
   <!-- Début du formulaire avec un formGroup Angular et soumission via ngSubmit -->
@@ -25,10 +26,10 @@
       <!-- Champ de saisie pour le nombre de participants, relié au formControl "totalParticipants" -->
       <input
         id="totalParticipants"
-        formControlName="totalParticipants" 
-        type="text" 
-        (keydown)="validateNumberInput($event)" 
-        required 
+        formControlName="totalParticipants"
+        type="text"
+        (keydown)="validateNumberInput($event)"
+        required
       />
       <!-- Message d'erreur affiché si le champ est invalide et a été touché (focus/saisie puis sortie du champ) -->
       <div
@@ -48,9 +49,9 @@
       <!-- Champ de saisie pour le nombre de tirages, relié au formControl "numberOfDraws" -->
       <input
         id="numberOfDraws"
-        formControlName="numberOfDraws" 
-        (keydown)="validateNumberInput($event)" 
-        required 
+        formControlName="numberOfDraws"
+        (keydown)="validateNumberInput($event)"
+        required
       />
       <!-- Message d'erreur combiné : soit le champ est invalide, soit il y a une erreur de règle (nombre de tickets > participants) -->
       <div
@@ -72,28 +73,30 @@
       <!-- Champ de saisie pour le montant total, relié au formControl "montantTotal" -->
       <input
         id="montantTotal"
-        formControlName="montantTotal" 
+        formControlName="montantTotal"
         type="text"
         (keydown)="validateDecimalInput($event)"
-        required 
+        required
       />
       <!-- Message d'erreur affiché si le champ montant est invalide et a été touché -->
       <div
         *ngIf="
-          customForm.get('montantTotal')?.invalid &&
-          customForm.get('montantTotal')?.touched
+          (customForm.get('montantTotal')?.hasError('gainTooHigh') &&
+            customForm.get('montantTotal')?.touched) ||
+          (customForm.get('montantTotal')?.invalid &&
+            customForm.get('montantTotal')?.touched)
         "
         class="error-message"
       >
-        Le gain doit être un nombre supérieur à 0.
+        Le gain doit être entre 0 et 999,999,999,999.
       </div>
     </div>
 
     <!-- Utilisation du composant personnalisé ButtonComponent pour soumettre le formulaire -->
     <app-button
-      [label]="'Lancer la simulation'" 
-      [type]="'submit'" 
-      [disabled]="customForm.invalid" 
+      [label]="'Lancer la simulation'"
+      [type]="'submit'"
+      [disabled]="customForm.invalid"
     >
     </app-button>
   </form>

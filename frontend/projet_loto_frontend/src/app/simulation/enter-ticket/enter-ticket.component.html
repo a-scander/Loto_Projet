@@ -37,7 +37,11 @@
         <div class="tirage-info text-center mb-4">
           <h5 class="text-black fw-bold">
             Ticket
-            {{ selectedTirageIndex !== null ? selectedTirageIndex + 1 : currentDraw }}
+            {{
+              selectedTirageIndex !== null
+                ? selectedTirageIndex + 1
+                : currentDraw
+            }}
             / {{ numberOfDraws }}
           </h5>
         </div>
@@ -47,7 +51,9 @@
           <!-- Champ pour le pseudo avec bouton générer -->
           <div class="mb-3 d-flex align-items-center">
             <div class="flex-grow-1">
-              <label for="pseudo" class="form-label fw-bold text-black">Pseudo</label>
+              <label for="pseudo" class="form-label fw-bold text-black"
+                >Pseudo</label
+              >
               <div class="input-group">
                 <!-- Champ pour entrer le pseudo -->
                 <input
@@ -61,12 +67,25 @@
                   required
                 />
                 <!-- Icône pour ouvrir la liste des pseudos -->
-                <span class="input-group-text icon-input"
-                  (click)="isPseudoSelected ? enablePseudoEdit() : fetchPseudosFromDB()">
+                <span
+                  class="input-group-text icon-input"
+                  (click)="
+                    isPseudoSelected ? enablePseudoEdit() : fetchPseudosFromDB()
+                  "
+                >
                   <!-- Affichage de l'icône en fonction de l'état du pseudo -->
-                  <img *ngIf="isPseudoSelected; else userIcon" src="assets/simulation/close.png" alt="Annuler" class="input-icon" />
+                  <img
+                    *ngIf="isPseudoSelected; else userIcon"
+                    src="assets/simulation/close.png"
+                    alt="Annuler"
+                    class="input-icon"
+                  />
                   <ng-template #userIcon>
-                    <img src="assets/simulation/user.png" alt="Liste des pseudos" class="input-icon" />
+                    <img
+                      src="assets/simulation/user.png"
+                      alt="Liste des pseudos"
+                      class="input-icon"
+                    />
                   </ng-template>
                 </span>
                 <!-- Bouton pour générer un pseudo aléatoire -->
@@ -78,8 +97,13 @@
                 ></app-button>
               </div>
               <!-- Affichage du message d'erreur ou de succès pour le pseudo -->
-              <div *ngIf="pseudoMessage"
-                [ngClass]="{ 'error-message': showPseudoError, 'success-message': !showPseudoError }">
+              <div
+                *ngIf="pseudoMessage"
+                [ngClass]="{
+                  'error-message': showPseudoError,
+                  'success-message': !showPseudoError,
+                }"
+              >
                 {{ pseudoMessage }}
               </div>
             </div>
@@ -88,7 +112,9 @@
           <!-- Numéros joués avec icône et bouton générer -->
           <div class="mb-3 d-flex align-items-center">
             <div class="flex-grow-1">
-              <label for="numJoue" class="form-label fw-bold text-black">Numéros joués</label>
+              <label for="numJoue" class="form-label fw-bold text-black"
+                >Numéros joués</label
+              >
               <div class="input-group">
                 <!-- Champ pour afficher les numéros joués -->
                 <input
@@ -101,8 +127,15 @@
                   placeholder="Choisissez vos numéros"
                 />
                 <!-- Icône pour ouvrir la grille de sélection des numéros -->
-                <span class="input-group-text icon-input" (click)="openNumberGrid()">
-                  <img src="assets/simulation/numero.png" alt="Numéros" class="input-icon" />
+                <span
+                  class="input-group-text icon-input"
+                  (click)="openNumberGrid()"
+                >
+                  <img
+                    src="assets/simulation/numero.png"
+                    alt="Numéros"
+                    class="input-icon"
+                  />
                 </span>
                 <!-- Bouton pour générer des numéros aléatoires -->
                 <app-button
@@ -121,7 +154,9 @@
           <!-- Étoiles jouées avec icône et bouton générer -->
           <div class="mb-3 d-flex align-items-center">
             <div class="flex-grow-1">
-              <label for="etoileJoue" class="form-label fw-bold text-black">Étoiles jouées</label>
+              <label for="etoileJoue" class="form-label fw-bold text-black"
+                >Étoiles jouées</label
+              >
               <div class="input-group">
                 <!-- Champ pour afficher les étoiles jouées -->
                 <input
@@ -134,8 +169,15 @@
                   placeholder="Choisissez vos étoiles"
                 />
                 <!-- Icône pour ouvrir la grille de sélection des étoiles -->
-                <span class="input-group-text icon-input" (click)="openStarGrid()">
-                  <img src="assets/simulation/etoile.png" alt="Étoiles" class="input-icon" />
+                <span
+                  class="input-group-text icon-input"
+                  (click)="openStarGrid()"
+                >
+                  <img
+                    src="assets/simulation/etoile.png"
+                    alt="Étoiles"
+                    class="input-icon"
+                  />
                 </span>
                 <!-- Bouton pour générer des étoiles aléatoires -->
                 <app-button
@@ -216,7 +258,12 @@
         <div class="modal-content modal-black-bg">
           <div class="modal-header">
             <app-title [text]="'Sélectionnez les numéros'"></app-title>
-            <button type="button" class="btn-close" (click)="closeGrid()" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              (click)="closeGrid()"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <app-number-grid
@@ -245,7 +292,12 @@
         <div class="modal-content modal-black-bg">
           <div class="modal-header">
             <app-title [text]="'Sélectionnez les étoiles'"></app-title>
-            <button type="button" class="btn-close" (click)="closeGrid()" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              (click)="closeGrid()"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <app-number-grid
@@ -268,7 +320,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <app-title [text]="'Liste des pseudos'"></app-title>
-            <button type="button" class="btn-close" (click)="closePseudoList()" aria-label="Close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              (click)="closePseudoList()"
+              aria-label="Close"
+            ></button>
           </div>
 
           <!-- Barre de recherche pour les pseudos -->
@@ -295,7 +352,10 @@
           </div>
 
           <div class="modal-footer">
-            <app-button [label]="'Fermer'" (clicked)="closePseudoList()"></app-button>
+            <app-button
+              [label]="'Fermer'"
+              (clicked)="closePseudoList()"
+            ></app-button>
           </div>
         </div>
       </div>

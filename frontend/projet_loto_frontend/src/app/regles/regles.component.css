@@ -1,0 +1,88 @@
+/* Fond général de la page */
+/* Le body utilise la couleur de fond définie par la variable --tertiary-color (noir)
+   et le texte est coloré en blanc (variable --primary-color) pour un bon contraste */
+body {
+  background-color: var(--tertiary-color); /* Fond noir */
+  color: var(--primary-color); /* Texte blanc */
+}
+
+/* Section principale */
+/* Le conteneur principal est centré et sa largeur est limitée à 1200px pour garantir une lisibilité optimale
+     même sur les écrans larges */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+}
+
+/* Titres (h1 et h2) */
+/* Les titres de niveaux h1 et h2 sont en blanc (primary-color) et espacés vers le bas (margin-bottom) pour aérer le design */
+h1,
+h2 {
+  color: var(--primary-color); /* Titres en blanc */
+  margin-bottom: 20px; /* Espace sous le titre */
+}
+
+/* Titre h1 */
+/* Le titre h1 est en gras et plus grand (2.5rem) pour être le titre principal de la page */
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold; /* Gras */
+}
+
+/* Titre h2 */
+/* Le titre h2 est légèrement plus petit (2rem), mais toujours bien visible */
+h2 {
+  font-size: 2rem;
+}
+
+/* Textes généraux (p, ul, li) */
+/* Les paragraphes, listes et éléments de liste ont la même couleur blanche pour une uniformité visuelle.
+     L'interligne est agrandi (line-height) pour améliorer la lisibilité, et la taille du texte est fixée à 16px pour un confort de lecture. */
+p,
+ul,
+li {
+  color: var(--primary-color); /* Texte blanc */
+  line-height: 1.8; /* Espacement entre les lignes */
+  font-size: 16px; /* Taille de police */
+}
+
+/* Listes (ul) */
+/* Les listes sont stylisées sans puce (list-style-type: none), et les marges internes sont supprimées pour que la liste soit bien alignée à gauche */
+ul {
+  list-style-type: none; /* Pas de puce */
+  padding-left: 0; /* Pas de retrait à gauche */
+}
+
+/* Icône de liste personnalisée (li::before) */
+/* Une flèche "→" jaune (secondary-color) est ajoutée avant chaque élément de liste pour remplacer les puces classiques */
+ul li::before {
+  content: "→ "; /* Flèche personnalisée avant chaque élément */
+  color: var(--secondary-color); /* Couleur jaune pour la flèche */
+}
+
+/* Espacement entre les éléments de liste */
+/* Un espace de 10px est ajouté sous chaque élément de la liste pour éviter qu'ils soient trop serrés */
+li {
+  margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+}
+
+/* Boutons (classe .btn) */
+/* Le style des boutons est cohérent avec le reste du design, avec un fond jaune (secondary-color), 
+     du texte noir (tertiary-color), et des coins arrondis pour un aspect plus moderne et attrayant */
+.btn {
+  color: var(--tertiary-color); /* Texte noir */
+  background-color: var(--secondary-color); /* Fond jaune */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espace intérieur du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur interactif pour indiquer qu'il s'agit d'un bouton */
+  font-size: 16px; /* Taille du texte dans le bouton */
+  font-weight: bold; /* Texte en gras */
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur au survol */
+}
+
+/* Effet hover sur les boutons */
+/* Lorsque l'utilisateur survole le bouton, la couleur du fond devient légèrement plus foncée pour indiquer l'interaction */
+.btn:hover {
+  background-color: #e1bc36; /* Couleur de fond plus foncée au survol */
+}

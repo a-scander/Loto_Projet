@@ -42,7 +42,7 @@ describe('SelectionWinTicketComponent', () => {
     expect(component).toBeTruthy(); // Vérifie que le composant est bien créé
   });
 
-  it('devrait initialiser avec les données de l\'état', () => {
+  it("devrait initialiser avec les données de l'état", () => {
     const mockState = {
       totalParticipants: 10,
       numberOfDraws: 5,
@@ -78,7 +78,7 @@ describe('SelectionWinTicketComponent', () => {
     });
   });
 
-  it('devrait naviguer vers /resultat-simulation avec le bon état lors de l\'appel de goToRandomGeneration', () => {
+  it("devrait naviguer vers /resultat-simulation avec le bon état lors de l'appel de goToRandomGeneration", () => {
     component.tirages = [new Tirage('Joueur1', [1, 2, 3, 4, 5], [1, 2])];
     component.totalParticipants = 10;
     component.numberOfDraws = 5;
@@ -87,18 +87,21 @@ describe('SelectionWinTicketComponent', () => {
     component.goToRandomGeneration();
 
     // Nous ne vérifions pas les valeurs spécifiques des numéros et des étoiles
-    expect(navigateSpy).toHaveBeenCalledWith(['/resultat-simulation'], expect.objectContaining({
-      state: expect.objectContaining({
-        tirages: component.tirages,
-        totalParticipants: component.totalParticipants,
-        numberOfDraws: component.numberOfDraws,
-        montantTotal: component.montantTotal,
-        tirageWin: expect.any(Tirage),  // On s'attend à un objet de type Tirage
+    expect(navigateSpy).toHaveBeenCalledWith(
+      ['/resultat-simulation'],
+      expect.objectContaining({
+        state: expect.objectContaining({
+          tirages: component.tirages,
+          totalParticipants: component.totalParticipants,
+          numberOfDraws: component.numberOfDraws,
+          montantTotal: component.montantTotal,
+          tirageWin: expect.any(Tirage), // On s'attend à un objet de type Tirage
+        }),
       }),
-    }));
+    );
   });
 
-  it('devrait naviguer vers /ticket-win-form avec le bon état lors de l\'appel de goToManualEntry', () => {
+  it("devrait naviguer vers /ticket-win-form avec le bon état lors de l'appel de goToManualEntry", () => {
     component.tirages = [new Tirage('Joueur1', [1, 2, 3, 4, 5], [1, 2])];
     component.totalParticipants = 10;
     component.numberOfDraws = 5;

@@ -6,13 +6,17 @@
 .stat-number {
   font-size: 2.5rem; /* Taille de la police pour les nombres dans la section des statistiques */
   font-weight: bold; /* Rend le texte gras pour plus de visibilité */
-  color: var(--primary-color); /* Applique la couleur principale définie dans la variable CSS */
+  color: var(
+    --primary-color
+  ); /* Applique la couleur principale définie dans la variable CSS */
   transition: transform 0.3s ease; /* Animation de transition fluide pour l'effet de zoom */
 }
 
 /* Ajout d'un léger effet de zoom sur les nombres lors du survol */
 .stat-number:hover {
-  transform: scale(1.1); /* Agrandit légèrement l'élément au survol pour attirer l'attention */
+  transform: scale(
+    1.1
+  ); /* Agrandit légèrement l'élément au survol pour attirer l'attention */
 }
 
 .stat-icon {

@@ -11,7 +11,9 @@
     var(--secondary-color),
     var(--primary-color)
   ); /* Applique un dégradé de couleur allant de secondary-color à primary-color */
-  color: var(--tertiary-color); /* Texte avec la couleur définie par la variable --tertiary-color */
+  color: var(
+    --tertiary-color
+  ); /* Texte avec la couleur définie par la variable --tertiary-color */
   border-radius: 8px; /* Ajoute des coins arrondis à la section */
   text-align: center; /* Centre le texte horizontalement */
   flex: 1; /* Les deux sections (tirage gagnant et détails) prendront la même largeur */
@@ -25,7 +27,9 @@
 .winning-stars {
   font-weight: bold; /* Met en gras les numéros et étoiles gagnants */
   font-size: 1.2rem; /* Taille légèrement plus grande pour les numéros et étoiles */
-  color: var(--highlight-color); /* Couleur spéciale pour les numéros et étoiles gagnants */
+  color: var(
+    --highlight-color
+  ); /* Couleur spéciale pour les numéros et étoiles gagnants */
 }
 
 /* Style pour les titres de niveau 4 (h4) */

@@ -21,7 +21,9 @@
 
 /* Style pour les liens textuels avec couleur jaune */
 .link-yellow {
-  color: var(--secondary-color) !important; /* Couleur de texte jaune définie par une variable CSS */
+  color: var(
+    --secondary-color
+  ) !important; /* Couleur de texte jaune définie par une variable CSS */
   text-decoration: none; /* Supprime la décoration par défaut du lien */
   font-weight: bold; /* Rend le texte en gras */
   position: relative; /* Nécessaire pour positionner l'effet de soulignement */
@@ -66,10 +68,13 @@
 /* Animation d'apparition avec effet de glissement depuis la droite */
 .slide-in-right {
   opacity: 0; /* Élément invisible initialement */
-  transform: translateX(100px); /* L'élément commence à droite en dehors de l'écran */
+  transform: translateX(
+    100px
+  ); /* L'élément commence à droite en dehors de l'écran */
   transition:
-    opacity 0.6s ease-out, /* Transition progressive pour rendre l'élément visible */
-    transform 0.6s ease-out; /* Transition fluide pour le déplacement */
+    opacity 0.6s ease-out,
+    /* Transition progressive pour rendre l'élément visible */ transform 0.6s
+      ease-out; /* Transition fluide pour le déplacement */
 }
 
 .slide-in-right.visible {

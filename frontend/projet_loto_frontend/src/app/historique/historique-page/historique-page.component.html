@@ -1,6 +1,5 @@
 <!-- Conteneur principal avec un espacement en haut -->
 <div class="container mt-5">
-  
   <!-- Titre principal centré -->
   <app-title [level]="1" text="Historique" class="text-center"></app-title>
 
@@ -16,7 +15,6 @@
 
   <!-- Conteneur pour le tableau avec un espacement supplémentaire en haut -->
   <div class="container mt-5">
-    
     <!-- Afficher le tableau filtré si des résultats existent -->
     <div *ngIf="filteredTirages.length > 0; else noResults" class="mb-5">
       <app-table
@@ -32,11 +30,11 @@
       <p class="mb-5">Aucun résultat ne correspond à votre recherche.</p>
     </ng-template>
   </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 
   <!-- Modal pour sélectionner les numéros -->
   <div
@@ -129,9 +127,10 @@
 
 <!-- Barre latérale pour les filtres, initialement cachée -->
 <div class="sidebar mt-5" [ngClass]="{ active: isSidebarOpen }">
-  
   <!-- En-tête de la barre latérale avec un titre et un bouton de fermeture -->
-  <div class="sidebar-header d-flex justify-content-between align-items-center mt-5">
+  <div
+    class="sidebar-header d-flex justify-content-between align-items-center mt-5"
+  >
     <div class="d-flex align-items-center">
       <img
         src="assets/history/filter.png"
@@ -146,7 +145,6 @@
   <!-- Formulaire pour appliquer des filtres avancés -->
   <form (ngSubmit)="applyAdvancedFilters()" #filterForm="ngForm">
     <div class="row mt-3">
-      
       <!-- Champ Pseudo -->
       <div class="col-12 mb-2">
         <label for="pseudo">Pseudo</label>

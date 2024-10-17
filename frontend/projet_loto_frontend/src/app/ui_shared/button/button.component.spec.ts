@@ -21,10 +21,10 @@ describe('ButtonComponent', () => {
     expect(component).toBeTruthy(); // Vérifie que le composant est créé avec succès
   });
 
-  it('devrait lever une erreur si le label n\'est pas fourni', () => {
+  it("devrait lever une erreur si le label n'est pas fourni", () => {
     component.label = ''; // Mettre à vide pour tester
     expect(() => component.ngOnInit()).toThrowError(
-      "L'input `label` est requis pour le composant `ButtonComponent`."
+      "L'input `label` est requis pour le composant `ButtonComponent`.",
     );
   });
 

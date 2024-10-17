@@ -17,7 +17,9 @@ describe('ContactComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, ContactComponent], // Correction ici
-      providers: [{ provide: ContactServiceService, useValue: contactServiceMock }],
+      providers: [
+        { provide: ContactServiceService, useValue: contactServiceMock },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactComponent);
@@ -59,7 +61,9 @@ describe('ContactComponent', () => {
       email: 'test@example.com',
       message: 'Ceci est un test',
     });
-    expect(component.confirmationMessage).toBe('Votre email a été envoyé avec succès !');
+    expect(component.confirmationMessage).toBe(
+      'Votre email a été envoyé avec succès !',
+    );
     expect(component.emailSent).toBe(true);
   });
 });

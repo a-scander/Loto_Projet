@@ -3,9 +3,13 @@
   position: absolute; /* Place l'icône en position absolue à l'intérieur de l'input */
   right: 90px; /* Distance de l'icône par rapport au bouton Générer */
   top: 50%; /* Centre verticalement l'icône dans l'input */
-  transform: translateY(-50%); /* Ajuste la position de l'icône pour qu'elle soit bien centrée */
+  transform: translateY(
+    -50%
+  ); /* Ajuste la position de l'icône pour qu'elle soit bien centrée */
   cursor: pointer; /* Change le curseur pour indiquer que l'icône est cliquable */
-  color: var(--tertiary-color); /* Définit la couleur de l'icône avec la variable --tertiary-color */
+  color: var(
+    --tertiary-color
+  ); /* Définit la couleur de l'icône avec la variable --tertiary-color */
 }
 
 /* Couleur de l'icône au survol */
@@ -37,7 +41,9 @@
   position: absolute; /* Place le texte en absolu dans le groupe d'input */
   right: 120px; /* Ajuste la position du texte par rapport au bouton Générer */
   top: 50%; /* Centre verticalement le texte dans l'input */
-  transform: translateY(-50%); /* Ajuste la position pour qu'il soit bien centré */
+  transform: translateY(
+    -50%
+  ); /* Ajuste la position pour qu'il soit bien centré */
   border: none; /* Supprime les bordures par défaut */
   background-color: transparent; /* Rends l'arrière-plan transparent */
   padding: 0; /* Supprime le padding interne */
@@ -63,7 +69,12 @@
 
 /* Conteneur pour les informations de tirage */
 .tirage-info {
-  background-color: rgba(255, 255, 255, 0.8); /* Fond blanc avec légère transparence */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fond blanc avec légère transparence */
   padding: 10px 15px; /* Espacement interne */
   border-radius: 8px; /* Arrondit les coins du conteneur */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre pour effet de profondeur */
@@ -103,7 +114,9 @@
 
 /* Style du bouton de fermeture dans le header de la modale */
 .modal-header .btn-close {
-  filter: invert(100%); /* Inverse la couleur pour rendre le bouton de fermeture blanc */
+  filter: invert(
+    100%
+  ); /* Inverse la couleur pour rendre le bouton de fermeture blanc */
 }
 
 /* Corps et pied de la modale avec du texte blanc */
@@ -114,7 +127,9 @@
 
 /* Contenu de la modale avec fond noir et texte blanc */
 .modal-content {
-  background-color: var(--tertiary-color); /* Fond noir (variable --tertiary-color) */
+  background-color: var(
+    --tertiary-color
+  ); /* Fond noir (variable --tertiary-color) */
   color: var(--primary-color); /* Texte en blanc (variable --primary-color) */
   border-radius: 8px; /* Arrondit les coins du contenu de la modale */
 }
@@ -126,16 +141,22 @@
 
 /* Style des items de la liste dans la modale */
 .list-group-item {
-  background-color: var(--tertiary-color); /* Fond noir pour les éléments de la liste */
+  background-color: var(
+    --tertiary-color
+  ); /* Fond noir pour les éléments de la liste */
   color: var(--primary-color); /* Texte en blanc */
   border: 1px solid var(--secondary-color); /* Bordure fine blanche */
   padding: 10px 15px; /* Espacement interne */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide pour les changements de couleur */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Transition fluide pour les changements de couleur */
 }
 
 /* Effet de survol sur les items de la liste */
 .list-group-item:hover {
-  background-color: var(--secondary-color); /* Change le fond en couleur secondaire (gris) au survol */
+  background-color: var(
+    --secondary-color
+  ); /* Change le fond en couleur secondaire (gris) au survol */
   color: var(--primary-color); /* Le texte reste en blanc */
   cursor: pointer; /* Le curseur devient une main indiquant un élément cliquable */
 }

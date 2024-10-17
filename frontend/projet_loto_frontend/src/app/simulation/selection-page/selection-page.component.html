@@ -10,10 +10,11 @@
     <p class="lead">
       Bienvenue dans notre application de simulation de tirages de loto en
       ligne. Vous pouvez participer à des simulations où chaque joueur choisit 5
-      numéros compris entre <strong>1 et {{numberTotalGrid}}</strong> et 2 étoiles comprises
-      entre <strong>1 et {{starTotalGrid}}</strong>. À chaque tirage, les 10 meilleurs
-      participants se partagent une cagnotte, basée sur la proximité de leurs
-      numéros et étoiles avec ceux tirés.
+      numéros compris entre <strong>1 et {{ numberTotalGrid }}</strong> et 2
+      étoiles comprises entre <strong>1 et {{ starTotalGrid }}</strong
+      >. À chaque tirage, les 10 meilleurs participants se partagent une
+      cagnotte, basée sur la proximité de leurs numéros et étoiles avec ceux
+      tirés.
     </p>
     <!-- Paragraphe expliquant les deux types de simulation possibles -->
     <p class="lead">
@@ -35,7 +36,7 @@
       <!-- Carte cliquable pour la simulation rapide -->
       <div
         class="card p-5 equal-card"
-        (click)="goToQuickSimulation()" 
+        (click)="goToQuickSimulation()"
         style="cursor: pointer"
       >
         <!-- Titre avec une icône pour la simulation rapide -->
@@ -62,7 +63,7 @@
       <!-- Carte cliquable pour la simulation personnalisée -->
       <div
         class="card p-5 equal-card"
-        (click)="goToCustomSimulation()" 
+        (click)="goToCustomSimulation()"
         style="cursor: pointer"
       >
         <!-- Titre avec une icône pour la simulation personnalisée -->

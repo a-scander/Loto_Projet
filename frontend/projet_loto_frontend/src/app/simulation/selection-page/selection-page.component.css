@@ -17,7 +17,9 @@
 
 /* Effet de zoom au survol */
 .equal-card:hover {
-  transform: scale(1.05); /* Agrandit légèrement la carte au survol pour un effet interactif */
+  transform: scale(
+    1.05
+  ); /* Agrandit légèrement la carte au survol pour un effet interactif */
 }
 
 /* Style des titres (h2) dans les cartes */
@@ -34,5 +36,7 @@ p {
 
 /* Style spécifique pour les paragraphes dans les cartes */
 .card p {
-  color: var(--tertiary-color); /* Change la couleur du texte des paragraphes dans les cartes pour correspondre à la couleur tertiaire */
+  color: var(
+    --tertiary-color
+  ); /* Change la couleur du texte des paragraphes dans les cartes pour correspondre à la couleur tertiaire */
 }

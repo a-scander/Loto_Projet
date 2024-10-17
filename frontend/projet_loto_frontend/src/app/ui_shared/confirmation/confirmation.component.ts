@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 import { ButtonComponent } from '../button/button.component'; // Importation du composant bouton personnalisé
 import { Router } from '@angular/router';
 
-
 // Déclaration du composant
 @Component({
   selector: 'app-confirmation', // Sélecteur utilisé pour insérer ce composant dans les templates HTML
