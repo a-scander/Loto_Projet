@@ -1,27 +1,28 @@
 /* Couleur de fond et texte du footer */
 .footer {
-  background-color: var(--secondary-color);
-  color: var(--tertiary-color) !important;
+  background-color: var(--secondary-color); /* Définit la couleur de fond du footer à la variable CSS --secondary-color */
+  color: var(--tertiary-color) !important; /* Définit la couleur du texte à la variable CSS --tertiary-color, avec la priorité !important pour écraser d'autres styles */
 }
 
-/* Style des liens */
+/* Style des liens dans le footer */
 .footer-link {
-  text-decoration: none; /* Sans soulignement */
-  cursor: pointer; /* Curseur en main */
-  transition: var(--transition-speed); /* Transition fluide */
+  text-decoration: none; /* Supprime le soulignement par défaut des liens */
+  cursor: pointer; /* Change le curseur en main pour indiquer qu'il s'agit d'un élément cliquable */
+  transition: transform 0.1s ease-in-out; /* Applique une transition fluide lors des changements de transformation */
+  color: var(--tertiary-color) !important; /* Définit la couleur du lien à la variable CSS --tertiary-color, avec priorité !important */
 }
 
-/* Grossissement des liens au survol */
+/* Effet de grossissement des liens au survol */
 .footer-link:hover {
-  transform: var(--zoom-scale); /* Transition fluide */
+  transform: scale(1.2); /* Agrandit le lien de 20% au survol */
 }
 
-/* Transition fluide des icônes */
+/* Transition fluide pour les images des icônes de réseaux sociaux */
 .footer-social img {
-  transition: var(--transition-speed); /* Transition fluide */
+  transition: transform 0.1s ease-in-out; /* Applique une transition fluide lors des changements de transformation sur les images */
 }
 
-/* Grossissement des icônes au survol */
+/* Effet de grossissement des icônes de réseaux sociaux au survol */
 .footer-social:hover img {
-  transform: var(--zoom-scale); /* Transition fluide */
+  transform: scale(1.2); /* Agrandit les icônes de 20% au survol */
 }

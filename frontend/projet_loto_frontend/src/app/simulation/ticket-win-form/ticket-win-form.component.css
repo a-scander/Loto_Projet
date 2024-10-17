@@ -1,0 +1,98 @@
+/* Positionnement de l'icône dans l'input */
+.icon-input {
+  position: absolute;
+  right: 90px; /* Positionne l'icône à droite, à 90px du bord de l'input */
+  top: 50%; /* Place l'icône verticalement au centre de l'input */
+  transform: translateY(-50%); /* Ajuste l'icône pour qu'elle soit parfaitement centrée verticalement */
+  cursor: pointer; /* Change le curseur en pointeur pour indiquer que l'icône est cliquable */
+  color: var(--tertiary-color); /* Applique la couleur tertiaire à l'icône */
+}
+
+.icon-input:hover {
+  color: var(--secondary-color); /* Change la couleur de l'icône au survol pour indiquer une interactivité */
+}
+
+.input-icon {
+  width: 20px; /* Définit la largeur de l'icône à 20px */
+  height: 20px; /* Définit la hauteur de l'icône à 20px */
+  object-fit: contain; /* Assure que l'image s'adapte à la taille de la boîte sans déformation */
+  cursor: pointer; /* Rend l'icône cliquable */
+}
+
+/* Ajustement du padding pour laisser de l'espace pour l'icône et le bouton */
+.input-group input {
+  padding-right: 130px; /* Ajoute de l'espace à droite de l'input pour permettre à l'icône et au bouton d'y apparaître sans chevauchement */
+}
+
+/* Positionnement du bouton Générer */
+.generate-btn {
+  margin-left: 10px; /* Ajoute un espacement entre le champ input et le bouton Générer */
+  position: relative; /* Positionne le bouton par rapport à l'input */
+}
+
+/* Correction pour éviter que l'icône bouge avec l'erreur */
+.input-group-text {
+  position: absolute;
+  right: 120px; /* Place l'icône à 120px du bord droit pour bien s'aligner avec l'input */
+  top: 50%; /* Centre verticalement l'icône */
+  transform: translateY(-50%); /* Ajuste l'alignement vertical de l'icône */
+  border: none; /* Retire les bordures par défaut de l'élément */
+  background-color: transparent; /* Rendu du fond transparent pour mieux s'intégrer à l'input */
+  padding: 0; /* Retire le padding par défaut */
+  display: flex; /* Utilise flexbox pour centrer le contenu */
+  align-items: center; /* Centre verticalement l'icône */
+  justify-content: center; /* Centre horizontalement l'icône */
+  pointer-events: all; /* Assure que l'icône reste cliquable */
+}
+
+/* Message d'erreur */
+.error-message {
+  color: red; /* Couleur rouge pour indiquer l'erreur */
+  font-size: 12px; /* Taille de police plus petite pour le message d'erreur */
+  margin-top: 5px; /* Ajoute un espace au-dessus du message */
+}
+
+/* Style des cartes */
+.card {
+  border-radius: 10px; /* Arrondit les coins des cartes */
+}
+
+/* Style des titres dans les cartes */
+.card h3 {
+  margin-bottom: 20px; /* Ajoute un espacement sous le titre pour séparer du contenu */
+}
+
+/* Largeur personnalisée pour les modales */
+.modal-lg-custom {
+  max-width: 900px; /* Définit une largeur maximale plus grande pour certaines modales */
+}
+
+/* Fond noir pour les modales */
+.modal-black-bg {
+  background-color: #000; /* Fond noir pour la modale */
+  color: #fff; /* Texte blanc pour assurer un bon contraste sur le fond noir */
+}
+
+/* Supprime les bordures par défaut pour l'en-tête et le pied de la modale */
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+/* Style du bouton de fermeture dans les modales avec fond noir */
+.modal-header .btn-close {
+  filter: invert(100%); /* Inverse les couleurs du bouton pour le rendre blanc sur fond noir */
+}
+
+/* Couleur du texte pour le contenu de la modale */
+.modal-body,
+.modal-footer {
+  color: #fff; /* Texte blanc pour un bon contraste dans le fond noir */
+}
+
+/* Fond noir et texte blanc pour le contenu de la modale */
+.modal-content {
+  background-color: var(--tertiary-color); /* Applique la couleur tertiaire comme fond pour la modale */
+  color: var(--primary-color); /* Texte en blanc pour un bon contraste avec le fond noir */
+  border-radius: 8px; /* Arrondit légèrement les coins de la modale */
+}

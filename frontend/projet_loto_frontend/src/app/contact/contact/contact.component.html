@@ -1,0 +1,84 @@
+<!-- Paragraphe en dehors de la carte avec espacement supérieur mt-5 -->
+<p class="intro-paragraph-large mt-5">
+  Bienvenue, nous sommes là pour vous aider ! Contactez-nous pour toute question
+  ou demande d'information.
+</p>
+
+<!-- Si l'email n'a pas encore été envoyé, afficher le formulaire de contact -->
+<div *ngIf="!emailSent" class="contact-card">
+  <!-- Conteneur pour l'en-tête avec l'image et le titre -->
+  <div class="contact-header">
+    <!-- Image pour représenter le contact -->
+    <img src="assets/contact/email.png" alt="Contact" class="contact-image" />
+    <!-- Titre de la section 'Contactez-nous' -->
+    <h2>Contactez-nous</h2>
+  </div>
+
+  <!-- Formulaire de contact avec Angular Reactive Forms -->
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <!-- Champ 'Nom' avec validation -->
+    <div class="form-field">
+      <label for="name">Nom:</label>
+      <input id="name" formControlName="name" type="text" required />
+      <!-- Message d'erreur si le champ 'Nom' est invalide et touché -->
+      <div
+        *ngIf="
+          contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+        "
+        class="error-message"
+      >
+        Le nom est requis.
+      </div>
+    </div>
+
+    <!-- Champ 'Email' avec validation -->
+    <div class="form-field">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" required />
+      <!-- Messages d'erreur si le champ 'Email' est invalide et touché -->
+      <div
+        *ngIf="
+          contactForm.get('email')?.invalid && contactForm.get('email')?.touched
+        "
+        class="error-message"
+      >
+        <!-- Message d'erreur si l'email est requis -->
+        <span *ngIf="contactForm.get('email')?.errors?.['required']">
+          L'email est requis.
+        </span>
+        <!-- Message d'erreur si l'email est invalide -->
+        <span *ngIf="contactForm.get('email')?.errors?.['pattern']">
+          Veuillez entrer un email valide.
+        </span>
+      </div>
+    </div>
+
+    <!-- Champ 'Message' avec validation -->
+    <div class="form-field">
+      <label for="message">Message:</label>
+      <textarea id="message" formControlName="message" required></textarea>
+      <!-- Message d'erreur si le champ 'Message' est invalide et touché -->
+      <div
+        *ngIf="
+          contactForm.get('message')?.invalid &&
+          contactForm.get('message')?.touched
+        "
+        class="error-message"
+      >
+        Le message est requis.
+      </div>
+    </div>
+
+    <!-- Bouton d'envoi du formulaire, désactivé si le formulaire est invalide -->
+    <app-button
+      [label]="'Envoyer'"
+      [type]="'submit'"
+      [disabled]="contactForm.invalid"
+    ></app-button>
+  </form>
+</div>
+
+<!-- Si l'email a été envoyé, afficher un message de confirmation -->
+<div *ngIf="emailSent">
+  <app-confirmation [message]="confirmationMessage"></app-confirmation>
+</div>

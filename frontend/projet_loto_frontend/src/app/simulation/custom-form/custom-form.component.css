@@ -1,0 +1,66 @@
+/* Paragraphe plus grand et en dehors de la carte avec espacement mt-5 */
+.intro-paragraph-large {
+  color: var(--primary-color); /* Applique la couleur principale (définie dans les variables CSS) au texte */
+  font-size: 24px; /* Agrandit la taille du texte à 24px */
+  text-align: center; /* Centre le texte */
+  margin-bottom: 30px; /* Ajoute un espacement de 30px en dessous du paragraphe */
+}
+
+/* Centrage de la carte */
+.simulation-card {
+  width: 400px; /* Largeur fixe de 400px pour la carte */
+  margin: 50px auto; /* Centre la carte horizontalement et ajoute un espacement vertical de 50px */
+  padding: 20px; /* Ajoute du padding interne à la carte */
+  border-radius: 10px; /* Arrondit les coins de la carte à 10px */
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); 
+  /* Applique un dégradé diagonal de la couleur secondaire à la couleur principale */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour de la carte */
+  text-align: center; /* Centre le texte à l'intérieur de la carte */
+}
+
+/* Conteneur pour le titre et l'image */
+.simulation-header {
+  display: flex; /* Utilise le modèle flexbox pour aligner les éléments */
+  align-items: center; /* Aligne les éléments verticalement au centre */
+  justify-content: center; /* Centre les éléments horizontalement */
+  margin-bottom: 20px; /* Ajoute un espacement en dessous du conteneur */
+}
+
+.simulation-header h2 {
+  margin-left: 15px; /* Ajoute un espacement à gauche du titre h2 */
+  color: var(--tertiary-color); /* Applique la couleur tertiaire (généralement noir) au texte */
+}
+
+.simulation-image {
+  width: 40px; /* Largeur de l'image fixée à 40px */
+  height: 40px; /* Hauteur de l'image fixée à 40px */
+}
+
+/* Styling des champs de formulaire */
+.form-field {
+  margin-bottom: 20px; /* Ajoute un espacement en dessous de chaque champ de formulaire */
+  text-align: left; /* Aligne le texte à gauche */
+}
+
+label {
+  display: block; /* Affiche le label comme un bloc pour qu'il occupe toute la largeur disponible */
+  margin-bottom: 5px; /* Ajoute un espacement en dessous du label */
+  font-weight: bold; /* Applique un style de texte en gras */
+  color: var(--tertiary-color); /* Applique la couleur tertiaire (généralement noir) au texte */
+}
+
+input {
+  width: 100%; /* Le champ de saisie occupe toute la largeur disponible */
+  padding: 10px; /* Ajoute du padding interne de 10px */
+  border: 1px solid #ccc; /* Applique une bordure grise de 1px */
+  border-radius: 5px; /* Arrondit les coins du champ de saisie */
+  font-size: 16px; /* Taille du texte à l'intérieur du champ */
+  color: var(--tertiary-color); /* Applique la couleur tertiaire (généralement noir) au texte */
+  background-color: var(--primary-color); /* Applique la couleur principale comme fond du champ */
+}
+
+.error-message {
+  color: red; /* Texte des messages d'erreur en rouge */
+  font-size: 12px; /* Taille du texte plus petite pour les messages d'erreur */
+  margin-top: 5px; /* Ajoute un petit espacement en haut du message d'erreur */
+}

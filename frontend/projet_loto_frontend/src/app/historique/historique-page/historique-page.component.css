@@ -1,0 +1,136 @@
+/* Style personnalisé pour les modals avec une largeur maximale de 900px */
+.modal-lg-custom {
+  max-width: 900px; /* Définit la largeur maximale de la modal */
+}
+
+/* Fond noir pour la modal */
+.modal-black-bg {
+  background-color: #000; /* Applique une couleur de fond noire */
+}
+
+/* Retire les bordures dans l'en-tête et le pied de la modal */
+.modal-header,
+.modal-footer {
+  border: none; /* Aucune bordure pour un look épuré */
+}
+
+/* Style du bouton de fermeture pour l'inverser (couleur blanche sur fond noir) */
+.modal-header .btn-close {
+  filter: invert(100%); /* Inverse les couleurs pour que le bouton soit visible sur fond sombre */
+}
+
+/* Corps et pied de la modal avec couleur secondaire */
+.modal-body,
+.modal-footer {
+  color: var(--secondary-color); /* Applique la couleur secondaire au texte */
+}
+
+/* Style pour le contenu de la modal */
+.modal-content {
+  background-color: var(--tertiary-color); /* Arrière-plan de la modal avec la couleur tertiaire */
+  color: var(--primary-color); /* Texte en couleur principale */
+  border-radius: 8px; /* Coins arrondis */
+}
+
+/* Correction pour que l'icône dans l'input ne bouge pas lors des erreurs de validation */
+.input-group-text {
+  position: absolute;
+  right: 23px; /* Positionnement de l'icône par rapport au bouton */
+  top: 60%;
+  transform: translateY(-50%); /* Centre verticalement l'icône */
+  border: none; /* Retire la bordure pour une apparence plus propre */
+  background-color: transparent; /* Fond transparent pour l'icône */
+  padding: 0;
+  display: flex; /* Aligne l'icône au centre */
+  align-items: center;
+  justify-content: center;
+  pointer-events: all; /* Permet d'interagir avec l'icône même si l'input est désactivé */
+}
+
+/* Taille et style de l'icône à l'intérieur de l'input */
+.input-icon {
+  width: 20px; /* Définit la largeur de l'icône */
+  height: 20px; /* Définit la hauteur de l'icône */
+  object-fit: contain; /* S'assure que l'icône ne soit pas déformée */
+  cursor: pointer; /* Change le curseur pour indiquer que c'est interactif */
+}
+
+/* Bouton flottant pour ouvrir le filtre */
+.filter-btn {
+  position: fixed;
+  top: 50%; /* Positionné au milieu de l'écran verticalement */
+  right: 0; /* Aligné à droite */
+  transform: translateY(-50%); /* Centre le bouton verticalement */
+  background-color: #f5f5f5; /* Couleur de fond gris clair */
+  border: 1px solid #ccc; /* Bordure grise légère */
+  padding: 10px; /* Espacement interne du bouton */
+  border-radius: 50%; /* Forme circulaire pour le bouton */
+  z-index: 1000; /* S'assure que le bouton est au-dessus des autres éléments */
+  cursor: pointer; /* Change le curseur en pointer pour indiquer l'interactivité */
+  transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+}
+
+/* Changement de la couleur de fond lors du survol du bouton filtre */
+.filter-btn:hover {
+  background-color: var(--primary-color); /* Change la couleur au survol en utilisant la couleur principale */
+}
+
+/* Barre latérale */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -500px; /* Barre latérale initialement cachée à droite de l'écran */
+  width: 500px; /* Largeur de la barre latérale */
+  height: 100%; /* Prend toute la hauteur de l'écran */
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  ); /* Dégradé de fond de la barre latérale */
+  color: var(--tertiary-color); /* Texte avec la couleur tertiaire */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Ombre pour donner de la profondeur */
+  padding: 20px; /* Espacement interne */
+  transition: right 0.3s ease; /* Transition pour un effet fluide lors de l'ouverture */
+  z-index: 999; /* Passe au-dessus des autres éléments */
+}
+
+/* Lorsque la barre latérale est active, elle glisse dans l'écran */
+.sidebar.active {
+  right: 0; /* Affiche la barre latérale */
+}
+
+/* En-tête de la barre latérale avec un bouton de fermeture */
+.sidebar-header {
+  display: flex; /* Utilise flexbox pour aligner le contenu horizontalement */
+  justify-content: space-between; /* Espace entre le titre et le bouton de fermeture */
+  align-items: center; /* Centre verticalement les éléments */
+  border-bottom: 1px solid var(--tertiary-color); /* Ligne de séparation en bas de l'en-tête */
+  padding-bottom: 10px; /* Espacement en bas de l'en-tête */
+}
+
+/* Bouton de fermeture dans la barre latérale */
+.close-btn {
+  background: none; /* Aucun fond pour le bouton de fermeture */
+  border: none; /* Pas de bordure */
+  font-size: 24px; /* Taille du texte (icône de fermeture) */
+  cursor: pointer; /* Curseur pointer pour indiquer l'interactivité */
+  padding: 0; /* Aucun padding pour un alignement précis */
+  width: 40px; /* Taille du bouton */
+  height: 40px;
+  z-index: 1000; /* S'assure que le bouton reste au-dessus des autres éléments */
+  display: flex; /* Centre le contenu à l'intérieur du bouton */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style pour les champs et boutons dans la barre latérale */
+.sidebar form .form-control {
+  margin-bottom: 15px; /* Espacement en bas de chaque champ du formulaire */
+}
+
+/* Style des icônes dans la barre latérale */
+.filter-icon {
+  width: 35px; /* Taille de l'icône */
+  height: 35px;
+  margin-right: 10px; /* Espacement entre l'icône et le texte */
+}

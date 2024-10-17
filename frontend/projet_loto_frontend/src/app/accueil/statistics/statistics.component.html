@@ -1,0 +1,61 @@
+<!-- Section des statistiques avec un espacement vertical et un texte centré -->
+<section class="statistics py-5 text-center">
+  <div class="container">
+    
+    <!-- Conteneur centré pour l'icône et le titre de la section des statistiques -->
+    <div class="container d-flex align-items-center justify-content-center">
+      <!-- Image représentant une icône pour la section des statistiques -->
+      <img
+        src="assets/accueil/boule.png"
+        alt="Icône statistique"
+        class="stat-icon"
+      />
+      <!-- Composant personnalisé pour afficher le titre 'Nos statistiques' -->
+      <app-title [level]="2" text="Nos statistiques"></app-title>
+    </div>
+
+    <!-- Ligne contenant les statistiques sous forme de colonnes -->
+    <div class="row mt-4">
+      
+      <!-- Colonne pour la première statistique : Simulation rapide -->
+      <div class="col-md-4 mt-4">
+        <h4>Simulation rapide</h4>
+        <!-- Affichage dynamique du nombre de simulations rapides -->
+        <p class="stat-number">+{{ simulationsRapides }}</p>
+      </div>
+      
+      <!-- Colonne pour la deuxième statistique : Simulation personnalisée -->
+      <div class="col-md-4 mt-4">
+        <h4>Simulation personnalisée</h4>
+        <!-- Affichage dynamique du nombre de simulations personnalisées -->
+        <p class="stat-number">+{{ simulationsPersonnalisees }}</p>
+      </div>
+      
+      <!-- Colonne pour la troisième statistique : Nombre de personnes inscrites -->
+      <div class="col-md-4 mt-4">
+        <h4>Personnes inscrites</h4>
+        <!-- Affichage dynamique du nombre de personnes inscrites -->
+        <p class="stat-number">+{{ personnesInscrites }}</p>
+      </div>
+    </div>
+
+    <!-- Section supplémentaire pour un message à la communauté -->
+    <div class="mt-5">
+      <!-- Message de remerciement adressé à la communauté -->
+      <p class="lead mb-5">
+        Merci à notre incroyable communauté de plus de
+        <strong>50 000 participants</strong> pour avoir fait de SimuLoterie la
+        plateforme de simulation de loterie préférée ! Ensemble, continuons à
+        simuler et à rêver de grands gains.
+      </p>
+
+      <!-- Appel à l'action pour rejoindre la plateforme et lancer une simulation -->
+      <p class="lead">
+        Rejoignez-nous dès aujourd'hui et lancez votre première simulation en
+        quelques clics. Que ce soit en <strong>simulation rapide</strong> ou
+        <strong>personnalisée</strong>, vivez l'expérience SimuLoterie et
+        devenez un gagnant virtuel !
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,86 @@
+<div class="container my-5">
+  <!-- Section d'introduction de l'application -->
+  <div class="text-center mb-5">
+    <!-- Utilisation du composant app-title pour le titre de l'introduction -->
+    <app-title
+      [level]="1"
+      text="Introduction à l'Application de Simulation de Tirage"
+    ></app-title>
+    <!-- Paragraphe de bienvenue et explication du fonctionnement des tirages -->
+    <p class="lead">
+      Bienvenue dans notre application de simulation de tirages de loto en
+      ligne. Vous pouvez participer à des simulations où chaque joueur choisit 5
+      numéros compris entre <strong>1 et {{numberTotalGrid}}</strong> et 2 étoiles comprises
+      entre <strong>1 et {{starTotalGrid}}</strong>. À chaque tirage, les 10 meilleurs
+      participants se partagent une cagnotte, basée sur la proximité de leurs
+      numéros et étoiles avec ceux tirés.
+    </p>
+    <!-- Paragraphe expliquant les deux types de simulation possibles -->
+    <p class="lead">
+      Vous avez le choix entre deux types de simulation : une
+      <strong>simulation rapide</strong> avec des paramètres prédéfinis pour une
+      expérience instantanée, ou une
+      <strong>simulation personnalisée</strong> où vous définissez vos propres
+      critères pour une expérience sur mesure.
+    </p>
+  </div>
+
+  <!-- Section avec titre pour indiquer les types de simulation à choisir -->
+  <app-title [level]="1" text="Choisissez votre type de simulation"></app-title>
+
+  <!-- Section avec les options de simulation (rapide et personnalisée) -->
+  <div class="row text-center mt-4">
+    <!-- Colonne pour la simulation rapide -->
+    <div class="col-md-6 mb-4">
+      <!-- Carte cliquable pour la simulation rapide -->
+      <div
+        class="card p-5 equal-card"
+        (click)="goToQuickSimulation()" 
+        style="cursor: pointer"
+      >
+        <!-- Titre avec une icône pour la simulation rapide -->
+        <h2>
+          <img
+            src="assets/simulation/clock.png"
+            alt="Icône Simulation Rapide"
+            style="width: 30px; height: 30px; margin-right: 10px"
+          />
+          Simulation Rapide
+        </h2>
+        <!-- Description de la simulation rapide -->
+        <p>
+          Commencez une simulation instantanément avec des paramètres par
+          défaut. Sélectionnez vos numéros et étoiles, et laissez l'application
+          simuler automatiquement les résultats sans configuration
+          supplémentaire. Idéal pour une simulation rapide et facile.
+        </p>
+      </div>
+    </div>
+
+    <!-- Colonne pour la simulation personnalisée -->
+    <div class="col-md-6 mb-4">
+      <!-- Carte cliquable pour la simulation personnalisée -->
+      <div
+        class="card p-5 equal-card"
+        (click)="goToCustomSimulation()" 
+        style="cursor: pointer"
+      >
+        <!-- Titre avec une icône pour la simulation personnalisée -->
+        <h2>
+          <img
+            src="assets/simulation/cogwheel.png"
+            alt="Icône Simulation Personnalisée"
+            style="width: 30px; height: 30px; margin-right: 10px"
+          />
+          Simulation Personnalisée
+        </h2>
+        <!-- Description de la simulation personnalisée -->
+        <p>
+          Créez une simulation en fonction de vos préférences. Personnalisez les
+          critères tels que le nombre de participants, et ajustez les options
+          selon vos besoins pour une simulation plus flexible et adaptée.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+/* Fichier : confirmation-card.css */
+
+/* Styles de base pour la carte de confirmation */
+.confirmation-card {
+  width: 400px; /* Largeur de la carte fixée à 400 pixels */
+  margin: 100px auto; /* Centre horizontalement la carte avec un espace de 100 pixels en haut et en bas */
+  padding: 20px; /* Ajoute un espacement interne de 20 pixels */
+  border-radius: 10px; /* Coins arrondis avec un rayon de 10 pixels pour un effet visuel doux */
+
+  /* Dégradé de fond qui va de la couleur définie par --secondary-color à celle définie par --primary-color */
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  ); /* Utilisation d'un dégradé identique à celui utilisé dans ContactComponent */
+
+  /* Ombre légère pour ajouter de la profondeur et donner un effet de surélévation à la carte */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* Aligner le contenu de la carte au centre pour une meilleure présentation visuelle */
+  text-align: center;
+}
+
+/* Style pour le titre de la carte de confirmation */
+.confirmation-card h2 {
+  color: var(--tertiary-color); /* Couleur noire définie par --tertiary-color pour une bonne lisibilité */
+}
+
+/* Style pour le paragraphe de la carte de confirmation */
+.confirmation-card p {
+  color: var(--tertiary-color); /* Couleur noire pour le texte du paragraphe pour une bonne lisibilité */
+  font-size: 18px; /* Taille du texte légèrement plus grande pour améliorer la lisibilité */
+  margin: 20px 0; /* Ajoute une marge de 20 pixels en haut et en bas du paragraphe pour l'espacement */
+}

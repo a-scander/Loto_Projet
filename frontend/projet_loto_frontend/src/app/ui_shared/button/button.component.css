@@ -1,22 +1,43 @@
 /* Fichier : button.component.css */
+
+/* Style par défaut pour le bouton */
 .default-button {
-  background-color: var(
-    --secondary-color
-  ); /* Couleur de fond par défaut (bleu) */
-  color: white; /* Couleur du texte */
-  border: none; /* Pas de bordure */
-  padding: 10px 20px; /* Espacement interne */
-  border-radius: 5px; /* Coins arrondis */
-  cursor: pointer; /* Curseur en forme de main */
-  font-size: 16px; /* Taille de la police */
-  transition: background-color 0.3s ease; /* Transition fluide pour le survol */
+  /* Couleur de fond par défaut définie par la variable CSS --secondary-color (par exemple, bleu) */
+  background-color: var(--secondary-color);
+
+  /* Couleur du texte du bouton, définie par la variable CSS --primary-color (par exemple, blanc) */
+  color: var(--primary-color);
+
+  /* Retirer toute bordure autour du bouton */
+  border: none;
+
+  /* Espacement interne du bouton : 10px en haut et en bas, 20px à gauche et à droite */
+  padding: 10px 20px;
+
+  /* Coins légèrement arrondis pour donner un aspect plus doux */
+  border-radius: 5px;
+
+  /* Le curseur de la souris devient une main lorsque l'utilisateur survole le bouton, indiquant qu'il est cliquable */
+  cursor: pointer;
+
+  /* Taille de la police du texte à 16px pour une bonne lisibilité */
+  font-size: 16px;
+
+  /* Transition fluide de la couleur de fond lorsque l'utilisateur survole le bouton */
+  transition: background-color 0.3s ease;
 }
 
+/* Style pour le bouton lorsque celui-ci est désactivé */
 .default-button:disabled {
-  background-color: #d3d3d3; /* Couleur de fond lorsque le bouton est désactivé */
-  cursor: not-allowed; /* Curseur en forme d'interdiction */
+  /* Couleur de fond plus claire (jaune pâle) pour indiquer que le bouton est inactif */
+  background-color: #f9e79f;
+
+  /* Le curseur devient un symbole d'interdiction pour montrer que l'utilisateur ne peut pas interagir avec le bouton */
+  cursor: not-allowed;
 }
 
+/* Style appliqué lors du survol du bouton, sauf s'il est désactivé */
 .default-button:hover:not(:disabled) {
-  background-color: #0056b3; /* Couleur de fond au survol */
+  /* Changement de la couleur de fond (par exemple, un jaune plus foncé) lorsqu'on survole un bouton actif */
+  background-color: #e1bc36;
 }

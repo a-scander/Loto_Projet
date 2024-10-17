@@ -1,0 +1,71 @@
+/* Paragraphe agrandi, centré, avec espacement au-dessus et au-dessous */
+.intro-paragraph-large {
+  color: var(--primary-color); /* Utilisation de la couleur principale (blanc) pour le texte */
+  font-size: 24px; /* Agrandit la taille du texte pour attirer l'attention */
+  text-align: center; /* Centrer le texte */
+  margin-bottom: 30px; /* Ajoute un espacement en bas du paragraphe */
+}
+
+/* Style pour centrer la carte de contact */
+.contact-card {
+  width: 400px; /* Définit la largeur de la carte */
+  margin: 50px auto; /* Centre la carte horizontalement avec un espacement vertical */
+  padding: 20px; /* Ajoute du padding à l'intérieur de la carte */
+  border-radius: 10px; /* Arrondit les bords de la carte */
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  ); /* Applique un dégradé inversé en diagonale */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce pour donner de la profondeur */
+  text-align: center; /* Centre le texte à l'intérieur de la carte */
+}
+
+/* Conteneur pour l'en-tête de la carte avec une image et un titre */
+.contact-header {
+  display: flex; /* Utilise flexbox pour aligner l'image et le texte sur une ligne */
+  align-items: center; /* Aligne verticalement l'image et le texte au centre */
+  justify-content: center; /* Centre le contenu horizontalement */
+  margin-bottom: 20px; /* Ajoute de l'espacement sous l'en-tête */
+}
+
+.contact-header h2 {
+  margin-left: 15px; /* Espace entre l'image et le texte */
+  color: var(--tertiary-color); /* Applique la couleur tertiaire (noir) au titre */
+}
+
+.contact-image {
+  width: 40px; /* Définit la taille de l'image à 40 pixels de largeur */
+  height: 40px; /* Définit la taille de l'image à 40 pixels de hauteur */
+}
+
+/* Style pour les champs de formulaire */
+.form-field {
+  margin-bottom: 20px; /* Espace entre les champs de formulaire */
+  text-align: left; /* Aligne le texte du formulaire à gauche */
+}
+
+label {
+  display: block; /* Rend le label un bloc pour qu'il occupe toute la largeur */
+  margin-bottom: 5px; /* Ajoute un espacement en dessous du label */
+  font-weight: bold; /* Rend le texte du label en gras */
+  color: var(--tertiary-color); /* Utilise la couleur tertiaire (noir) pour le texte */
+}
+
+input,
+textarea {
+  width: 100%; /* Champs de formulaire s'étendent sur toute la largeur disponible */
+  padding: 10px; /* Ajoute du padding à l'intérieur des champs pour le confort d'utilisation */
+  border: 1px solid #ccc; /* Ajoute une bordure grise légère autour des champs */
+  border-radius: 5px; /* Arrondit légèrement les bords des champs */
+  font-size: 16px; /* Taille de police des champs de formulaire */
+  color: var(--tertiary-color); /* Applique la couleur tertiaire (noir) au texte des champs */
+  background-color: var(--primary-color); /* Utilise la couleur principale (blanc) pour le fond des champs */
+}
+
+/* Style pour les messages d'erreur */
+.error-message {
+  color: red; /* Couleur rouge pour indiquer l'erreur */
+  font-size: 12px; /* Taille de police réduite pour les messages d'erreur */
+  margin-top: 5px; /* Espace au-dessus du message d'erreur */
+}

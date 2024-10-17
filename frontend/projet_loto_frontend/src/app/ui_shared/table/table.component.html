@@ -1,0 +1,83 @@
+<div
+  [ngClass]="{
+    'card p-5 shadow-lg custom-card': showCard,
+    'transparent-card': !showCard,
+  }"
+>
+  <!-- Utilisation de la directive Angular `ngClass` pour appliquer des classes conditionnelles. 
+       Si `showCard` est vrai, on applique des styles de carte (padding, ombre, etc.), 
+       sinon une carte transparente sans ces styles. -->
+  
+  <h2 class="text-center mb-4">{{ title }}</h2>
+  <!-- Affiche le titre au centre, la valeur est passée dynamiquement via une propriété `title`. -->
+
+  <div *ngIf="showSearchBar">
+    <app-search-bar (searchChange)="onSearch($event)"></app-search-bar>
+    <!-- Affiche la barre de recherche uniquement si `showSearchBar` est vrai.
+         L'événement `searchChange` de la barre de recherche est lié à la méthode `onSearch` du composant. -->
+  </div>
+
+  <div class="table-responsive mt-4">
+    <table class="table table-bordered" *ngIf="filteredData.length > 0">
+      <!-- Si `filteredData` contient des éléments, on affiche le tableau, sinon, rien ne s'affiche. -->
+      <thead>
+        <tr>
+          <!-- Itère sur chaque colonne définie dans `columns` pour créer les en-têtes de tableau. -->
+          <th *ngFor="let column of columns">{{ column.header }}</th>
+          <th *ngIf="showAction">Action</th>
+          <!-- Ajoute une colonne `Action` si `showAction` est vrai, pour contenir des boutons d'action (ex. supprimer). -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of pagedData; let i = index"
+          [class.selected]="item.index === selectedIndex && !showAction"
+          (click)="onRowClick(item.index)"
+        >
+          <!-- Itère sur les données paginées (`pagedData`) pour créer chaque ligne du tableau. 
+               Ajoute une classe `selected` si l'index de l'élément est égal à l'index sélectionné, sauf s'il y a des actions affichées. -->
+          <td *ngFor="let column of columns">{{ item[column.key] }}</td>
+          <!-- Itère sur les colonnes pour chaque cellule et récupère la valeur en utilisant la clé correspondante. -->
+          
+          <td *ngIf="showAction" class="action-cell">
+            <!-- Colonne d'action si `showAction` est vrai. -->
+            <button class="delete-btn" (click)="deleteItem(item['id'])">
+              <!-- Bouton pour supprimer l'élément avec un clic qui déclenche `deleteItem` en passant l'ID de l'élément. -->
+              <img
+                src="assets/delete.png"
+                alt="Delete"
+                width="16"
+                height="16"
+              />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Affichage si aucun résultat trouvé -->
+    <ng-template #noResults>
+      <!-- Utilisation d'une template Angular pour afficher un message quand il n'y a pas de résultats -->
+      <p class="text-center" style="color: red">
+        Aucun résultat ne correspond à votre recherche.
+      </p>
+    </ng-template>
+
+    <div *ngIf="filteredData.length === 0">
+      <ng-container *ngTemplateOutlet="noResults"></ng-container>
+      <!-- Si `filteredData` est vide, affiche le contenu du template `noResults` précédemment défini. -->
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <app-pagination
+    [totalItems]="filteredData.length"
+    [itemsPerPage]="itemsPerPage"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+  >
+  </app-pagination>
+  <!-- Utilise le composant `app-pagination` pour gérer la pagination.
+       Propriétés comme `totalItems`, `itemsPerPage`, et `currentPage` sont définies pour déterminer le comportement de la pagination.
+       Lorsque la page change, l'événement `pageChange` est déclenché, et la méthode `onPageChange` est appelée. -->
+</div>

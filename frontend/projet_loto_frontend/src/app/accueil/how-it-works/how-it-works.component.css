@@ -1,0 +1,78 @@
+.how-it-works {
+  padding: 60px 0; /* Espacement vertical autour de la section */
+  border-bottom: 1px solid var(--secondary-color); /* Bordure en bas avec la couleur secondaire */
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem; /* Taille de police pour le titre principal */
+  margin-bottom: 30px; /* Espacement en bas du titre */
+}
+
+.how-it-works .col-md-5 h4 {
+  font-size: 1.5rem; /* Taille de police pour les sous-titres */
+  margin-bottom: 20px; /* Espacement en bas du sous-titre */
+}
+
+.how-it-works .col-md-5 p,
+.how-it-works .col-md-5 ul {
+  font-size: 1rem; /* Taille de police pour les paragraphes et les listes */
+  margin-bottom: 20px; /* Espacement en bas des paragraphes et listes */
+}
+
+/* Style pour les liens textuels avec couleur jaune */
+.link-yellow {
+  color: var(--secondary-color) !important; /* Couleur de texte jaune définie par une variable CSS */
+  text-decoration: none; /* Supprime la décoration par défaut du lien */
+  font-weight: bold; /* Rend le texte en gras */
+  position: relative; /* Nécessaire pour positionner l'effet de soulignement */
+  transition: color 0.3s ease; /* Transition douce pour le changement de couleur au survol */
+  cursor: pointer; /* Change le curseur pour indiquer que le texte est cliquable */
+}
+
+/* Soulignement progressif sous le lien */
+.link-yellow::after {
+  content: ""; /* Pseudo-élément pour créer l'effet de soulignement */
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* Position du soulignement légèrement en dessous du texte */
+  width: 0; /* Largeur initiale du soulignement */
+  height: 2px; /* Hauteur de la ligne de soulignement */
+  background-color: var(--secondary-color); /* Couleur de la ligne */
+  transition: width 0.4s ease; /* Animation progressive du soulignement */
+}
+
+/* Effet au survol pour changer la couleur et dessiner le soulignement */
+.link-yellow:hover {
+  color: var(--primary-color); /* Change la couleur du texte au survol */
+}
+
+.link-yellow:hover::after {
+  width: 100%; /* La ligne s'étend sous tout le texte au survol */
+}
+
+/* Style pour l'icône à gauche du titre */
+.how-it-works-icon {
+  max-width: 50px !important; /* Taille maximale de l'icône */
+  margin-right: 15px; /* Espacement entre l'icône et le titre */
+  display: inline-block; /* Affiche l'icône en ligne avec le texte */
+  vertical-align: middle; /* Aligne verticalement l'icône avec le texte */
+}
+
+.how-it-works img {
+  max-width: 100px; /* Taille maximale pour les images */
+  margin-bottom: 15px; /* Espacement en bas des images */
+}
+
+/* Animation d'apparition avec effet de glissement depuis la droite */
+.slide-in-right {
+  opacity: 0; /* Élément invisible initialement */
+  transform: translateX(100px); /* L'élément commence à droite en dehors de l'écran */
+  transition:
+    opacity 0.6s ease-out, /* Transition progressive pour rendre l'élément visible */
+    transform 0.6s ease-out; /* Transition fluide pour le déplacement */
+}
+
+.slide-in-right.visible {
+  opacity: 1; /* Élément visible une fois que la classe 'visible' est appliquée */
+  transform: translateX(0); /* L'élément revient à sa position normale */
+}

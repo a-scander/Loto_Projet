@@ -1,0 +1,22 @@
+<!-- Conteneur principal de la bannière avec centrage vertical et horizontal -->
+<div
+  class="banner-container d-flex justify-content-center align-items-center text-center"
+>
+  <!-- Élément d'arrière-plan pour l'image de la bannière -->
+  <div class="background-image"></div>
+
+  <!-- Contenu de la bannière, incluant le titre et le texte -->
+  <div class="banner-content">
+    <!-- Titre principal de la bannière -->
+    <h1 class="display-4 fw-bold">Bienvenue dans SimuLoterie</h1>
+
+    <!-- Texte de sous-titre ou description -->
+    <p class="lead">
+      Tentez votre chance et devenez le prochain gagnant du jackpot !
+    </p>
+
+    <!-- Utilisation d'un composant personnalisé pour le bouton avec une action lors du clic -->
+    <app-button label="Jouez maintenant" (clicked)="onButtonClick()">
+    </app-button>
+  </div>
+</div>

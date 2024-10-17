@@ -1,0 +1,39 @@
+/* Conteneur pour assurer que les éléments enfants aient une hauteur égale */
+.equal-height-container {
+  display: flex; /* Utilise Flexbox pour aligner les éléments enfants sur une ligne */
+}
+
+/* Style pour la section du tirage gagnant et les détails du tirage */
+.tirage-gagnant,
+.details-tirage {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  ); /* Applique un dégradé de couleur allant de secondary-color à primary-color */
+  color: var(--tertiary-color); /* Texte avec la couleur définie par la variable --tertiary-color */
+  border-radius: 8px; /* Ajoute des coins arrondis à la section */
+  text-align: center; /* Centre le texte horizontalement */
+  flex: 1; /* Les deux sections (tirage gagnant et détails) prendront la même largeur */
+  display: flex; /* Utilise Flexbox pour aligner le contenu de l'intérieur de la section */
+  flex-direction: column; /* Organise le contenu en colonne */
+  justify-content: center; /* Centre verticalement le contenu dans chaque section */
+}
+
+/* Style pour les numéros et étoiles gagnants */
+.winning-numbers,
+.winning-stars {
+  font-weight: bold; /* Met en gras les numéros et étoiles gagnants */
+  font-size: 1.2rem; /* Taille légèrement plus grande pour les numéros et étoiles */
+  color: var(--highlight-color); /* Couleur spéciale pour les numéros et étoiles gagnants */
+}
+
+/* Style pour les titres de niveau 4 (h4) */
+h4 {
+  font-size: 1.5rem; /* Assure une taille uniforme pour les titres h4 */
+}
+
+/* Style pour les paragraphes */
+p {
+  font-size: 1.2rem; /* Taille plus grande pour les informations textuelles */
+}

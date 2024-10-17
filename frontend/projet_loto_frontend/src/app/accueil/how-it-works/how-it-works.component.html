@@ -1,0 +1,103 @@
+<!-- Section 'Comment ça marche' avec un espacement vertical -->
+<section class="how-it-works py-5 slide-in-right">
+  <div class="container">
+
+    <!-- Conteneur centré pour l'icône et le titre de la section -->
+    <div class="container d-flex align-items-center justify-content-center">
+      <!-- Image représentant l'icône de la section 'Comment ça marche' -->
+      <img
+        src="assets/accueil/boule.png"
+        alt="Icône Comment ça marche"
+        class="how-it-works-icon"
+      />
+      <!-- Composant personnalisé pour le titre de la section -->
+      <app-title
+        [level]="2"
+        text="Comment ça marche ?"
+        class="text-center"
+      ></app-title>
+    </div>
+
+    <!-- Paragraphe descriptif de la section 'Comment ça marche' -->
+    <p class="text-center lead">
+      SimuLoterie propose deux modes de simulation pour adapter l’expérience à
+      vos envies : la <strong>simulation rapide</strong> pour des parties
+      instantanées, et la <strong>simulation personnalisée</strong> pour un
+      contrôle total.
+    </p>
+
+    <!-- Conteneur pour les deux modes de simulation, avec un espacement en haut -->
+    <div class="row text-center mt-5">
+
+      <!-- Colonne pour la description du mode 'Simulation rapide' -->
+      <div class="col-md-5 mt-2">
+        <!-- Composant titre pour le sous-titre 'Simulation rapide' -->
+        <app-title
+          [level]="4"
+          text="Simulation rapide"
+          class="text-center"
+        ></app-title>
+
+        <!-- Paragraphe expliquant le mode 'Simulation rapide' -->
+        <p>
+          Choisissez l'option "Simulation rapide" pour lancer une partie rapide
+          avec 100 participants et une cagnotte totale de {{sommeGain}}€.
+          Remplissez votre ticket en sélectionnant 5 numéros entre 1 et {{numberTotalGrid}}, et 2
+          étoiles entre 1 et {{starTotalGrid}}. Le classement final est ensuite affiché, et les
+          10 meilleurs participants seront récompensés en fonction de leur
+          position.
+        </p>
+
+        <!-- Lien vers la page de simulation rapide -->
+        <p>
+          <span>
+            Vous voulez essayer ?
+            <a (click)="navigateTo('/quick-simulation')" class="link-yellow">
+              Allez à Simulation rapide
+            </a>
+          </span>
+        </p>
+      </div>
+
+      <!-- Colonne pour la description du mode 'Simulation personnalisée' avec un décalage -->
+      <div class="col-md-5 offset-md-2 mt-2">
+        <!-- Composant titre pour le sous-titre 'Simulation personnalisée' -->
+        <app-title
+          [level]="4"
+          text="Simulation personnalisée"
+          class="text-center"
+        ></app-title>
+
+        <!-- Paragraphe expliquant le mode 'Simulation personnalisée' -->
+        <p>
+          Avec la "Simulation personnalisée", vous avez le contrôle total. Vous
+          pouvez définir :
+        </p>
+
+        <!-- Liste non ordonnée des options de personnalisation -->
+        <ul class="list-unstyled">
+          <li>- Le nombre de participants (jusqu'à {{nbParticipant}})</li>
+          <li>- Le montant de la cagnotte à partager</li>
+          <li>- Le nombre de tickets que vous souhaitez remplir</li>
+        </ul>
+
+        <!-- Paragraphe supplémentaire expliquant les options de la simulation personnalisée -->
+        <p>
+          Vous pouvez également choisir les numéros et étoiles gagnants ou les
+          générer de manière aléatoire. Une fois vos paramètres définis, lancez
+          la simulation et découvrez les résultats.
+        </p>
+
+        <!-- Lien vers la page de simulation personnalisée -->
+        <p>
+          <span>
+            Vous préférez personnaliser ?
+            <a (click)="navigateTo('/custom-form')" class="link-yellow">
+              Allez à Simulation personnalisée
+            </a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

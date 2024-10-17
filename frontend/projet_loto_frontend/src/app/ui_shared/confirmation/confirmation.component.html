@@ -1,0 +1,13 @@
+<div class="confirmation-card">
+  <!-- Utilisation de TitleComponent avec h2 -->
+  <h2>Confirmation</h2>
+
+  <p>{{ message }}</p>
+
+  <!-- Bouton pour retourner à l'accueil -->
+  <app-button
+    [label]="'Retourner à l\'accueil'"
+    [type]="'button'"
+    (clicked)="goToHome()"
+  ></app-button>
+</div>

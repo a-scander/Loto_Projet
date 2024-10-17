@@ -1,0 +1,118 @@
+<div class="container my-5">
+  <!-- Conteneur principal avec une marge verticale (my-5) pour espacer la section du haut et du bas -->
+
+  <div class="text-center mb-5">
+    <!-- Section centrée avec une marge inférieure (mb-5) pour espacer le titre et le paragraphe -->
+    <app-title [level]="1" [text]="'Politique de Confidentialité'"></app-title>
+    <!-- Composant personnalisable pour afficher un titre de niveau 1 avec le texte "Politique de Confidentialité" -->
+    <p class="lead">
+      <!-- Paragraphe de premier niveau avec une mise en avant visuelle (lead) -->
+      Chez <strong>NebulaCore</strong>, nous respectons votre vie privée et nous
+      nous engageons à protéger les informations personnelles que vous nous
+      fournissez.
+      <!-- Texte indiquant l'engagement de NebulaCore à protéger les informations personnelles -->
+    </p>
+  </div>
+
+  <!-- Informations collectées -->
+  <div class="row mb-5">
+    <!-- Ligne Bootstrap avec une marge inférieure (mb-5) pour espacer la section -->
+    <div class="col-md-12">
+      <!-- Colonne prenant toute la largeur sur les écrans moyens et plus grands (col-md-12) -->
+      <app-title
+        [level]="2"
+        [text]="'Les informations que nous collectons'"
+      ></app-title>
+      <!-- Composant titre pour afficher un sous-titre de niveau 2 avec le texte "Les informations que nous collectons" -->
+      <p>
+        Nous ne collectons aucune information personnelle identifiable telle que
+        le nom, l'adresse email ou toute autre donnée sensible. Seuls les
+        pseudonymes que vous choisissez sont utilisés pour les classements
+        visibles sur le site.
+        <!-- Explication que seules les pseudonymes sont collectées, aucune donnée personnelle sensible -->
+      </p>
+    </div>
+  </div>
+
+  <!-- Utilisation des informations -->
+  <div class="row mb-5">
+    <!-- Ligne avec une marge inférieure pour espacer la section suivante -->
+    <div class="col-md-12">
+      <!-- Colonne prenant toute la largeur de l'écran moyen et plus -->
+      <app-title
+        [level]="2"
+        [text]="'Comment nous utilisons vos informations'"
+      ></app-title>
+      <!-- Titre expliquant l'utilisation des informations collectées, ici les pseudonymes -->
+      <p>
+        Les pseudonymes sont uniquement affichés dans les classements publics
+        sur notre site. Aucune autre donnée personnelle n’est collectée, stockée
+        ou partagée.
+        <!-- Texte expliquant que les pseudonymes sont utilisés pour les classements et qu'aucune autre donnée n'est stockée ou partagée -->
+      </p>
+    </div>
+  </div>
+
+  <!-- Données du formulaire de contact -->
+  <div class="row mb-5">
+    <!-- Nouvelle section pour les données du formulaire de contact -->
+    <div class="col-md-12">
+      <app-title
+        [level]="2"
+        [text]="'Données soumises via la page Contactez-nous'"
+      ></app-title>
+      <!-- Titre indiquant comment les données du formulaire de contact sont gérées -->
+      <p>
+        Lorsque vous nous envoyez un message via la page
+        <a routerLink="/contact" class="text-warning">Contactez-nous</a>, les
+        informations telles que votre nom et adresse e-mail ne sont pas
+        conservées après le traitement de votre demande. Elles sont utilisées
+        uniquement pour répondre à votre message, et nous ne stockons pas ces
+        informations dans une base de données ou autre système de stockage
+        permanent.
+        <!-- Explication sur le fait que les données de contact ne sont pas conservées après avoir répondu à la demande de l'utilisateur -->
+      </p>
+    </div>
+  </div>
+
+  <!-- Sécurité des informations -->
+  <div class="row mb-5">
+    <!-- Section sur la sécurité des informations -->
+    <div class="col-md-12">
+      <app-title
+        [level]="2"
+        [text]="'Sécurité de vos informations'"
+      ></app-title>
+      <!-- Titre expliquant les mesures de sécurité autour des informations collectées -->
+      <p>
+        Nous mettons tout en œuvre pour assurer la sécurité des pseudonymes que
+        vous fournissez lors de votre participation aux classements. Aucune
+        information sensible n'est collectée.
+        <!-- Texte précisant les efforts mis en place pour sécuriser les pseudonymes, et qu'aucune donnée sensible n'est collectée -->
+      </p>
+    </div>
+  </div>
+
+  <!-- Vos droits -->
+  <div class="row mb-5">
+    <!-- Section expliquant les droits de l'utilisateur concernant ses informations -->
+    <div class="col-md-12">
+      <app-title [level]="2" [text]="'Vos droits'"></app-title>
+      <!-- Titre indiquant les droits des utilisateurs en matière de données personnelles -->
+      <p>
+        Conformément à la réglementation applicable, vous avez le droit de :
+        <!-- Introduction aux droits des utilisateurs -->
+      </p>
+      <ul>
+        <li>Accéder à votre pseudonyme.</li>
+        <li>Demander sa correction ou sa suppression.</li>
+        <!-- Liste des droits spécifiques relatifs aux pseudonymes : accès, correction, suppression -->
+      </ul>
+      <p>
+        Pour exercer ces droits, veuillez
+        <a routerLink="/contact" class="text-warning">nous contacter</a>.
+        <!-- Invitation à contacter l'entreprise pour exercer les droits -->
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+/* Pour que les cartes aient la même taille */
+.equal-card {
+  height: 100%; /* Assure que toutes les cartes ont la même hauteur */
+  display: flex; /* Utilise Flexbox pour organiser le contenu de la carte */
+  flex-direction: column; /* Dispose le contenu (titre, texte) en colonne */
+  justify-content: center; /* Centre verticalement le contenu à l'intérieur de la carte */
+  align-items: center; /* Centre horizontalement le contenu à l'intérieur de la carte */
+  border-radius: 15px; /* Arrondit les coins des cartes */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre sous les cartes */
+  transition: transform 0.3s ease; /* Transition pour les transformations (zoom) au survol */
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--primary-color)
+  ); /* Applique un dégradé de couleur avec des variables (bleu-violet) */
+}
+
+/* Effet de zoom au survol */
+.equal-card:hover {
+  transform: scale(1.05); /* Agrandit légèrement la carte au survol pour un effet interactif */
+}
+
+/* Style des titres (h2) dans les cartes */
+h2 {
+  font-weight: bold; /* Met en gras les titres */
+  margin-bottom: 10px; /* Ajoute un espacement en dessous des titres */
+}
+
+/* Style général des paragraphes */
+p {
+  font-size: 1.2rem; /* Définit la taille du texte pour les paragraphes */
+  color: var(--primary-color); /* Applique la couleur primaire au texte */
+}
+
+/* Style spécifique pour les paragraphes dans les cartes */
+.card p {
+  color: var(--tertiary-color); /* Change la couleur du texte des paragraphes dans les cartes pour correspondre à la couleur tertiaire */
+}
