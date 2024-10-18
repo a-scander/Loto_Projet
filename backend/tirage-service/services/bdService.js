@@ -17,7 +17,8 @@ async function getAllTirages() {
       t.montant_tirage AS "Montant du tirage"  
     FROM participation p
     JOIN utilisateur u ON p.utilisateur_id = u.id
-    JOIN tirage t ON p.tirage_id = t.id;
+    JOIN tirage t ON p.tirage_id = t.id
+    ORDER BY u.pseudo;
   `);
     return result.rows; // Retourne les lignes récupérées
   } catch (err) {
@@ -121,9 +122,8 @@ async function getFilteredTirages(filters) {
     query += ` AND p.montant_gagne <= $${queryParams.length + 1}`;
     queryParams.push(maxAmount);
   }
-  console.log(query);
-  console.log("---------");
-  console.log(queryParams);
+    // Ajout de l'ORDER BY sur le pseudo
+    query += ` ORDER BY u.pseudo`;
   // Exécuter la requête et renvoyer les résultats
   try {
     const result = await pool.query(query, queryParams);

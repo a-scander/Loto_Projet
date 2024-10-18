@@ -13,10 +13,16 @@ export class VariableService {
   private _selectionMaxStar: number = 2; // Nombre maximum d'étoiles à sélectionner
   private _nbParticipants: number = 100; // Nombre de participants dans un tirage
   private _numberOfDraws: number = 1; // Nombre de tirages
+  private _sizeMax: number = 999999999999; // Montant Max Total
 
   // Getter pour récupérer la valeur de la somme du tirage
   get sommeTirage(): number {
     return this._sommeTirage;
+  }
+
+   // Getter pour récupérer la valeur de la somme du tirage
+   get sizeMax(): number {
+    return this._sizeMax;
   }
 
   // Getter pour récupérer le nombre de participants

@@ -37,7 +37,7 @@
         <div class="tirage-info text-center mb-4">
           <h5 class="text-black fw-bold">
             Participants: {{ totalParticipants }} / Montant total:
-            {{ montantTotal }}
+            {{ montantTotal }} €
           </h5>
         </div>
 
@@ -138,7 +138,7 @@
               </div>
               <!-- Message d'erreur si les numéros ne sont pas remplis -->
               <div *ngIf="showNumbersError" class="error-message">
-                Vous devez sélectionner 5 numéros.
+                Vous devez sélectionner {{maxNumberSelections}} numéros.
               </div>
             </div>
           </div>
@@ -179,7 +179,7 @@
               </div>
               <!-- Message d'erreur si les étoiles ne sont pas remplies -->
               <div *ngIf="showStarsError" class="error-message">
-                Vous devez sélectionner 2 étoiles.
+                Vous devez sélectionner {{maxStarSelections}} étoiles.
               </div>
             </div>
           </div>
