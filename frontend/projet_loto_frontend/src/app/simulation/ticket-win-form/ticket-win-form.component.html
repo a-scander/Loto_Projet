@@ -71,7 +71,7 @@
               </div>
               <!-- Message d'erreur si les numéros ne sont pas sélectionnés correctement -->
               <div *ngIf="showNumbersError" class="error-message">
-                Vous devez sélectionner 5 numéros.
+                Vous devez sélectionner {{maxNumberSelections}} numéros.
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@
               </div>
               <!-- Message d'erreur si les étoiles ne sont pas sélectionnées correctement -->
               <div *ngIf="showStarsError" class="error-message">
-                Vous devez sélectionner 2 étoiles.
+                Vous devez sélectionner {{maxStarSelections}} étoiles.
               </div>
             </div>
           </div>

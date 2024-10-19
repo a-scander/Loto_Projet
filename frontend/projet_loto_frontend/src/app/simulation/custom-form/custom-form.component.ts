@@ -9,6 +9,8 @@ import {
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../../ui_shared/button/button.component';
 import { CommonModule } from '@angular/common';
+import { VariableBinding } from '@angular/compiler';
+import { VariableService } from '../../services/variableservices/variable.service';
 
 @Component({
   selector: 'app-custom-form', // Sélecteur utilisé pour insérer ce composant dans les templates
@@ -19,17 +21,19 @@ import { CommonModule } from '@angular/common';
 })
 export class CustomFormComponent {
   customForm: FormGroup; // Déclaration du groupe de formulaire réactif
-
+  totalParticipant : number = this.service.nbParticipant; // récuperation du nombre de participants
+  sizeMax : number = this.service.sizeMax; // récuperation du montant Max
   constructor(
     private fb: FormBuilder, // Injection du FormBuilder pour créer et gérer le formulaire
     private router: Router, // Injection du Router pour la navigation entre les pages
+    private service :VariableService,//Injection du Service Variable pour récupérer des valeurs globales
   ) {
     // Création du formulaire réactif avec ses contrôles et leurs validations
     this.customForm = this.fb.group(
       {
         totalParticipants: [
           null, // Valeur initiale
-          [Validators.required, Validators.min(0), Validators.max(100)], // Validations : requis, entre 0 et 100
+          [Validators.required, Validators.min(0), Validators.max(this.totalParticipant)], // Validations : requis, entre 0 et 100
         ],
         numberOfDraws: [null, [Validators.required, Validators.min(0)]], // Validations : requis, supérieur ou égal à 0
         montantTotal: [null, [Validators.required, this.gainValidator()]], // Validation : requis et validateur personnalisé pour le gain
@@ -92,7 +96,7 @@ export class CustomFormComponent {
       if (value <= 0) {
         return { invalidGain: true }; // Retourne une erreur si la valeur est <= 0
       }
-      if (value > 999999999999) {
+      if (value > this.sizeMax) {
         return { gainTooHigh: true }; // Retourne une erreur si la valeur dépasse 999,999,999,999
       }
       return null;

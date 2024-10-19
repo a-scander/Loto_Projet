@@ -91,10 +91,11 @@ export class TableComponent {
   // Méthode de recherche qui filtre les données en fonction du terme de recherche
   onSearch(term: string): void {
     const searchTerm = term.toLowerCase(); // Convertir le terme en minuscules
-
+debugger
     if (!searchTerm) {
       // Si aucun terme n'est fourni, réinitialiser les données filtrées
       this.filteredData = [...this.data];
+      this.currentPage = 1;  // Remettre la pagination à la première page après la recherche
       this.updatePagedData();
       return;
     }
@@ -105,8 +106,8 @@ export class TableComponent {
         let cellValue = item[column.key]; // Obtenir la valeur de la cellule en fonction de la clé de la colonne
 
         // Si la colonne est 'position' et contient un nombre, convertir en chaîne de caractères
-        if (column.key === 'position' && typeof cellValue === 'number') {
-          cellValue = cellValue.toString();
+        if (typeof cellValue === 'number') {
+          cellValue = cellValue.toString().toLowerCase();
         }
 
         // Vérifier si la valeur de la cellule contient le terme de recherche
@@ -115,7 +116,7 @@ export class TableComponent {
         );
       });
     });
-
+    this.currentPage = 1;  // Remettre la pagination à la première page après la recherche
     this.updatePagedData(); // Mettre à jour les données paginées après avoir filtré
   }
 }
